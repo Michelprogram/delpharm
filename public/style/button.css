@@ -5,9 +5,6 @@
 
     border:2px solid black;
     border-radius: 11px;
-
-    cursor:pointer;
-
 }
 
 #Formulaire>#Button_container{
@@ -45,4 +42,15 @@
 
 #Impression>#Button_container>p{
     margin-right: 10%;
+}
+
+
+.Button_disable{
+    pointer-events: none;
+    opacity:0.5;
+}
+
+.Button_enable{
+    cursor:pointer;
+    opacity: 1;
 }

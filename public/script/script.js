@@ -12,5 +12,3 @@ slider.addEventListener('input',(e)=>{
     value_slider.innerHTML = e.target.value
 })
 
-
-

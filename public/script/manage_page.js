@@ -9,5 +9,3 @@ const select_tab = (index) =>{
     document.querySelector("#tab"+index).setAttribute("class","title-on")
 }
 
-create_list_production(65,73,"#List_production",true)
-create_list_production(1,51,"#Name_post",false)

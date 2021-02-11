@@ -25,22 +25,26 @@
 
                 <div class="Input_container">
                     <p>Numéro contrôleur</p>
-                    <input type="text" placeholder="Numéro">
+                    <input type="text" id="numero-controleur" placeholder="Numéro">
                 </div>
 
                 <div class="Input_container">
                     <p>Référence produit</p>
-                    <input type="text" placeholder="Référence">
+                    <input type="text" id="ref-produit" placeholder="Référence">
                 </div>
 
                 <div class="Input_container">
                     <p>Service de production</p>
-                    <select name="Production" id="List_production"></select>
+                    <select name="Production" id="List_production">
+                        <option value="null">Production</option>
+                    </select>
                 </div>
 
                 <div class="Input_container">
-                    <p>Nom du poste</p>
-                    <select name="Name_post" id="Name_post"></select>
+                    <p>Numéro du poste</p>
+                    <select name="Name_post" id="Name_post">
+                        <option value="null">Poste</option>
+                    </select>
                 </div>
 
                 <div class="Input_container">
@@ -50,14 +54,14 @@
                 </div>
 
                 <div class="Input_container">
-                    <p>Varition</p>
+                    <p>Variation</p>
                     <span id="Variation">10</span>
                     <p>g</p>
                 </div>
 
-                <div id="Button_container" class="send-button">
+                <div id="Button_container" class="send-button Button_enable" >
                     <p>Envoyer</p>
-                    <img class="button_img" src="../IMAGES/Send.svg" alt="Envoyer">
+                    <img class="button_img" src="images/Send.svg" alt="Envoyer">
                 </div>
 
             </section>
@@ -66,7 +70,7 @@
 
                 <div id="Button_container">
                     <p>Imprimer</p>
-                    <img class="button_img" src="../IMAGES/Print.svg" alt="Imprimer">
+                    <img class="button_img" src="images/Print.svg" alt="Imprimer">
                 </div>
 
                 <div id="Select_part">
@@ -91,7 +95,7 @@
 
             <div id="Logo">
                 <p>Delpharm</p>
-                <img src="../IMAGES/Logo.jpg" alt="" title="Image delpharm">
+                <img src="images/Logo.jpg"  title="Image delpharm">
             </div>
 
             <div id="tabs" class="Container">
