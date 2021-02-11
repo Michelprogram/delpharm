@@ -1,0 +1,17 @@
+#Impression{
+    display: flex;
+
+    margin-top: 3%;
+
+    height: 20%;
+
+    align-items: center;
+}
+
+#Select_part{
+    margin-left: 5%;  
+}
+
+#Select_part>#Print_rapport{
+    margin-bottom: 25%;
+}

@@ -1,0 +1,18 @@
+#Logo{
+    display: flex;
+    width: 35%;
+    align-items: center;
+    background-color: white;
+    margin-left: 30%;
+}
+
+#Logo>img{
+    width: 150px;
+}
+
+#Logo>p{
+    font-size: 36px;
+    text-align: center;
+    letter-spacing: 9px;
+    margin-left: 2%;
+}

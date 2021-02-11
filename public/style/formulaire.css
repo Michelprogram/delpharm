@@ -1,0 +1,37 @@
+#Formulaire{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70%;
+    width: auto;
+}
+
+.Input_container{
+    font-size: 18px;
+    display: flex;
+    margin-left: 5%;;
+    align-items: center;
+}
+
+input[type="text"]{
+    cursor: pointer;
+    padding: 8px 20px;
+    font-size: 12px;
+    border: 1.5px solid #000000;
+    border-radius: 20px;
+}
+
+input[type="text"],select,#Poids_produit,#Variation{
+    margin-left: 10%;
+    outline: none;
+}
+
+select{
+    font-size: 20px;
+    width: 15%;
+}
+
+
+
+
+

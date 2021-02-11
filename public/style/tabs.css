@@ -1,0 +1,62 @@
+#tabs{
+    margin-top:2%;
+    margin-left: 2%;
+    display: block;
+    height: 75%;
+    border: 1.5px solid #ccc;
+
+}
+
+
+#title-tabs{
+    display: flex;
+    font-size: 18px;
+    background-color: rgb(241, 241, 241);
+}
+
+
+#tab1,#tab2,#tab3{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.display-off{
+    display: none;
+}
+
+.title-off{
+    color:rgba(0, 0, 0, 0.5);
+    background-color: rgb(241, 241, 241);
+
+    transition:all 1s;
+}
+
+.title-off:hover{
+    background-color: rgba(204, 204, 204,0.3);
+    transition: all .8s;
+}
+
+.title-on{
+    color:rgba(0, 0, 0, 1);
+    background-color: rgb(204, 204, 204);
+    transition: all 1s;
+}
+
+.display-on{
+    display: block;
+    animation: slide-in .5s ease-in;
+}
+
+@keyframes slide-in{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+table{
+    border: 2px solid black;
+    margin-top: 1%;
+}
