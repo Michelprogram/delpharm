@@ -1,46 +1,24 @@
 const express = require('express')
-const fs = require('fs')
-const bodyParser = require('body-parser')
-
 
 const conf = require('./config').conf
 const path = require('./config').path
 
+
+const bodyParser = require('body-parser')
+
 const app = express()
 
-
 app.use(bodyParser.json());
+
 app.use('/css',express.static(path.css));
 app.use('/images',express.static(path.images));
 app.use('/script',express.static(path.script));
 
+app.get('/',require('./routes/home'))
+app.post('/formulaire',require('./routes/formulaire'))
+app.get('*',require('./routes/404'))
 
-app.get('/',(req,res)=>{
-
-    fs.readFile(path.html,(err,data)=>{
-        res.writeHead(200,{'Content-Type': 'text/html'})
-        res.write(data.toString())
-        res.end()
-    })
-
-})
-
-app.post('/formulaire',(req,res)=>{
-    console.log(req.body)
-    console.log("test formulaire")
-})
-
-app.get('*',(req,res)=>{
-
-    res.writeHead(200,{'Content-Type': 'text/html'})
-    res.write("404 not Found")
-    res.end()
-})
-
-app.listen(conf.port,()=>{
-    console.log("écoute du serveur")
-})
-
+app.listen(conf.port,()=>{ console.log("Serveur en marche") })
 
 
 

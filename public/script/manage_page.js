@@ -8,4 +8,3 @@ const select_tab = (index) =>{
     document.querySelector("#tab"+index+"-content").setAttribute("class","display-on")
     document.querySelector("#tab"+index).setAttribute("class","title-on")
 }
-
