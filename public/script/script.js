@@ -1,8 +1,3 @@
-const value_slider = document.querySelector("#value-echantillion")
-const slider = document.querySelector("#Nb_echantillion")
-const send_button = document.querySelector(".send-button")
-
-
 send_button.addEventListener('click',(e)=>{
 
     
@@ -16,10 +11,23 @@ send_button.addEventListener('click',(e)=>{
     else if (ref.length == 0){
         invalid_input(ref_produit)
     }
+
+    else if (service_production.value == "null"){
+        invalid_input(service_production)
+    }
+    else if (nom_poste.value == "null"){
+        invalid_input(nom_poste)
+    }
+
     else{
         //Request.formulaire()
     }
 })
+
+print_button.addEventListener('click',()=>{
+    
+})
+
 
 
 
@@ -27,3 +35,5 @@ slider.addEventListener('input',(e)=>{
     value_slider.innerHTML = e.target.value
 })
 
+create_list_production(65,73,"#List_production",true)
+create_list_production(1,51,"#Name_post",false)
