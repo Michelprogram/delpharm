@@ -1,9 +1,3 @@
-const numero_controleur = document.querySelector("#numero-controleur")
-const ref_produit = document.querySelector("#ref-produit")
-const service_production = document.querySelector("#List_production")
-const nom_poste = document.querySelector("#Name_post")
-const poids = document.querySelector("#Poids_produit")
-const variation  = document.querySelector("#Variation")
 
 class Request{
 

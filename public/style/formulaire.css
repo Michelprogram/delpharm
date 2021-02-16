@@ -28,7 +28,7 @@ input[type="text"],select,#Poids_produit,#Variation{
 
 select{
     font-size: 20px;
-    width: 15%;
+    width: 23%;
 }
 
 .numero-controleur-trigger{

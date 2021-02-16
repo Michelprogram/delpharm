@@ -1,3 +1,15 @@
+const numero_controleur = document.querySelector("#numero-controleur")
+const ref_produit = document.querySelector("#ref-produit")
+const service_production = document.querySelector("#List_production")
+const nom_poste = document.querySelector("#Name_post")
+const poids = document.querySelector("#Poids_produit")
+const variation  = document.querySelector("#Variation")
+
+const value_slider = document.querySelector("#value-echantillion")
+const slider = document.querySelector("#Nb_echantillion")
+const send_button = document.querySelector(".send-button")
+
+
 const create_list_production = (start,stop,element,flag) => {
     const ListProduction = document.querySelector(element)
 
@@ -17,31 +29,19 @@ const create_list_production = (start,stop,element,flag) => {
 
     }
 }
+
 const invalid_input = (element) =>{
     element.setAttribute('class','numero-controleur-trigger')
     setTimeout(()=>element.removeAttribute('class'),1500)
 }
 
-const valid_form = ()=>{
-    if (numero_controleur.value === "" ){
-        console.log("Champ controleur non complet")
-    }
-    else if (ref_produit.value === ""){
-        console.log("Champ produit non complet")
+const select_tab = (index) =>{
 
+    for (let i = 1; i < 4; i++) {
+        document.querySelector("#tab"+i+"-content").setAttribute("class","display-off")
+        document.getElementById("tab"+i).setAttribute("class","title-off")
     }
-    else if (service_production.value === 'null'){
-        console.log("Champ production non complet")
 
-    }
-    else if (nom_poste.value === 'null'){
-        console.log("Champ poste non complet")
-    }
-    else if (poids.textContent === "0"){
-        console.log("Poids invalid")
-
-    }
+    document.querySelector("#tab"+index+"-content").setAttribute("class","display-on")
+    document.querySelector("#tab"+index).setAttribute("class","title-on")
 }
-
-create_list_production(65,73,"#List_production",true)
-create_list_production(1,51,"#Name_post",false)

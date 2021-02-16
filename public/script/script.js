@@ -24,13 +24,6 @@ send_button.addEventListener('click',(e)=>{
     }
 })
 
-print_button.addEventListener('click',()=>{
-    
-})
-
-
-
-
 slider.addEventListener('input',(e)=>{
     value_slider.innerHTML = e.target.value
 })
