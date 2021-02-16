@@ -31,7 +31,23 @@ select{
     width: 15%;
 }
 
+.numero-controleur-trigger{
+    animation: trigger 1.5s;
+}
 
+@keyframes trigger{
+    0%{
+        border: 1.5px solid red;
+        margin-left: 5%;
+    }
 
+    50%{
+        margin-left: 15%;
+    }
 
+    100%{
+        border: 1.5 px solid black;
+        margin-left: 10%;
+    }
+}
 

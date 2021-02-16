@@ -17,6 +17,10 @@ const create_list_production = (start,stop,element,flag) => {
 
     }
 }
+const invalid_input = (element) =>{
+    element.setAttribute('class','numero-controleur-trigger')
+    setTimeout(()=>element.removeAttribute('class'),1500)
+}
 
 const valid_form = ()=>{
     if (numero_controleur.value === "" ){
