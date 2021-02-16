@@ -1,3 +1,5 @@
+//Fichier qui s'occupe de la page 404
+
 const router = require("express").Router()
 const fs = require('fs')
 const path = require('../config').path.notfound

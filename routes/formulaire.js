@@ -1,3 +1,4 @@
+//Reçois les requêtes pour vérifier la validité des champs
 const router = require("express").Router();
 
 router.post('/formulaire', (req, res) => {

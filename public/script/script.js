@@ -1,3 +1,6 @@
+//Front-end de la page home
+
+//Event sur le bouton envoyer
 send_button.addEventListener('click',(e)=>{
 
     
@@ -24,6 +27,7 @@ send_button.addEventListener('click',(e)=>{
     }
 })
 
+//Value du slider en texte
 slider.addEventListener('input',(e)=>{
     value_slider.innerHTML = e.target.value
 })

@@ -1,3 +1,5 @@
+//Fichier qui contient toute les variables du DOM et les fonctions utils
+
 const numero_controleur = document.querySelector("#numero-controleur")
 const ref_produit = document.querySelector("#ref-produit")
 const service_production = document.querySelector("#List_production")
@@ -9,7 +11,7 @@ const value_slider = document.querySelector("#value-echantillion")
 const slider = document.querySelector("#Nb_echantillion")
 const send_button = document.querySelector(".send-button")
 
-
+//Remplir les select
 const create_list_production = (start,stop,element,flag) => {
     const ListProduction = document.querySelector(element)
 
@@ -30,11 +32,13 @@ const create_list_production = (start,stop,element,flag) => {
     }
 }
 
+//Animation si l'input est mauvais
 const invalid_input = (element) =>{
     element.setAttribute('class','numero-controleur-trigger')
     setTimeout(()=>element.removeAttribute('class'),1500)
 }
 
+//Gestion des différentes tables
 const select_tab = (index) =>{
 
     for (let i = 1; i < 4; i++) {

@@ -1,3 +1,4 @@
+//Class Request pour envoyer à la page formulaire
 
 class Request{
 
