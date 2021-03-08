@@ -5,7 +5,7 @@ const render = (html,res) => {
     const headers = {
         'Content-Type': 'text/html'
     }
-    readFile(html, (err, data) => {
+    readFile(directory + html, (err, data) => {
         
         if (err) {
             res.writeHead(500,headers)
@@ -20,9 +20,9 @@ const render = (html,res) => {
 }
 
 exports.home = (req,res) =>{
-    render(directory+"/home/index.html",res)
+    render("/home/index.html",res)
 }
 
 exports.page_404 = (req, res) => {
-    render("../public/404.html",res)
+    render("/page_404/404.html",res)
 }

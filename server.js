@@ -17,11 +17,9 @@ app.get('*',routes.page_404)
 
 app.listen(conf.port,console.log("Serveur en marche"))
 
-/*
-app.use('/css',express.static(path.css));
-app.use('/images',express.static(path.images));
-app.use('/script',express.static(path.script));
-*/
+
+app.use('/static',express.static(__dirname + "/views/static"))
+
 
 
 
