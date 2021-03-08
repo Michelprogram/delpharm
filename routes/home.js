@@ -1,17 +1,11 @@
 //Fichier de la page home
 const router = require("express").Router()
-
-const fs = require('fs')
+const render = require("./toolbox")
 const path_html = require('../config').path.html
 
 router.get('/',(req,res)=>{
 
-    fs.readFile(path_html,(err,data)=>{
-        res.writeHead(200,{'Content-Type': 'text/html'})
-        res.write(data.toString())
-        res.end()
-    })
-
+    render(path_html,res)
 })
 
 module.exports = router
