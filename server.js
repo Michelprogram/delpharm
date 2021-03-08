@@ -1,26 +1,27 @@
 //Fichier serveur
 
 const express = require('express')
-
-const conf = require('./config').conf
-const path = require('./config').path
-
+const conf = require('./config/config').conf
 
 const bodyParser = require('body-parser')
 
 const app = express()
 
-app.use(bodyParser.json());
+const routes = require('./routes/users')
 
+app.use(bodyParser.json())
+
+
+app.get('/',routes.home)
+app.get('*',routes.page_404)
+
+app.listen(conf.port,console.log("Serveur en marche"))
+
+/*
 app.use('/css',express.static(path.css));
 app.use('/images',express.static(path.images));
 app.use('/script',express.static(path.script));
-
-app.get('/',require('./routes/home'))
-app.post('/formulaire',require('./routes/formulaire'))
-app.get('*',require('./routes/404'))
-
-app.listen(conf.port,()=>{ console.log("Serveur en marche") })
+*/
 
 
 
