@@ -12,17 +12,13 @@ const routes = require('./routes/users')
 app.use(bodyParser.json())
 
 
-app.get('/',routes.home)
-app.get('*',routes.page_404)
+app.get('/', routes.home)
+//app.get('*', routes.page_404)
 
-app.listen(conf.port,console.log("Serveur en marche"))
-
-
-app.use('/static',express.static(__dirname + "/views/static"))
+app.listen(conf.port, console.log("Serveur en marche"))
 
 
-
-
+app.use('/static' , express.static(__dirname + '/public'))
 
 
 /*
@@ -37,10 +33,10 @@ const path_html = current_path+"/public/html/index.html"
 
 
 const server = http.createServer((req,res)=>{
-    
+
 
     const url = req.url
-    
+
 
     if (url == "/"){
         console.log(url)
@@ -49,14 +45,14 @@ const server = http.createServer((req,res)=>{
             res.write(data.toString())
             res.end()
         })
-        
+
     }
     else{
         res.write("Invalid url")
         res.end()
     }
 
-    
+
 
 })
 server.listen(port,hostname,()=>{
