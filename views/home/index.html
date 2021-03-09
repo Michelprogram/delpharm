@@ -1,0 +1,155 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/template.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/formulaire.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/impression.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/button.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/logo.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/tabs.css">
+
+
+    <title>Delpharm</title>
+</head>
+
+<body>
+
+    <main>
+
+
+        <div id="div1">
+
+            <section id="Formulaire" class="Container">
+
+                <div class="Input_container">
+                    <p>Numéro contrôleur</p>
+                    <input type="text" id="numero-controleur" placeholder="Numéro" maxlength="6">
+                </div>
+
+                <div class="Input_container">
+                    <p>Référence produit</p>
+                    <input type="text" id="ref-produit" placeholder="Référence" maxlength="6">
+                </div>
+
+                <div class="Input_container">
+                    <p>Service de production</p>
+                    <select name="Production" id="List_production">
+                        <option value="null">Production</option>
+                    </select>
+                </div>
+
+                <div class="Input_container">
+                    <p>Numéro du poste</p>
+                    <select name="Name_post" id="Name_post">
+                        <option value="null">Poste</option>
+                    </select>
+                </div>
+
+                <div class="Input_container">
+                    <p>Poids du produit</p>
+                    <span id="Poids_produit">10</span>
+                    <p>g</p>
+                </div>
+
+                <div class="Input_container">
+                    <p>Variation</p>
+                    <span id="Variation">10</span>
+                    <p>g</p>
+                </div>
+
+<<<<<<< HEAD:public/html/index.html
+                <div id="Button_container" id="">
+=======
+                <div id="Button_container" class="send-button" >
+>>>>>>> e07f807ef13e2ecd3252a68ea0433062500befdf:views/home/index.html
+                    <p>Envoyer</p>
+                    <img class="button_img" src="/static/images/home/Send.svg" alt="Envoyer">
+                </div>
+
+            </section>
+
+            <section id="Impression" class="Container">
+
+                <div id="Button_container" class="print-button">
+                    <p>Imprimer</p>
+                    <img class="button_img" src="/static/images/home/Print.svg" alt="Imprimer">
+                </div>
+
+                <div id="Select_part">
+
+                    <div id="Print_rapport">
+                        <input type="radio" name="Print_choice" id="rapport" checked>
+                        <label for="rapport">Rapport</label>
+                    </div>
+
+                    <div id="Print_graphique">
+                        <input type="radio" name="Print_choice" id="graphique">
+                        <label for="graphique">Graphique</label>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <div id="div2">
+
+            <div id="Logo">
+                <p>Delpharm</p>
+                <img src="/static/images/home/Logo.jpg"  title="Image delpharm">
+            </div>
+
+            <div id="tabs" class="Container">
+
+                <div id="title-tabs">
+                    <div id="tab1" class="title-on" onclick="select_tab(1)">Graphique</div>
+                    <div id="tab2" class="title-off" onclick="select_tab(2)">Rapport</div>
+                    <div id="tab3" class="title-off" onclick="select_tab(3)">Utilisateur</div>
+                </div>
+
+
+                <div id="tab1-content" class="display-on">
+                    <input type="range" min=0 max=10 name="Nb_echantillion" id="Nb_echantillion">
+                    <span id="value-echantillion">0</span>
+                </div>
+
+                <div id="tab2-content" class="display-off">
+                    <table>
+                        <th>Date et Heure</th>
+                        <th>Contrôleur</th>
+                        <th>Service de production</th>
+                        <th>Nom du poste</th>
+                        <th>Référence produit</th>
+                        <th>Mesure</th>
+                        <th>Référence</th>
+                        <th>Variation</th>
+                        <th>Conforme</th>
+                    </table>
+                </div>
+
+                <div id="tab3-content" class="display-off">
+                    Les Utilisateurs
+                </div>
+
+
+            </div>
+
+            <!--
+            <section id="Graphique">
+
+
+        </section>
+        -->
+
+        </div>
+    </main>
+</body>
+
+</html>
+
+<script type="text/javascript" src="/static/script/home/toolbox.js"></script>
+<script type="text/javascript" src="/static/script/home/request.js"></script>
+<script type="text/javascript" src="/static/script/home/script.js"></script>

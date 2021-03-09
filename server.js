@@ -1,49 +1,24 @@
+//Fichier serveur
+
 const express = require('express')
-const fs = require('fs')
+const conf = require('./config/config').conf
+
 const bodyParser = require('body-parser')
-
-
-const conf = require('./config').conf
-const path = require('./config').path
 
 const app = express()
 
+const routes = require('./routes/users')
 
-app.use(bodyParser.json());
-app.use('/css',express.static(path.css));
-app.use('/images',express.static(path.images));
-app.use('/script',express.static(path.script));
+app.use(bodyParser.json())
 
 
-app.get('/',(req,res)=>{
+app.get('/', routes.home)
+//app.get('*', routes.page_404)
 
-    fs.readFile(path.html,(err,data)=>{
-        res.writeHead(200,{'Content-Type': 'text/html'})
-        res.write(data.toString())
-        res.end()
-    })
-
-})
-
-app.post('/formulaire',(req,res)=>{
-    console.log(req.body)
-    console.log("test formulaire")
-})
-
-app.get('*',(req,res)=>{
-
-    res.writeHead(200,{'Content-Type': 'text/html'})
-    res.write("404 not Found")
-    res.end()
-})
-
-app.listen(conf.port,()=>{
-    console.log("écoute du serveur")
-})
+app.listen(conf.port, console.log("Serveur en marche"))
 
 
-
-
+app.use('/static' , express.static(__dirname + '/public'))
 
 
 /*
@@ -58,10 +33,10 @@ const path_html = current_path+"/public/html/index.html"
 
 
 const server = http.createServer((req,res)=>{
-    
+
 
     const url = req.url
-    
+
 
     if (url == "/"){
         console.log(url)
@@ -70,14 +45,14 @@ const server = http.createServer((req,res)=>{
             res.write(data.toString())
             res.end()
         })
-        
+
     }
     else{
         res.write("Invalid url")
         res.end()
     }
 
-    
+
 
 })
 server.listen(port,hostname,()=>{
