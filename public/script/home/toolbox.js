@@ -1,4 +1,4 @@
-//Fichier qui contient toute les variables du DOM et les fonctions utils
+//Fichier qui contient toute les variables du DOM et les fonctions utiles
 
 const numero_controleur = document.querySelector("#numero-controleur")
 const ref_produit = document.querySelector("#ref-produit")
@@ -11,7 +11,7 @@ const value_slider = document.querySelector("#value-echantillion")
 const slider = document.querySelector("#Nb_echantillion")
 const send_button = document.querySelector(".send-button")
 
-//Remplir les select
+//Remplir les selects
 const create_list_production = (start,stop,element,flag) => {
     const ListProduction = document.querySelector(element)
 

@@ -1,3 +1,4 @@
+//Controllers permet de faire le lien entre les views et les models
 const readFile = require('fs').readFile
 const directory = require('../config/config').directory
 
@@ -20,7 +21,7 @@ const render = (html,res) => {
 }
 
 exports.home = (req,res) =>{
-    res.render("/home/index")
+    render("/home/index.html",res)
 }
 
 exports.page_404 = (req, res) => {
@@ -29,4 +30,5 @@ exports.page_404 = (req, res) => {
 
 exports.weight = (req,res) =>[
     //request to tcp server
+    res.send("salut")
 ]
