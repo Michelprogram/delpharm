@@ -10,6 +10,9 @@ const app = express()
 
 const routes = require('./routes/users')
 
+app.set('views','./views')
+app.set('views engine' , 'ejs')
+
 app.use(bodyParser.json())
 
 app.use('/static' , express.static(__dirname + '/public'))

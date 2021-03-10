@@ -20,7 +20,7 @@ const render = (html,res) => {
 }
 
 exports.home = (req,res) =>{
-    render("/home/index.html",res)
+    res.render("/home/index")
 }
 
 exports.page_404 = (req, res) => {
