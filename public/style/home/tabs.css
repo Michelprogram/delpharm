@@ -56,7 +56,31 @@
     }
 }
 
+table,td,th{
+    border:1px solid #ddd;
+}
+
+tr{
+    background-color: white;
+    transition: all .3s;
+}
+
+td{
+    text-align: center;
+}
+
 table{
-    border: 2px solid black;
     margin-top: 1%;
+    width:100%;
+    border-collapse: collapse;
+}
+
+tr:hover{
+    background-color: #ddd;
+    transition: all .3s;
+
+}
+
+#header-tab{
+    background-color: antiquewhite;
 }

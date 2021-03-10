@@ -108,21 +108,41 @@
 
 
                 <div id="tab1-content" class="display-on">
-                    <input type="range" min=0 max=10 name="Nb_echantillion" id="Nb_echantillion">
-                    <span id="value-echantillion">0</span>
+                    <div>
+                        <select name="produit-graphique" id="produit-graphique">
+
+                        </select>
+                        <input type="range" min=0 max=10 name="Nb_echantillion" id="Nb_echantillion">
+                        <span id="value-echantillion">0</span>
+                    </div>
                 </div>
 
                 <div id="tab2-content" class="display-off">
                     <table>
-                        <th>Date et Heure</th>
-                        <th>Contrôleur</th>
-                        <th>Service de production</th>
-                        <th>Nom du poste</th>
-                        <th>Référence produit</th>
-                        <th>Mesure</th>
-                        <th>Référence</th>
-                        <th>Variation</th>
-                        <th>Conforme</th>
+                        <tr id="header-tab">
+                            <th>Date et Heure</th>
+                            <th>Contrôleur</th>
+                            <th>Service de production</th>
+                            <th>Nom du poste</th>
+                            <th>Référence produit</th>
+                            <th>Mesure (g)</th>
+                            <th>Référence (g)</th>
+                            <th>Variation (g)</th>
+                            <th>Conforme</th>
+                        </tr>
+
+                        <tr>
+                            <td>18/02/2021 20h00</td>
+                            <td>Dorian</td>
+                            <td>A</td>
+                            <td>5</td>
+                            <td>1245</td>
+                            <td>12</td>
+                            <td>12.5</td>
+                            <td>0.5</td>
+                            <td>oui</td>
+                        </tr>
+                        
                     </table>
                 </div>
 

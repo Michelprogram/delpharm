@@ -18,9 +18,6 @@ app.use('/static' , express.static(__dirname + '/public'))
 
 app.get('/', routes.home)
 app.get('*', routes.page_404)
+app.get('/weight', routes.weight)
 
 app.listen(conf.server.port,conf.server.addresse, console.log("Serveur en marche"))
-
-
-
-

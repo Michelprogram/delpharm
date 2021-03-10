@@ -6,9 +6,9 @@ exports.conf = {
         address: "127.0.0.1"
     },
     database : {
-        login: "",
-        password: "",
-        address:"",
+        login: "Delpharm_user",
+        password: "dNs903*NoNeck",
+        address:"172.16.185.202",
         port:""
     }
     

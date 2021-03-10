@@ -26,3 +26,7 @@ exports.home = (req,res) =>{
 exports.page_404 = (req, res) => {
     render("/page_404/404.html",res)
 }
+
+exports.weight = (req,res) =>[
+    //request to tcp server
+]
