@@ -49,11 +49,11 @@ const select_tab = (index,flag) =>{
 
         for (let i = 1; i < 3; i++) {
 
-            document.querySelector("#tab"+i+"-content-right").setAttribute("class","display-off")
-            document.getElementById("tab-right-"+i).setAttribute("class","title-off")
+            document.querySelector("#tab-content-right"+i).setAttribute("class","display-off")
+            document.getElementById("#tab-right-"+i).setAttribute("class","title-off")
         }
     
-        document.querySelector("#tab"+index+"-content-right").setAttribute("class","display-on")
+        document.querySelector("#tab-content-right"+index).setAttribute("class","display-on")
         document.querySelector("#tab-right-"+index+"").setAttribute("class","title-on")
     }
 
