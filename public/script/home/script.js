@@ -27,17 +27,6 @@ send_button.addEventListener('click',(e)=>{
     }
 })
 
-//Value du slider en texte
-slider.value = 0
-slider.addEventListener('input',(e)=>{
-    value_slider.innerHTML = e.target.value
-})
-
-slider_produit.value = 0
-slider_produit.addEventListener('input', (e) =>{
-    nb_produit.innerHTML = e.target.value
-})
-
 
 
 create_list_production(65,73,"#List_production",true)

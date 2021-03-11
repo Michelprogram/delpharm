@@ -15,7 +15,7 @@
 }
 
 
-#tab-right-1,#tab-right-2,#tab3,#tab4{
+#tab-right-0,#tab-right-1,#tab-left-0,#tab-left-1,#tab-left-2{
     padding: 10px;
     cursor: pointer;
 }
@@ -56,31 +56,3 @@
     }
 }
 
-table,td,th{
-    border:1px solid #ddd;
-}
-
-tr{
-    background-color: white;
-    transition: all .3s;
-}
-
-td{
-    text-align: center;
-}
-
-table{
-    margin-top: 1%;
-    width:100%;
-    border-collapse: collapse;
-}
-
-tr:hover{
-    background-color: #ddd;
-    transition: all .3s;
-
-}
-
-#header-tab{
-    background-color: antiquewhite;
-}

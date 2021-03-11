@@ -1,4 +1,4 @@
-#Formulaire>#Button_container,#Impression>#Button_container{
+#Button_container{
     display: flex;
     align-items: center;
     background-color: #c4c4c4;
@@ -9,7 +9,7 @@
     transition: all .5s;
 }
 
-#Formulaire>#Button_container{
+.send-button{
     
     width: 30%;
 
@@ -18,7 +18,7 @@
 }
 
 
-#Impression>#Button_container{
+.print-button{
 
     width: 30%;
 
@@ -27,11 +27,11 @@
     
 }
 
-#Formulaire>#Button_container:hover,#Impression>#Button_container:hover{
+#Button_container:hover{
     transform: scale(1.05,1.05);
 }
 
-#Formulaire>#Button_container>p,#Impression>#Button_container>p{
+.texte-button{
     margin-left:10%;
 }
 

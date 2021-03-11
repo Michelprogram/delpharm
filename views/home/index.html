@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/static/style/home/template.css">
-    <link rel="stylesheet" type="text/css" href="/static/style/home/formulaire.css">
-    <link rel="stylesheet" type="text/css" href="/static/style/home/impression.css">
-    <link rel="stylesheet" type="text/css" href="/static/style/home/button.css">
-    <link rel="stylesheet" type="text/css" href="/static/style/home/logo.css">
-    <link rel="stylesheet" type="text/css" href="/static/style/home/tabs.css">
 
 
     <title>Delpharm</title>
@@ -24,13 +19,14 @@
 
             <div class="Container tabs">
 
-                <div class="title-tabs">
-                    <div id="tab-left-1" class="title-on" onclick="select_tab(1,false)">Formulaire</div>
-                    <div id="tab-left-2" class="title-off" onclick="select_tab(2,false)">Produit de référence</div>
+                <div class="title-tabs" id="tabs-left">
+                    <div id="tab-left-0" class="title-on">Formulaire</div>
+                    <div id="tab-left-1" class="title-off">Produit de référence</div>
+                    <div id="tab-left-2" class="title-off">Utilisateur</div>
+
                 </div>
 
-                <section id="Formulaire">
-
+                <div id="tab-content-left-0">
                     <div class="Input_container">
                         <p>Numéro contrôleur</p>
                         <input type="text" id="numero-controleur" placeholder="Numéro" maxlength="4">
@@ -74,18 +70,65 @@
                     </div>
     
                     <div id="Button_container" class="send-button" >
-                        <p>Envoyer</p>
+                        <p class="texte-button">Envoyer</p>
+                        <img class="button_img" src="/static/images/home/Send.svg" alt="Envoyer">
+                    </div>
+                </div>
+
+                <div id="tab-content-left-1">
+
+                    <div class="Input_container">
+                        <p>Nom du produit</p>
+                        <input type="text" name="nom_produit_reference" id="nom_produit_reference">
+                    </div>
+
+                    <div class="Input_container">
+                        <p>Référence</p>
+                        <input type="text" name="reference_produit" id="reference_produit" maxlength="6">
+                    </div>
+
+                    <div class="Input_container">
+                        <p>Poids du produit</p>
+                        <input type="text" name="poids_produit_reference" id="poids_produit_reference">
+                    </div>
+
+                    <div id="Button_container" class="send-button" >
+                        <p class="texte-button">Envoyer</p>
                         <img class="button_img" src="/static/images/home/Send.svg" alt="Envoyer">
                     </div>
 
-                </section>
+                </div>
+
+                <div id="tab-content-left-2">
+
+                    <div class="Input_container">
+                        <p>Nom</p>
+                        <input type="text" name="nom_utilisateur" id="nom_utilisateur">
+                    </div>
+
+                    <div class="Input_container">
+                        <p>Prénom</p>
+                        <input type="text" name="prenom_utilisateur" id="prenom_utilisateur">
+                    </div>
+
+                    <div class="Input_container">
+                        <p>Adresse mail</p>
+                        <input type="text" name="mail_utilisateur" id="mail_utilisateur">
+                    </div>
+
+                    <div id="Button_container" class="send-button" >
+                        <p class="texte-button">Envoyer</p>
+                        <img class="button_img" src="/static/images/home/Send.svg" alt="Envoyer">
+                    </div>
+
+                </div>
 
             </div>
 
             <section id="Impression" class="Container">
 
                 <div id="Button_container" class="print-button">
-                    <p>Imprimer</p>
+                    <p class="texte-button">Imprimer</p>
                     <img class="button_img" src="/static/images/home/Print.svg" alt="Imprimer">
                 </div>
 
@@ -116,23 +159,23 @@
 
             <div class="Container tabs">
 
-                <div class="title-tabs">
-                    <div id="tab-right-1" class="title-on" onclick="select_tab(1,true)">Graphique</div>
-                    <div id="tab-right-2" class="title-off" onclick="select_tab(2,true)">Rapport</div>
+                <div class="title-tabs" id="tabs-right">
+                    <div id="tab-right-0" class="title-on">Graphique</div>
+                    <div id="tab-right-1" class="title-off">Rapport</div>
                 </div>
 
 
-                <div id="tab-content-right-1" class="display-on">
+                <div id="tab-content-right-0" class="display-on">
                     <div>
                         <select name="produit-graphique" id="produit-graphique">
 
                         </select>
-                        <input type="range" min=0 max=10 name="Nb_echantillion" id="Nb_echantillion">
-                        <span id="value-echantillion">0</span>
+                            <input type="range" min=0 max=10 name="Nb_echantillion" id="Nb_echantillion">
+                            <span id="value-echantillion">0</span>                        
                     </div>
                 </div>
 
-                <div id="tab-content-right-2" class="display-off">
+                <div id="tab-content-right-1" class="display-off">
                     <table>
                         <tr id="header-tab">
                             <th>Date et Heure</th>
@@ -179,3 +222,5 @@
 <script type="text/javascript" src="/static/script/home/toolbox.js"></script>
 <script type="text/javascript" src="/static/script/home/request.js"></script>
 <script type="text/javascript" src="/static/script/home/script.js"></script>
+<script type="text/javascript" src="/static/script/home/slider.js"></script>
+<script type="text/javascript" src="/static/script/home/tabs.js"></script>
