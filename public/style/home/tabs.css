@@ -1,4 +1,4 @@
-#tabs{
+.tabs{
     margin-top:2%;
     margin-left: 2%;
     display: block;
@@ -8,14 +8,14 @@
 }
 
 
-#title-tabs{
+.title-tabs{
     display: flex;
     font-size: 18px;
     background-color: rgb(241, 241, 241);
 }
 
 
-#tab1,#tab2,#tab3{
+#tab-right-1,#tab-right-2,#tab3,#tab4{
     padding: 10px;
     cursor: pointer;
 }

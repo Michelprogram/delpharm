@@ -21,50 +21,66 @@
 
         <div id="div1">
 
-            <section id="Formulaire" class="Container">
 
-                <div class="Input_container">
-                    <p>Numéro contrôleur</p>
-                    <input type="text" id="numero-controleur" placeholder="Numéro" maxlength="6">
+            <div class="Container tabs">
+
+                <div class="title-tabs">
+                    <div id="tab-left-1" class="title-on" onclick="select_tab(1,false)">Formulaire</div>
+                    <div id="tab-left-2" class="title-off" onclick="select_tab(2,false)">Produit de référence</div>
                 </div>
 
-                <div class="Input_container">
-                    <p>Référence produit</p>
-                    <input type="text" id="ref-produit" placeholder="Référence" maxlength="6">
-                </div>
+                <section id="Formulaire">
 
-                <div class="Input_container">
-                    <p>Service de production</p>
-                    <select name="Production" id="List_production">
-                        <option value="null">Production</option>
-                    </select>
-                </div>
+                    <div class="Input_container">
+                        <p>Numéro contrôleur</p>
+                        <input type="text" id="numero-controleur" placeholder="Numéro" maxlength="4">
+                    </div>
+    
+                    <div class="Input_container">
+                        <p>Référence produit</p>
+                        <input type="text" id="ref-produit" placeholder="Référence" maxlength="6">
+                    </div>
+    
+                    <div class="Input_container">
+                        <p>Service de production</p>
+                        <select name="Production" id="List_production">
+                            <option value="null">Production</option>
+                        </select>
+                    </div>
+    
+                    <div class="Input_container">
+                        <p>Numéro du poste</p>
+                        <select name="Name_post" id="Name_post">
+                            <option value="null">Poste</option>
+                        </select>
+                    </div>
+    
+                    <div class="Input_container">
+                        <p>Poids du produit</p>
+                        <span id="Poids_produit">10</span>
+                        <p>g</p>
+                    </div>
+    
+                    <div class="Input_container">
+                        <p>Variation</p>
+                        <span id="Variation">10</span>
+                        <p>g</p>
+                    </div>
+    
+                    <div class="Input_container">
+                        <p>Nombre de produit (s)</p>
+                        <input type="range" name="nb_produit" id="nb_produit" max="50" min="1" st>
+                        <span id="value_produit">0</span>
+                    </div>
+    
+                    <div id="Button_container" class="send-button" >
+                        <p>Envoyer</p>
+                        <img class="button_img" src="/static/images/home/Send.svg" alt="Envoyer">
+                    </div>
 
-                <div class="Input_container">
-                    <p>Numéro du poste</p>
-                    <select name="Name_post" id="Name_post">
-                        <option value="null">Poste</option>
-                    </select>
-                </div>
+                </section>
 
-                <div class="Input_container">
-                    <p>Poids du produit</p>
-                    <span id="Poids_produit">10</span>
-                    <p>g</p>
-                </div>
-
-                <div class="Input_container">
-                    <p>Variation</p>
-                    <span id="Variation">10</span>
-                    <p>g</p>
-                </div>
-
-                <div id="Button_container" class="send-button" >
-                    <p>Envoyer</p>
-                    <img class="button_img" src="/static/images/home/Send.svg" alt="Envoyer">
-                </div>
-
-            </section>
+            </div>
 
             <section id="Impression" class="Container">
 
@@ -98,16 +114,15 @@
                 <img src="/static/images/home/Logo.jpg"  title="Image delpharm">
             </div>
 
-            <div id="tabs" class="Container">
+            <div class="Container tabs">
 
-                <div id="title-tabs">
-                    <div id="tab1" class="title-on" onclick="select_tab(1)">Graphique</div>
-                    <div id="tab2" class="title-off" onclick="select_tab(2)">Rapport</div>
-                    <div id="tab3" class="title-off" onclick="select_tab(3)">Utilisateur</div>
+                <div class="title-tabs">
+                    <div id="tab-right-1" class="title-on" onclick="select_tab(1,true)">Graphique</div>
+                    <div id="tab-rigth-2" class="title-off" onclick="select_tab(2,true)">Rapport</div>
                 </div>
 
 
-                <div id="tab1-content" class="display-on">
+                <div id="tab1-content-right" class="display-on">
                     <div>
                         <select name="produit-graphique" id="produit-graphique">
 
@@ -117,7 +132,7 @@
                     </div>
                 </div>
 
-                <div id="tab2-content" class="display-off">
+                <div id="tab2-content-right" class="display-off">
                     <table>
                         <tr id="header-tab">
                             <th>Date et Heure</th>
@@ -145,11 +160,6 @@
                         
                     </table>
                 </div>
-
-                <div id="tab3-content" class="display-off">
-                    Les Utilisateurs
-                </div>
-
 
             </div>
 

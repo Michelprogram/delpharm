@@ -11,6 +11,9 @@ const value_slider = document.querySelector("#value-echantillion")
 const slider = document.querySelector("#Nb_echantillion")
 const send_button = document.querySelector(".send-button")
 
+const slider_produit = document.querySelector("#nb_produit")
+const nb_produit = document.querySelector("#value_produit")
+
 //Remplir les selects
 const create_list_production = (start,stop,element,flag) => {
     const ListProduction = document.querySelector(element)
@@ -39,13 +42,32 @@ const invalid_input = (element) =>{
 }
 
 //Gestion des différentes tables
-const select_tab = (index) =>{
+const select_tab = (index,flag) =>{
+    
+    //Swap les tableaux Graphique / Rapport
+    if (flag){
 
-    for (let i = 1; i < 4; i++) {
-        document.querySelector("#tab"+i+"-content").setAttribute("class","display-off")
-        document.getElementById("tab"+i).setAttribute("class","title-off")
+        for (let i = 1; i < 3; i++) {
+
+            document.querySelector("#tab"+i+"-content-right").setAttribute("class","display-off")
+            document.getElementById("tab-right-"+i).setAttribute("class","title-off")
+        }
+    
+        document.querySelector("#tab"+index+"-content-right").setAttribute("class","display-on")
+        document.querySelector("#tab-right-"+index+"").setAttribute("class","title-on")
     }
 
-    document.querySelector("#tab"+index+"-content").setAttribute("class","display-on")
-    document.querySelector("#tab"+index).setAttribute("class","title-on")
+    //Swap les tableaux Rapport / Produit de référence
+    else{
+
+        for (let i = 1; i < 3; i++) {
+
+            document.querySelector("#tab"+i+"-content-left").setAttribute("class","display-off")
+            document.getElementById("tab"+i).setAttribute("class","title-off")
+        }
+    
+        document.querySelector("#tab"+index+"-content-left").setAttribute("class","display-on")
+        document.querySelector("#tab"+index).setAttribute("class","title-on")
+    }
+    
 }

@@ -26,6 +26,11 @@ input[type="text"],select,#Poids_produit,#Variation{
     outline: none;
 }
 
+#nb_produit{
+    margin-left: 10%;
+    margin-right: 5%;
+}
+
 select{
     font-size: 20px;
     width: 23%;
