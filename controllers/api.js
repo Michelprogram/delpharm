@@ -52,7 +52,23 @@ const add_produit_reference = (req,res) =>{
 }
 
 const add_user = (req,res)=>{
+
     console.log("Request user")
+
+    const pat_name = /^[A-Z][a-z]{1,}$/gm
+    const pat_mail = /^[A-Za-z](\w|\d|\.){1,}\@[A-Za-z]{1,}\.(com|fr)$/gm
+
+    const identifiant = parseInt(req.body.identifiant,10)
+    const nom = req.body.nom
+    const prenom = req.body.prenom
+    const mail = req.body.mail
+
+    if (identifiant >= 0 && identifiant <=1000){
+        console.log(identifiant)
+
+    }
+
+    
 
     res.send("salt user")
 }

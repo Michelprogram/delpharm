@@ -38,9 +38,10 @@ send_button.forEach((button)=>{
             case "2": //Partie utilisateur
 
             data = {
-                second_name__user : list_input[0].value,
-                first_name_user : list_input[1].value,
-                mail_user : list_input[2].value
+                identifiant : list_input[0].value,
+                nom : list_input[1].value,
+                prenom : list_input[2].value,
+                mail : list_input[3].value
 
             }
 
