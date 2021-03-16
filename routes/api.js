@@ -10,6 +10,8 @@ routes.get('/variation',api_page_controller.variation)
 
 routes.get('/select_product',api_page_controller.select_product)
 
-routes.post('/produit_reference',api_page_controller.produit_reference)
+routes.post('/formulaire/produit_reference',api_page_controller.add_produit_reference)
+
+routes.post('/formulaire/user',api_page_controller.add_user)
 
 module.exports = routes
