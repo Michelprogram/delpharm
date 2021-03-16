@@ -68,11 +68,15 @@
                         <input type="range" name="nb_produit" id="nb_produit" max="50" min="1" st>
                         <span id="value_produit">0</span>
                     </div>
+
+                    <span id="formulaire" class="error-message"></span>
+
     
                     <div id="Button_container" class="send-button" >
                         <p class="texte-button">Envoyer</p>
                         <img class="button_img" src="/static/images/home/Send.svg" alt="Envoyer">
                     </div>
+                    
                 </div>
 
                 <div id="tab-content-left-1">
@@ -91,6 +95,8 @@
                         <p>Poids du produit</p>
                         <input type="text" name="poids_produit_reference" id="poids_produit_reference">
                     </div>
+
+                    <span id="produit-reference" class="error-message"></span>
 
                     <div id="Button_container" class="send-button" >
                         <p class="texte-button">Envoyer</p>
@@ -115,6 +121,8 @@
                         <p>Adresse mail</p>
                         <input type="text" name="mail_utilisateur" id="mail_utilisateur">
                     </div>
+
+                    <span id="utilisateur" class="error-message"></span>
 
                     <div id="Button_container" class="send-button" >
                         <p class="texte-button">Envoyer</p>
@@ -224,3 +232,4 @@
 <script type="text/javascript" src="/static/script/home/script.js"></script>
 <script type="text/javascript" src="/static/script/home/slider.js"></script>
 <script type="text/javascript" src="/static/script/home/tabs.js"></script>
+<script type="text/javascript" src="/static/script/home/select.js"></script>

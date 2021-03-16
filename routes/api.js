@@ -10,4 +10,6 @@ routes.get('/variation',api_page_controller.variation)
 
 routes.get('/select_product',api_page_controller.select_product)
 
+routes.post('/produit_reference',api_page_controller.produit_reference)
+
 module.exports = routes

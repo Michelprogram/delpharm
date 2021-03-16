@@ -2,7 +2,7 @@
 
 //Appel des librairies
 const express = require('express')
-const bodyParser = require('body-parser').json()
+const bodyParser = require('body-parser')
 
 //Déclaration du serveur web
 const app = express()
@@ -16,8 +16,9 @@ const api_routes = require('./routes/api')
 //Connection BDD
 
 //Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use('/static' , express.static(__dirname + '/public'))
-app.use(bodyParser)
 
 //Home page
 app.use('/',home_routes)

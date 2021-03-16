@@ -16,9 +16,16 @@ const select_product = (req,res) =>{
     //Retourne la list des produits sélectionner
 }
 
+const produit_reference = (req,res) =>{
+    console.log("Request produit_reference")
+    console.log(req.body)
+    res.send("test reference")
+}
+
 module.exports = {
     weight,
     add_rapport,
     variation,
-    select_product
+    select_product,
+    produit_reference
 }
