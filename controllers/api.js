@@ -5,17 +5,57 @@ const weight = (req,res) => {
     res.send("test api")
 }
 
-const add_rapport = (req,res) =>{
-    //Vérifie si chaque champ est conforme
-    //Ajoute un rapport à la BDD 
-}
-
 const variation = (req,res) =>{
     //Calulcul la variation avec le poids de référence
 }
 
 const select_product = (req,res) =>{
     //Retourne la list des produits sélectionner
+}
+
+const add_rapport = (req,res) =>{
+    //Calculer le timing et la conformité
+
+    const pat_ref = /^[A-H]$/g
+    const pat_poids = /^\d{1,}\.\d{1,}$/gm
+
+    let response = { result : null}
+
+    const numero_controleur = req.body.numero_controleur
+    const reference = req.body.reference
+    const service = req.body.service
+    const numero_poste = parseInt(req.body.numero_poste,10)
+    const poids = req.body.poids
+    const variation = req.body.variation
+    const nombre_produit = req.body.nombre_produit
+
+    if (true){ //Vérifié controleur dans la BDD
+        if(true){ //Vérifié si la reference est dans la BDD
+            if (service.match(pat_ref) != null){
+                if(numero_poste >= 1 && numero_poste <= 50){
+                    if(poids.match(pat_poids) != null){
+                        if(variation.match(pat_poids) != null){
+                            //Ajouté le produit à la BDD
+                            response.result = "Rapport ajouté"
+                        }
+                    } else {
+                        response.result = "Poids invalide"
+                    }
+                } else {
+                    response.result = "Numéro de poste invalide"
+                }
+            } else {
+                response.result = "Numéro de service invalide"
+            }
+        } else {
+            response.result = "Référence du produit invalide"
+        }
+        
+    } else {
+        response.result = "Numéro de contrôleur invalide"
+    }
+
+    res.json(response)
 }
 
 const add_produit_reference = (req,res) =>{
@@ -70,6 +110,7 @@ const add_user = (req,res)=>{
             if (prenom.match(pat_name) != null){
                 if (mail.match(pat_mail) != null){
                     response.result = "Utilisateur ajouté !"
+                    //Ajouté l'utilisateur
                 } else {
                     response.result = "Mail invalide"
                 }
