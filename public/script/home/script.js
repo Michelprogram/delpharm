@@ -25,9 +25,9 @@ send_button.forEach((button)=>{
             case "1": //Partie produit reference
 
             data = {
-                name_product : list_input[0].value,
-                reference_product : list_input[1].value,
-                weight_product : list_input[2].value
+                name : list_input[0].value,
+                reference : list_input[1].value,
+                weight : list_input[2].value
             }
 
             Myrequest("/API/formulaire/produit_reference","POST",data)
@@ -46,7 +46,7 @@ send_button.forEach((button)=>{
             }
 
             Myrequest("/API/formulaire/user","POST",data)
-            .then((value)=>console.log(value))
+            .then((value)=>span_utilisateur.innerHTML = value.result)
 
             console.log("utilisteur")
                 break

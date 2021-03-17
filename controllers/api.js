@@ -1,3 +1,5 @@
+const { response } = require("express")
+
 const weight = (req,res) => {
     //Récupère le poid de la balance et le retourne en format Json
     res.send("test api")
@@ -24,18 +26,16 @@ const add_produit_reference = (req,res) =>{
     const pat_reference = /^[0-9]{2}[A-Z][0-9]{2}[A-Z]$/g
     const pat_weight = /^\d{1,}\.\d{1,}$/g
 
-    const name = req.body.name_product
-    const reference = req.body.reference_product
-    const weight = req.body.weight_product
+    const name = req.body.name
+    const reference = req.body.reference
+    const weight = req.body.weight
 
-    let response = {
-        result : null
-    }
+    let response = { result : null }
 
     if (name.match(pat_name) != null){
         if(reference.match(pat_reference) != null){ 
             if (weight.match(pat_weight) != null){
-                response.result = "OK"
+                response.result = "Produit de référence ajouter !"
                 //Ajouter à la BDD
             } else {
                 response.result = "Le poids est invalide"
@@ -63,14 +63,28 @@ const add_user = (req,res)=>{
     const prenom = req.body.prenom
     const mail = req.body.mail
 
-    if (identifiant >= 0 && identifiant <=1000){
-        console.log(identifiant)
+    let response = { result : null}
 
+    if (identifiant >= 1 && identifiant <=1000){
+        if (nom.match(pat_name) != null){
+            if (prenom.match(pat_name) != null){
+                if (mail.match(pat_mail) != null){
+                    response.result = "Utilisateur ajouté !"
+                } else {
+                    response.result = "Mail invalide"
+                }
+            } else {
+                response.result = "Prénom invalide"
+            }
+        } else {
+            response.result = "Nom invalide"
+        }
+
+    } else {
+        response.result = "Identifiant invalide"
     }
 
-    
-
-    res.send("salt user")
+    res.json(response)
 }
 
 module.exports = {
