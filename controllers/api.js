@@ -17,9 +17,9 @@ const add_rapport = (req,res) =>{
     //Calculer le timing et la conformité
 
     const pat_ref = /^[A-H]$/g
-    const pat_poids = /^\d{1,}\.\d{1,}$/gm
+    const pat_poids = /^\d{1,}\.\d{1,}$/g
 
-    let response = { result : null}
+    let response = { status : null,result : null}
 
     const numero_controleur = req.body.numero_controleur
     const reference = req.body.reference
@@ -35,23 +35,32 @@ const add_rapport = (req,res) =>{
                 if(numero_poste >= 1 && numero_poste <= 50){
                     if(poids.match(pat_poids) != null){
                         if(variation.match(pat_poids) != null){
-                            //Ajouté le produit à la BDD
-                            response.result = "Rapport ajouté"
+                            if(nombre_produit != '0'){
+                                //Ajouté le produit à la BDD
+                                response.result = "Rapport ajouté"
+                            } else {
+                                response.status = 6
+                                response.result = "nombre de produit invalide invalide"
+                            }
                         }
                     } else {
+                        response.status = 4
                         response.result = "Poids invalide"
                     }
                 } else {
+                    response.status = 3
                     response.result = "Numéro de poste invalide"
                 }
             } else {
+                response.status = 2
                 response.result = "Numéro de service invalide"
             }
         } else {
+            response.status = 1
             response.result = "Référence du produit invalide"
         }
-        
     } else {
+        response.status = 0
         response.result = "Numéro de contrôleur invalide"
     }
 
@@ -70,7 +79,7 @@ const add_produit_reference = (req,res) =>{
     const reference = req.body.reference
     const weight = req.body.weight
 
-    let response = { result : null }
+    let response = { status : null,result : null }
 
     if (name.match(pat_name) != null){
         if(reference.match(pat_reference) != null){ 
@@ -78,13 +87,15 @@ const add_produit_reference = (req,res) =>{
                 response.result = "Produit de référence ajouter !"
                 //Ajouter à la BDD
             } else {
+                response.status = 2
                 response.result = "Le poids est invalide"
             }
         } else {
+            response.status = 1
             response.result = "La référence est invalide"
         }
-        
     } else {
+        response.status = 0
         response.result = "Le nom est invalide"
     }
     
@@ -103,7 +114,7 @@ const add_user = (req,res)=>{
     const prenom = req.body.prenom
     const mail = req.body.mail
 
-    let response = { result : null}
+    let response = { status : null,result : null}
 
     if (identifiant >= 1 && identifiant <=1000){
         if (nom.match(pat_name) != null){
@@ -112,16 +123,19 @@ const add_user = (req,res)=>{
                     response.result = "Utilisateur ajouté !"
                     //Ajouté l'utilisateur
                 } else {
+                    response.status = 3
                     response.result = "Mail invalide"
                 }
             } else {
+                response.status = 2
                 response.result = "Prénom invalide"
             }
         } else {
+            response.status = 1
             response.result = "Nom invalide"
         }
-
     } else {
+        response.status = 0
         response.result = "Identifiant invalide"
     }
 

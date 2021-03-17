@@ -1,9 +1,6 @@
 //Front-end de la page home
 
 const send_button = document.querySelectorAll(".send-button")
-const span_rapport = document.querySelector("#formulaire")
-const span_reference = document.querySelector("#produit-reference")
-const span_utilisateur = document.querySelector("#utilisateur")
 
 
 //Animation si l'input est mauvais
@@ -21,6 +18,8 @@ send_button.forEach((button)=>{
         const div_content = button.parentNode
         const number_div = div_content.attributes[0].textContent.substr(-1)
         const list_input = div_content.querySelectorAll("input,select,#poids_produit,#Variation")
+        const span = div_content.querySelector(".error-message")
+
         let data = {}
 
         switch (number_div){
@@ -37,7 +36,12 @@ send_button.forEach((button)=>{
             }
 
             Myrequest("/API/formulaire/rapport","POST",data)
-            .then((value)=>span_rapport.innerHTML = value.result)
+            .then((value)=> {
+                
+                value.status != null ? invalid_input(list_input[value.status]) : null
+                span.innerHTML = value.result
+            })
+
             
                 break
 
@@ -50,7 +54,11 @@ send_button.forEach((button)=>{
             }
 
             Myrequest("/API/formulaire/produit_reference","POST",data)
-            .then((value)=>span_reference.innerHTML = value.result)
+            .then((value)=>{
+                
+                value.status != null ? invalid_input(list_input[value.status]) : null
+                span.innerHTML = value.result
+            })
 
                 break
 
@@ -65,7 +73,10 @@ send_button.forEach((button)=>{
             }
 
             Myrequest("/API/formulaire/user","POST",data)
-            .then((value)=>span_utilisateur.innerHTML = value.result)
+            .then((value)=>{
+                value.status != null ? invalid_input(list_input[value.status]) : null
+                span.innerHTML = value.result
+            })
 
                 break
         }
