@@ -4,6 +4,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 
+
 //Déclaration du serveur web
 const app = express()
 
@@ -14,6 +15,7 @@ const error_routes = require('./routes/error_pages')
 const api_routes = require('./routes/api')
 
 //Connection BDD
+const database = require('./models/db')
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: true }));

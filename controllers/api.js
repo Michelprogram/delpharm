@@ -1,4 +1,9 @@
 const { response } = require("express")
+const db = require('../models/db')
+
+const Controleur = require('../models/controleur.model')
+const Produit = require('../models/produit.model')
+const Rapport = require('../models/rapport.model')
 
 const regex = {
     service_de_production : /^[A-H]$/gm,
@@ -8,17 +13,23 @@ const regex = {
     mail : /^[A-Za-z](\w|\d|\.){1,}\@[A-Za-z]{1,}\.(com|fr)$/gm
 }
 
+
 const weight = (req,res) => {
     //Récupère le poid de la balance et le retourne en format Json
     res.send("test api")
 }
-
-const variation = (req,res) =>{
-    //Calulcul la variation avec le poids de référence
-}
-
 const select_product = (req,res) =>{
     //Retourne la list des produits sélectionner
+    Produit.select_Produit((result)=>{
+        res.json(result)
+    })
+    
+}
+
+const select_rapport = (req,res)=>{
+    Rapport.select_Rapport((result)=>{
+        res.send(result)
+    })
 }
 
 const add_rapport = (req,res) =>{
@@ -31,6 +42,7 @@ const add_rapport = (req,res) =>{
     const numero_poste = parseInt(req.body.numero_poste,10)
 
     const poids = req.body.poids
+
 
     //Vérifié dans la BDD après
     if (numero_controleur >= 1 && numero_controleur <=1000){
@@ -136,8 +148,8 @@ const add_user = (req,res)=>{
 module.exports = {
     weight,
     add_rapport,
-    variation,
     select_product,
+    select_rapport,
     add_produit_reference,
     add_user
 }

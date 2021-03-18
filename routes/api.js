@@ -4,9 +4,9 @@ const api_page_controller = require('../controllers/api')
 
 routes.get('/weight',api_page_controller.weight)
 
-routes.get('/variation',api_page_controller.variation)
+routes.get('/select/all_product',api_page_controller.select_product)
 
-routes.get('/select_product',api_page_controller.select_product)
+routes.get('/select/all_rapport',api_page_controller.select_rapport)
 
 routes.post('/formulaire/rapport',api_page_controller.add_rapport)
 

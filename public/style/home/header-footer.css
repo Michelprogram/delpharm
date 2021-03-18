@@ -14,8 +14,6 @@ footer{
     display: block;
     text-align: center;
     height: 4%;
-    position: absolute;
-    left: 0;
     bottom: 0;
     width: 100%;
 }
