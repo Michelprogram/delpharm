@@ -25,6 +25,7 @@ const add_rapport = (req,res) =>{
     const reference = req.body.reference
     const service = req.body.service
     const numero_poste = parseInt(req.body.numero_poste,10)
+
     const poids = req.body.poids
     const variation = req.body.variation
     const nombre_produit = req.body.nombre_produit
@@ -48,11 +49,11 @@ const add_rapport = (req,res) =>{
                         response.result = "Poids invalide"
                     }
                 } else {
-                    response.status = 3
+                    response.status = 2
                     response.result = "Numéro de poste invalide"
                 }
             } else {
-                response.status = 2
+                response.status = 3
                 response.result = "Numéro de service invalide"
             }
         } else {

@@ -11,12 +11,16 @@
 #tab-content-left-1,#tab-content-left-2{
     display: none;
     flex-direction: column;
+
+    animation: slide-in .5s ease-in;
 }
 
 .Input_container{
     font-size: 18px;
     display: flex;
-    margin-left: 5%;;
+    justify-content: space-between;
+    margin-left: 7%;
+    margin-right: 7%;
     align-items: center;
 }
 
@@ -41,6 +45,20 @@ input[type="text"],select,#Poids_produit,#Variation{
 select{
     font-size: 20px;
     width: 23%;
+}
+
+.error-message{
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    animation: slide-in .5s ease-in;
+}
+
+.container-span{
+    margin-right: 5%;
+    white-space: nowrap;
 }
 
 .numero-controleur-trigger{

@@ -9,7 +9,7 @@ exports.conf = {
         login: "Delpharm_user",
         password: "dNs903*NoNeck",
         address:"172.16.185.202",
-        port:""
+        port:"3306"
     }
     
 }

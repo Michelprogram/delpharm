@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/button.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/formulaire.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/impression.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/logo.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/tableau.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/tabs.css">
     <link rel="stylesheet" type="text/css" href="/static/style/home/template.css">
+
+
+
+
 
 
     <title>Delpharm</title>
@@ -36,27 +46,36 @@
                         <p>Référence produit</p>
                         <input type="text" id="ref-produit" placeholder="Référence" maxlength="6">
                     </div>
-    
+
                     <div class="Input_container">
-                        <p>Service de production</p>
-                        <select name="Production" id="List_production"></select>
+                        <p>Numéro du poste</p>
+                        <input type="text" name="Name_post" id="Name_post" placeholder="Numéro de poste" maxlength="4">
                     </div>
     
                     <div class="Input_container">
-                        <p>Numéro du poste</p>
-                        <select name="Name_post" id="Name_post"></select>
+                        <p>Service de production</p>
+                        <select name="Production" id="List_production">
+                            <option value="A" class="Element_list">A</option>
+                            <option value="B" class="Element_list">B</option>
+                            <option value="C" class="Element_list">C</option>
+                            <option value="D" class="Element_list">D</option>
+                            <option value="E" class="Element_list">E</option>
+                            <option value="F" class="Element_list">F</option>
+                            <option value="G" class="Element_list">G</option>
+                            <option value="H" class="Element_list">H</option>
+
+                        </select>
                     </div>
     
                     <div class="Input_container">
                         <p>Poids du produit</p>
-                        <span id="Poids_produit">15.6</span>
-                        <p>g</p>
+                        <div class="container-span"><span id="Poids_produit">15.6 g</span></div>
                     </div>
     
                     <div class="Input_container">
                         <p>Variation</p>
-                        <span id="Variation">10.0</span>
-                        <p>g</p>
+                        <div class="container-span"><span id="Variation">10.0 g</span></div>
+                        
                     </div>
     
                     <div class="Input_container">
@@ -65,7 +84,7 @@
                         <span id="value_produit">0</span>
                     </div>
 
-                    <span id="formulaire" class="error-message"></span>
+                    <span id="formulaire"></span>
 
     
                     <div id="Button_container" class="send-button" >
@@ -92,7 +111,7 @@
                         <input type="text" name="poids_produit_reference" id="poids_produit_reference">
                     </div>
 
-                    <span id="produit-reference" class="error-message"></span>
+                    <span id="produit-reference"></span>
 
                     <div id="Button_container" class="send-button" >
                         <p class="texte-button">Envoyer</p>
@@ -123,7 +142,7 @@
                         <input type="text" name="mail_utilisateur" id="mail_utilisateur">
                     </div>
 
-                    <span id="utilisateur" class="error-message"></span>
+                    <span id="utilisateur"></span>
 
                     <div id="Button_container" class="send-button" >
                         <p class="texte-button">Envoyer</p>
@@ -233,4 +252,3 @@
 <script type="text/javascript" src="/static/script/home/script.js"></script>
 <script type="text/javascript" src="/static/script/home/slider.js"></script>
 <script type="text/javascript" src="/static/script/home/tabs.js"></script>
-<script type="text/javascript" src="/static/script/home/select.js"></script>

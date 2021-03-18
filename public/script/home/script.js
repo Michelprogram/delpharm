@@ -9,6 +9,13 @@ const invalid_input = (element) =>{
     setTimeout(()=>element.removeAttribute('class'),1500)
 }
 
+const traitement = (status,result,span,input) =>{
+    if (status != null){
+        span.setAttribute('class','error-message') 
+        invalid_input(input)
+    }
+    span.innerHTML = result
+}
 
 
 
@@ -18,7 +25,8 @@ send_button.forEach((button)=>{
         const div_content = button.parentNode
         const number_div = div_content.attributes[0].textContent.substr(-1)
         const list_input = div_content.querySelectorAll("input,select,#poids_produit,#Variation")
-        const span = div_content.querySelector(".error-message")
+        const span = div_content.querySelector("span:not(#Poids_produit,#Variation,#value_produit)")
+        span.removeAttribute('class')
 
         let data = {}
 
@@ -36,13 +44,7 @@ send_button.forEach((button)=>{
             }
 
             Myrequest("/API/formulaire/rapport","POST",data)
-            .then((value)=> {
-                
-                value.status != null ? invalid_input(list_input[value.status]) : null
-                span.innerHTML = value.result
-            })
-
-            
+            .then((value)=> traitement(value.status,value.result,span,list_input[value.status]))
                 break
 
             case "1": //Partie produit reference
@@ -54,11 +56,7 @@ send_button.forEach((button)=>{
             }
 
             Myrequest("/API/formulaire/produit_reference","POST",data)
-            .then((value)=>{
-                
-                value.status != null ? invalid_input(list_input[value.status]) : null
-                span.innerHTML = value.result
-            })
+            .then((value)=> traitement(value.status,value.result,span,list_input[value.status]))
 
                 break
 
@@ -73,10 +71,7 @@ send_button.forEach((button)=>{
             }
 
             Myrequest("/API/formulaire/user","POST",data)
-            .then((value)=>{
-                value.status != null ? invalid_input(list_input[value.status]) : null
-                span.innerHTML = value.result
-            })
+            .then((value)=> traitement(value.status,value.result,span,list_input[value.status]))
 
                 break
         }
