@@ -10,10 +10,9 @@ const invalid_input = (element) =>{
 }
 
 const traitement = (status,result,span,input) =>{
-    if (status != null){
-        span.setAttribute('class','error-message') 
-        invalid_input(input)
-    }
+
+    status != null ? invalid_input(input) : null
+    span.setAttribute('class','error-message')
     span.innerHTML = result
 }
 

@@ -1,5 +1,13 @@
 const { response } = require("express")
 
+const regex = {
+    service_de_production : /^[A-H]$/gm,
+    poids : /^\d{1,}\.\d{1,}$/gm,
+    nom_prenom : /^[A-Z]\w{1,}$/gm,
+    reference : /^[0-9]{2}[A-Z][0-9]{2}[A-Z]$/gm,
+    mail : /^[A-Za-z](\w|\d|\.){1,}\@[A-Za-z]{1,}\.(com|fr)$/gm
+}
+
 const weight = (req,res) => {
     //Récupère le poid de la balance et le retourne en format Json
     res.send("test api")
@@ -14,56 +22,45 @@ const select_product = (req,res) =>{
 }
 
 const add_rapport = (req,res) =>{
-    //Calculer le timing et la conformité
-
-    const pat_ref = /^[A-H]$/g
-    const pat_poids = /^\d{1,}\.\d{1,}$/g
+    //Calculer le timing et la variation
 
     let response = { status : null,result : null}
 
     const numero_controleur = req.body.numero_controleur
     const reference = req.body.reference
-    const service = req.body.service
     const numero_poste = parseInt(req.body.numero_poste,10)
 
     const poids = req.body.poids
-    const variation = req.body.variation
-    const nombre_produit = req.body.nombre_produit
 
-    if (true){ //Vérifié controleur dans la BDD
-        if(true){ //Vérifié si la reference est dans la BDD
-            if (service.match(pat_ref) != null){
-                if(numero_poste >= 1 && numero_poste <= 50){
-                    if(poids.match(pat_poids) != null){
-                        if(variation.match(pat_poids) != null){
-                            if(nombre_produit != '0'){
-                                //Ajouté le produit à la BDD
-                                response.result = "Rapport ajouté"
-                            } else {
-                                response.status = 6
-                                response.result = "nombre de produit invalide invalide"
-                            }
-                        }
-                    } else {
-                        response.status = 4
-                        response.result = "Poids invalide"
-                    }
+    //Vérifié dans la BDD après
+    if (numero_controleur >= 1 && numero_controleur <=1000){
+        //Vérifié si c'est dans la BDD
+        if(reference.match(regex.reference) != null){
+            if(numero_poste => 1 && numero_poste <=50){
+                if(poids.match(regex.poids) != null){
+                    response.result = "Rapport ajouté"
+
                 } else {
-                    response.status = 2
-                    response.result = "Numéro de poste invalide"
+                    response.status = 4
+                    response.result = "poids invalide"
                 }
+
             } else {
-                response.status = 3
-                response.result = "Numéro de service invalide"
+                response.status = 2
+                response.result = "numero du poste invalide"
             }
+
         } else {
             response.status = 1
             response.result = "Référence du produit invalide"
         }
+
     } else {
         response.status = 0
         response.result = "Numéro de contrôleur invalide"
     }
+
+    
 
     res.json(response)
 }
@@ -72,19 +69,15 @@ const add_produit_reference = (req,res) =>{
 
     console.log("Request produit_reference")
 
-    const pat_name = /^[A-Z]\w{1,}$/g
-    const pat_reference = /^[0-9]{2}[A-Z][0-9]{2}[A-Z]$/g
-    const pat_weight = /^\d{1,}\.\d{1,}$/g
-
     const name = req.body.name
     const reference = req.body.reference
     const weight = req.body.weight
 
     let response = { status : null,result : null }
 
-    if (name.match(pat_name) != null){
-        if(reference.match(pat_reference) != null){ 
-            if (weight.match(pat_weight) != null){
+    if (name.match(regex.nom_prenom) != null){
+        if(reference.match(regex.reference) != null){ 
+            if (weight.match(regex.poids) != null){
                 response.result = "Produit de référence ajouter !"
                 //Ajouter à la BDD
             } else {
@@ -107,9 +100,6 @@ const add_user = (req,res)=>{
 
     console.log("Request user")
 
-    const pat_name = /^[A-Z][a-z]{1,}$/gm
-    const pat_mail = /^[A-Za-z](\w|\d|\.){1,}\@[A-Za-z]{1,}\.(com|fr)$/gm
-
     const identifiant = parseInt(req.body.identifiant,10)
     const nom = req.body.nom
     const prenom = req.body.prenom
@@ -118,9 +108,9 @@ const add_user = (req,res)=>{
     let response = { status : null,result : null}
 
     if (identifiant >= 1 && identifiant <=1000){
-        if (nom.match(pat_name) != null){
-            if (prenom.match(pat_name) != null){
-                if (mail.match(pat_mail) != null){
+        if (nom.match(regex.nom_prenom) != null){
+            if (prenom.match(regex.nom_prenom) != null){
+                if (mail.match(regex.mail) != null){
                     response.result = "Utilisateur ajouté !"
                     //Ajouté l'utilisateur
                 } else {

@@ -4,7 +4,6 @@
     justify-content: space-between;
     height: 70%;
     width: auto;
-
     animation: slide-in .5s ease-in;
 }
 
@@ -56,6 +55,11 @@ select{
     animation: slide-in .5s ease-in;
 }
 
+#produit-reference:empty,#utilisateur:empty{
+    height: 83px;
+}
+
+
 .container-span{
     margin-right: 5%;
     white-space: nowrap;
@@ -71,12 +75,11 @@ select{
     }
 
     50%{
-        margin-left: 15%;
+        margin-right: 12%;
     }
 
     100%{
         border: 1.5 px solid black;
-        margin-left: 10%;
     }
 }
 
