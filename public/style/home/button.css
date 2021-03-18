@@ -19,10 +19,11 @@
 
 .print-button{
 
-    width: 30%;
+    width: 23%;
 
     margin-left: 10%;
     margin-bottom: 5%;
+    margin-top: 6%;
     
 }
 
@@ -38,7 +39,6 @@
 .button_img{
     width: 40px;
     height: 40px;
-
     margin-left: 3%;
 }
 

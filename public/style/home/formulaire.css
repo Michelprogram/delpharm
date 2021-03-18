@@ -7,7 +7,7 @@
     animation: slide-in .5s ease-in;
 }
 
-#tab-content-left-1,#tab-content-left-2{
+#tab-content-left-1,#tab-content-left-2,#tab-content-left-3{
     display: none;
     flex-direction: column;
 
@@ -67,6 +67,11 @@ select{
 
 .numero-controleur-trigger{
     animation: trigger 1.5s;
+}
+
+#container-impression{
+    display: flex;
+    align-items: center;
 }
 
 @keyframes trigger{

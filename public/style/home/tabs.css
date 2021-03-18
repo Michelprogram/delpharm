@@ -1,5 +1,4 @@
 .tabs{
-    margin-top:2%;
     margin-left: 2%;
     display: block;
     height: 75%;
@@ -15,7 +14,7 @@
 }
 
 
-#tab-right-0,#tab-right-1,#tab-left-0,#tab-left-1,#tab-left-2{
+#tab-right-0,#tab-right-1,#tab-left-0,#tab-left-1,#tab-left-2,#tab-left-3{
     padding: 10px;
     cursor: pointer;
 }
