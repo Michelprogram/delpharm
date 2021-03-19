@@ -18,8 +18,14 @@ const weight = (req,res) => {
     //Récupère le poid de la balance et le retourne en format Json
     res.send("test api")
 }
-const select_product = (req,res) =>{
+const select_product = async (req,res) =>{
     //Retourne la list des produits sélectionner
+    /*
+    const t = await Produit.select_Produit()
+    console.log(t)
+    res.send("tes")
+    */
+    
     Produit.select_Produit((result)=>{
         res.json(result)
     })
@@ -108,9 +114,13 @@ const add_produit_reference = (req,res) =>{
     res.json(response)
 }
 
-const add_user = (req,res)=>{
+const add_user = async (req,res)=>{
 
     console.log("Request user")
+
+    if (req.body.length ==0){
+        res.json({error:"Body vide"})
+    }
 
     const identifiant = parseInt(req.body.identifiant,10)
     const nom = req.body.nom
@@ -119,12 +129,18 @@ const add_user = (req,res)=>{
 
     let response = { status : null,result : null}
 
+    let check = false
+
     if (identifiant >= 1 && identifiant <=1000){
         if (nom.match(regex.nom_prenom) != null){
             if (prenom.match(regex.nom_prenom) != null){
                 if (mail.match(regex.mail) != null){
-                    response.result = "Utilisateur ajouté !"
-                    //Ajouté l'utilisateur
+                    if (await Controleur.check(identifiant,mail)){
+                        Controleur.add_controleur(identifiant,nom,prenom,mail,(result)=>console.log(result))
+                        response.result = "Utilisateur ajouté !"
+                    } else {
+                        response.result = "Identifiant déjà utilisé"
+                    }
                 } else {
                     response.status = 3
                     response.result = "Mail invalide"
