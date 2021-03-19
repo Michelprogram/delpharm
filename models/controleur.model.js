@@ -27,18 +27,6 @@ class Controleur{
 
     return result != 0 ?  false : true
   }
-
-  /*
-  static add_controleur = (identifiant,nom,prenom,mail)=>{
-    const request = `INSERT INTO Controleur(Identifiant,Nom,Prenom,Mail) VALUES (${identifiant},'${nom}','${prenom}','${mail}')`
-    try {
-      const db_request = await My_promise(request)
-      return db_request
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  */
   
   static add_controleur = (identifiant,nom,prenom,mail,cb)=>{
     const request = `INSERT INTO Controleur(Identifiant,Nom,Prenom,Mail) VALUES (${identifiant},'${nom}','${prenom}','${mail}')`

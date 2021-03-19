@@ -18,21 +18,21 @@ const weight = (req,res) => {
     //Récupère le poid de la balance et le retourne en format Json
     res.send("test api")
 }
-const select_product = async (req,res) =>{
-    //Retourne la list des produits sélectionner
-    /*
-    const t = await Produit.select_Produit()
-    console.log(t)
-    res.send("tes")
-    */
-    
+
+const select_all_controleur = (req,res) =>{
+    Controleur.select_Controleur((result)=>{
+        res.json(result)
+    })
+}
+
+const select_all_product = (req,res) =>{
     Produit.select_Produit((result)=>{
         res.json(result)
     })
     
 }
 
-const select_rapport = (req,res)=>{
+const select_all_rapport = (req,res)=>{
     Rapport.select_Rapport((result)=>{
         res.send(result)
     })
@@ -164,8 +164,9 @@ const add_user = async (req,res)=>{
 module.exports = {
     weight,
     add_rapport,
-    select_product,
-    select_rapport,
+    select_all_controleur,
+    select_all_product,
+    select_all_rapport,
     add_produit_reference,
     add_user
 }

@@ -28,11 +28,12 @@
 
         <div id="div1">
 
-
+            <p>Formulaire</p>
+            <hr>
             <div class="Container tabs">
 
                 <div class="title-tabs" id="tabs-left">
-                    <div id="tab-left-0" class="title-on">Formulaire</div>
+                    <div id="tab-left-0" class="title-on">Rapport</div>
                     <div id="tab-left-1" class="title-off">Produit de référence</div>
                     <div id="tab-left-2" class="title-off">Utilisateur</div>
                     <div id="tab-left-3" class="title-off">Imprimer</div>
@@ -186,11 +187,16 @@
 
         <div id="div2">
 
+            <p>Consultation</p>
+            <hr>
             <div class="Container tabs">
 
                 <div class="title-tabs" id="tabs-right">
                     <div id="tab-right-0" class="title-on">Graphique</div>
                     <div id="tab-right-1" class="title-off">Rapport</div>
+                    <div id="tab-right-2" class="title-off">Utilisateur</div>
+                    <div id="tab-right-3" class="title-off">Produit de référence</div>
+
                 </div>
 
 
@@ -204,7 +210,7 @@
 
                 <div id="tab-content-right-1" class="display-off">
                     <table id="table-rapport">
-                        <tr id="header-tab">
+                        <tr class="header-tab">
                             <th>Id</th>
                             <th>Contrôleur</th>
                             <th>Date et Heure</th>
@@ -215,6 +221,29 @@
                             <th>Variation (g)</th>
                             <th>Conforme</th>
                             <th>Nombre de produit(s)</th>
+                        </tr>
+                        
+                    </table>
+                </div>
+
+                <div id="tab-content-right-2" class="display-off">
+                    <table id="table-utilisateur">
+                        <tr class="header-tab">
+                            <th>Identifiant</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Mail</th>
+                        </tr>
+                        
+                    </table>
+                </div>
+
+                <div id="tab-content-right-3" class="display-off">
+                    <table id="table-produit-reference">
+                        <tr class="header-tab">
+                            <th>Référence</th>
+                            <th>Grammes</th>
+                            <th>Nom</th>
                         </tr>
                         
                     </table>

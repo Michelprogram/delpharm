@@ -15,17 +15,6 @@ class Produit{
       cb(result)
     })
   }
-
-  /*
-  static select_Produit = async ()=>{
-  
-    const request = "SELECT * FROM Produit_reference"
-    const r = await new Promise ((resolve,reject)=>{
-      db.query(request,(err,result)=>(resolve(result)))
-    })
-    return r
-  }
-  */
 }
 
 module.exports = Produit
