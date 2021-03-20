@@ -18,7 +18,7 @@ body{
 
 main{
     display: flex;
-    margin-top: 2%;
+    margin-top: 0.5%;
     height: 100vh;
 
 }
@@ -31,4 +31,15 @@ main{
 #div2{
     width: 100%;
 
+}
+
+.hr-div{
+    margin-left: 2%;
+    font-size: 15px;
+    width: 30%;
+}
+
+hr{
+    border: 2px solid gray;
+    border-radius: 50px;
 }

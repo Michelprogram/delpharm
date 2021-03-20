@@ -15,7 +15,7 @@ const error_routes = require('./routes/error_pages')
 const api_routes = require('./routes/api')
 
 //Connection BDD
-const database = require('./models/db')
+//const database = require('./models/db')
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
