@@ -1,4 +1,4 @@
-#Button_container{
+.Button_container{
     display: flex;
     align-items: center;
     background-color: #c4c4c4;
