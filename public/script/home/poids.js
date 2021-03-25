@@ -18,7 +18,8 @@ peser_button.addEventListener('click',(e)=>{
     .then((data)=>{
         span_poids.innerHTML = data.poids
         span_variation.innerHTML = data.variation
-        conforme.innerHTML = data.conforme
+        data.conforme ? conforme.setAttribute('src','/static/images/home/true.svg') : conforme.setAttribute('src','/static/images/home/false.svg')
+        data.conforme.style.display = "block"
     })
 })
 
