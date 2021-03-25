@@ -1,5 +1,3 @@
-//Front-end de la page home
-
 const send_button = document.querySelectorAll(".send-button")
 
 

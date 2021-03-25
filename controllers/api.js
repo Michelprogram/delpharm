@@ -1,6 +1,3 @@
-const { response } = require("express")
-const db = require('../models/db')
-
 const Controleur = require('../models/controleur.model')
 const Produit = require('../models/produit.model')
 const Rapport = require('../models/rapport.model')
@@ -14,10 +11,7 @@ const regex = {
 }
 
 
-const weight = (req,res) => {
-    //Récupère le poid de la balance et le retourne en format Json
-    res.send("test api")
-}
+
 
 const select_all_controleur = (req,res) =>{
     Controleur.select_Controleur((result)=>{
@@ -162,7 +156,6 @@ const add_user = async (req,res)=>{
 }
 
 module.exports = {
-    weight,
     add_rapport,
     select_all_controleur,
     select_all_product,
