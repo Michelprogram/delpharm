@@ -51,7 +51,9 @@
     
                     <div class="Input_container">
                         <p>Référence produit</p>
-                        <input type="text" id="ref-produit" placeholder="Référence" maxlength="6">
+                        <select name="ref-produit" id="ref-produit">
+                            <option value="Produit" class="Element_list">Produit</option>
+                        </select>
                     </div>
 
                     <div class="Input_container">
@@ -76,19 +78,28 @@
     
                     <div class="Input_container">
                         <p>Poids du produit</p>
-                        <div class="container-span"><span id="Poids_produit">15.6 g</span></div>
+                        <div class="container-span"><span id="Poids_produit">0g</span></div>
                     </div>
     
                     <div class="Input_container">
                         <p>Variation</p>
-                        <div class="container-span"><span id="Variation">10.0 g</span></div>
-                        
+                        <div class="container-span"><span id="Variation">0g</span></div>
+                    </div>
+
+                    <div class="Input_container">
+                        <p>Conformité</p>
+                        <div class="container-span"><span id="Conforme"></span></div>
                     </div>
     
                     <div class="Input_container">
                         <p>Nombre de produit (s)</p>
                         <input type="range" name="nb_produit" id="nb_produit" max="50" min="1" value="0">
                         <span id="value_produit">1</span>
+                    </div>
+
+                    <div id="Button_container" class="peser-button" >
+                        <p class="texte-button">Peser</p>
+                        <img class="button_img" src="/static/images/home/Send.svg" alt="Envoyer">
                     </div>
 
                     <span id="formulaire"></span>
@@ -271,9 +282,10 @@
 </html>
 
 <script type="text/javascript" src="/static/script/home/request.js"></script>
-<script type="text/javascript" src="/static/script/home/script.js"></script>
+<script type="text/javascript" src="/static/script/home/send_button.js"></script>
 <script type="text/javascript" src="/static/script/home/slider.js"></script>
-<script type="text/javascript" src="/static/script/home/tabs.js"></script>
+<script type="text/javascript" src="/static/script/home/animation_tabs.js"></script>
 <script type="text/javascript" src="/static/script/home/graphique.js"></script>
-<script type="text/javascript" src="/static/script/home/rapport.js"></script>
+<script type="text/javascript" src="/static/script/home/tableaux.js"></script>
+<script type="text/javascript" src="/static/script/home/poids.js"></script>
 

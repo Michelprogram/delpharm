@@ -41,9 +41,11 @@ input[type="text"],select,#Poids_produit,#Variation{
     margin-right: 5%;
 }
 
-select{
+#ref-produit,#List_production{
     font-size: 20px;
-    width: 23%;
+}
+#ref-produit{
+    width: 50%;
 }
 
 .error-message{

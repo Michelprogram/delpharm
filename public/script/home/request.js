@@ -2,7 +2,7 @@ const Myrequest = (URI,method,data={}) => {
     return new Promise((resolve,reject)=>{
         const request = new XMLHttpRequest()
         request.onreadystatechange = ()=>{
-            if (request.readyState == XMLHttpRequest.DONE && request.status == 200){
+            if (request.readyState == 4 && request.status == 200){
                 data = JSON.parse(request.responseText)
                 resolve(data)
             }

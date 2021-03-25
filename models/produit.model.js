@@ -1,4 +1,5 @@
 const db = require('./db')
+const My_promise = require('./promise')
 
 class Produit{
   constructor(){
@@ -14,6 +15,14 @@ class Produit{
       if (err) throw err
       cb(result)
     })
+  }
+
+  static select_Produit_name = async (nom)=>{
+    const request = `SELECT Grammes FROM Produit_reference where Nom = '${nom}'`
+    let result = await My_promise(request)
+    result = (JSON.parse(JSON.stringify(result)))
+    return result[0].Grammes
+
   }
 }
 

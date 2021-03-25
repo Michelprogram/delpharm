@@ -9,11 +9,9 @@
     transition: all .5s;
 }
 
-.send-button{
-    
+.send-button,.peser-button{
     width: 20%;
     margin:0 auto;
-
 }
 
 

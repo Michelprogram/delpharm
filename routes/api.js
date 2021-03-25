@@ -3,7 +3,7 @@ const routes = require('express').Router()
 const api_page_controller = require('../controllers/api')
 const balance_route = require('../controllers/balance')
 
-routes.get('/balance/weight',balance_route)
+routes.post('/balance/weight',balance_route)
 
 routes.get('/select/all_controleur',api_page_controller.select_all_controleur)
 
