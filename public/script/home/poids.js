@@ -1,7 +1,8 @@
 const span_poids = document.querySelector('#Poids_produit')
 const span_variation = document.querySelector('#Variation')
 
-const conforme = document.querySelector('#Conforme')
+const img_conforme = document.querySelector('#Conforme > div:nth-child(2) > img:nth-child(1)')
+
 const img_button = document.querySelector('#img-button-peser')
 const text_button_peser = document.querySelector('#texte-peser')
 
@@ -14,6 +15,7 @@ const nb_produit = document.querySelector('#nb_produit')
 const animation_button = () =>{
     text_button_peser.innerHTML = ""
     img_button.setAttribute('src','/static/images/home/load.svg')
+    img_button.setAttribute('class','load')
 }
 
 
@@ -29,8 +31,8 @@ peser_button.addEventListener('click',(e)=>{
     .then((data)=>{
         span_poids.innerHTML = data.poids
         span_variation.innerHTML = data.variation
-        data.conforme ? conforme.setAttribute('src','/static/images/home/true.svg') : conforme.setAttribute('src','/static/images/home/false.svg')
-        data.conforme.style.display = "block"
+        data.conforme ? img_conforme.setAttribute('src','/static/images/home/true.svg') : img_conforme.setAttribute('src','/static/images/home/false.svg')
+        img_conforme.style.display = "block"
     })
 })
 
