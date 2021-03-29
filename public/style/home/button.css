@@ -20,7 +20,7 @@
     border: 1px solid black;
     border-radius: 10px;
     align-items: center;
-    background-color: #3584E4;
+    background-color: #c4c4c4;
 }
 
 #texte-peser{
@@ -67,6 +67,9 @@
     animation: load-animation infinite;
 }
 
+.load:hover{
+    width: 60px;
+}
 @keyframes load-animation{
     0%{
         width: 50px;
