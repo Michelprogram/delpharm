@@ -14,7 +14,7 @@
     animation: slide-in .5s ease-in;
 }
 
-.Input_container{
+.Input-container{
     font-size: 18px;
     display: flex;
     justify-content: space-between;
@@ -31,17 +31,17 @@ input[type="text"]{
     border-radius: 20px;
 }
 
-input[type="text"],select,#Poids_produit,#Variation{
+input[type="text"],select,#Poids-produit,#Variation{
     margin-left: 10%;
     outline: none;
 }
 
-#nb_produit{
+#nb-produit{
     margin-left: 10%;
     margin-right: 5%;
 }
 
-#ref-produit,#List_production{
+#ref-produit,#List-production{
     font-size: 20px;
 }
 #ref-produit{

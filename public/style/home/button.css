@@ -1,4 +1,4 @@
-.Button_container{
+.Button-container{
     display: flex;
     align-items: center;
     background-color: #c4c4c4;
@@ -26,7 +26,7 @@
     
 }
 
-#Button_container:hover{
+#Button-container:hover{
     transform: scale(1.05,1.05);
 }
 
@@ -35,14 +35,14 @@
 }
 
 
-.button_img{
+.button-img{
     width: 40px;
     height: 40px;
     margin-left: 3%;
 }
 
 
-#Impression>#Button_container>p{
+#Impression>#Button-container>p{
     margin-right: 10%;
 }
 

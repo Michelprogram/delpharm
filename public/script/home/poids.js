@@ -1,7 +1,7 @@
-const span_poids = document.querySelector('#Poids_produit')
+const span_poids = document.querySelector('#Poids-produit')
 const span_variation = document.querySelector('#Variation')
 const ref_produit = document.querySelector('#ref-produit')
-const nb_produit = document.querySelector('#nb_produit')
+const nb_produit = document.querySelector('#nb-produit')
 const tab_content = document.querySelector('.Container')
 const span_formulaire = document.querySelector('#formulaire')
 

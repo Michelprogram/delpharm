@@ -21,8 +21,8 @@ send_button.forEach((button)=>{
 
         const div_content = button.parentNode
         const number_div = div_content.attributes[0].textContent.substr(-1)
-        const list_input = div_content.querySelectorAll("input,select,#poids_produit,#Variation")
-        const span = div_content.querySelector("span:not(#Poids_produit,#Variation,#value_produit,#Conforme)")
+        const list_input = div_content.querySelectorAll("input,select,#poids-produit,#Variation")
+        const span = div_content.querySelector("span:not(#Poids-produit,#Variation,#value-produit,#Conforme)")
         span.removeAttribute('class')
 
         let data = {}
