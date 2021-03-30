@@ -8,11 +8,11 @@ class Produit{
     this.Grammes = produit.Grammes
   }
 
-  static select_Produit =  (cb)=>{
-  
+
+  static select_produit_reference = (cb)=>{
     const request = "SELECT * FROM Produit_reference"
-    db.query(request,(err,result)=>{
-      if (err) throw err
+    db.query(request, function (err, result , fields){
+      if (err) throw err;
       cb(result)
     })
   }

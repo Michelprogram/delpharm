@@ -9,13 +9,13 @@ class Controleur{
     this.Mail = controleur.Mail
   }
 
-  static select_Controleur = (cb)=>{
-  
+
+  static select_controleur = (cb)=>{
     const request = "SELECT * FROM Controleur"
-    db.query(request, function (err, result, fields) {
+    db.query(request, function (err, result , fields){
       if (err) throw err;
-      cb(result)      
-      });
+      cb(result)
+    })
   }
 
   static check = async (identifiant,mail) =>{

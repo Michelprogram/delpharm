@@ -14,13 +14,14 @@ class Rapport{
     this.Nombre_produits = rapport.Nombre_produits
   }
 
-  static select_Rapport = (cb)=>{
-  
-    db.query("SELECT * FROM Rapport", function (err, result, fields) {
+  static select_rapport = (cb)=>{
+    const request = "SELECT * FROM Rapport"
+    db.query(request, function (err, result , fields){
       if (err) throw err;
-      cb(result)      
-      });
+      cb(result)
+    })
   }
+
 }
 
 

@@ -14,20 +14,20 @@ const regex = {
 
 
 const select_all_controleur = (req,res) =>{
-    Controleur.select_Controleur((result)=>{
+    Controleur.select_controleur((result)=>{
         res.json(result)
     })
 }
 
 const select_all_product = (req,res) =>{
-    Produit.select_Produit((result)=>{
+    Produit.select_produit_reference((result)=>{
         res.json(result)
     })
     
 }
 
 const select_all_rapport = (req,res)=>{
-    Rapport.select_Rapport((result)=>{
+    Rapport.select_rapport((result)=>{
         res.send(result)
     })
 }
