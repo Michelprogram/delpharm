@@ -1,3 +1,4 @@
+//Connexion à la BDD
 const mysql = require('mysql')
 const database = require('../config/config').conf.database
 

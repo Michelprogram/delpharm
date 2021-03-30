@@ -1,7 +1,7 @@
-//Script qui s'occupe des sliders et met à jour le texte
+//Gestion des sliders
 const sliders = document.querySelectorAll("input[type='range']")
 
-
+//Valeur du slider dans une span
 sliders.forEach((element) =>{
     element.value = 0
     element.addEventListener('input',(e)=>{

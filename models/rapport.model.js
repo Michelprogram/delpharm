@@ -1,3 +1,4 @@
+//Class Rapport
 const db = require('./db')
 
 class Rapport{
@@ -14,6 +15,7 @@ class Rapport{
     this.Nombre_produits = rapport.Nombre_produits
   }
 
+  //Sélection de tous les rapports
   static select_rapport = (cb)=>{
     const request = "SELECT * FROM Rapport"
     db.query(request, function (err, result , fields){

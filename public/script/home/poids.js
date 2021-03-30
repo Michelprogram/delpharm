@@ -1,3 +1,4 @@
+//Liaison avec la balance qui récupère le poids et gestion des animations
 const span_poids = document.querySelector('#Poids-produit')
 const span_variation = document.querySelector('#Variation')
 const ref_produit = document.querySelector('#ref-produit')
@@ -11,6 +12,7 @@ const peser_button = document.querySelector('#peser-button')
 
 const animation_div = document.querySelector('#animation-poids')
 
+//Gestion de la Pop-up
 const animation_button = (flag) =>{
     if (flag){
         tab_content.style.backgroundColor = "gray"
@@ -24,6 +26,7 @@ const animation_button = (flag) =>{
     
 }
 
+//Ajouter les valeurs récupèrer par la balance
 const span_manager = (poids,variation,conforme)=>{
     span_poids.innerHTML = poids
     span_variation.innerHTML = variation
@@ -37,7 +40,7 @@ const span_manager = (poids,variation,conforme)=>{
 
 }
 
-
+//Request à la balance quand on appuie sur le bouton
 peser_button.addEventListener('click',(e)=>{
 
     if (ref_produit.value === "Produit"){

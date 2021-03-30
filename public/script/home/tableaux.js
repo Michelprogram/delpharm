@@ -1,7 +1,9 @@
+//Gestion des tableaux Rapport, Produit, Référence
 const table_rapport = document.querySelector('#table-rapport')
 const table_utilisateur = document.querySelector('#table-utilisateur')
 const table_produit = document.querySelector('#table-produit-reference')
 
+//Remplir le tableau en question
 const feed_table = (table,data) =>{
     for (const key in data) {
         const tr = document.createElement('tr')
@@ -16,6 +18,7 @@ const feed_table = (table,data) =>{
     }
 }
 
+//Requests pour chaque tableau
 Myrequest("/API/select/all_rapport","GET")
 .then((data)=> feed_table(table_rapport,data) )
 

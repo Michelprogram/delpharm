@@ -1,3 +1,4 @@
+//Fonction promesse pour les requêtes SQL
 const db = require('./db')
 
 const My_promise = (request) =>{

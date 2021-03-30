@@ -1,3 +1,4 @@
+//Class Controleur
 const db = require('./db')
 const My_promise = require('./promise')
 
@@ -10,6 +11,7 @@ class Controleur{
   }
 
 
+  //Sélection de tous les contrôleurs
   static select_controleur = (cb)=>{
     const request = "SELECT * FROM Controleur"
     db.query(request, function (err, result , fields){
@@ -18,6 +20,7 @@ class Controleur{
     })
   }
 
+  //Savoir si l'identifiant ou le mail est déjà utilisé
   static check = async (identifiant,mail) =>{
     let result = undefined
     const request = `select count(*) as total from Controleur where Identifiant = ${identifiant} or Mail = '${mail}'`
@@ -28,6 +31,7 @@ class Controleur{
     return result != 0 ?  false : true
   }
   
+  //Ajouter un contrôleur
   static add_controleur = (identifiant,nom,prenom,mail,cb)=>{
     const request = `INSERT INTO Controleur(Identifiant,Nom,Prenom,Mail) VALUES (${identifiant},'${nom}','${prenom}','${mail}')`
     const db_request = db.query(request,(err,result)=>{

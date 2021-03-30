@@ -1,3 +1,4 @@
+//Fonction de request 
 const Myrequest = (URI,method,data={}) => {
     return new Promise((resolve,reject)=>{
         const request = new XMLHttpRequest()

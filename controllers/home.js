@@ -1,9 +1,9 @@
+//Rendu du code HTML pour la route /
 const readFile = require('fs').readFile
 const directory = require('../config/config').directory
 
-
+//Retourne la page home.html
 const home = (req,res) =>{
-    //Retourne la page home.html
     const headers = { 'Content-Type' : 'text/html' }
 
     readFile(directory + "/home/index.html", (err,data) =>{

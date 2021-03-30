@@ -1,3 +1,4 @@
+//Fichier de configuration
 const path = require('path')
 
 exports.conf = {

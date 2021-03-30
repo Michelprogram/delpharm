@@ -1,3 +1,4 @@
+//Gestion des boutons envoyé
 const send_button = document.querySelectorAll(".send-button")
 
 
@@ -7,6 +8,7 @@ const invalid_input = (element) =>{
     setTimeout(()=>element.removeAttribute('class'),1500)
 }
 
+//Gestion des messages d'erreurs
 const traitement = (status,result,span,input) =>{
 
     status != null ? invalid_input(input) : null
@@ -15,10 +17,11 @@ const traitement = (status,result,span,input) =>{
 }
 
 
-
+//Evénement pour chaque bouton send
 send_button.forEach((button)=>{
     button.addEventListener('click',(e)=>{
 
+        //Récupère la liste des inputs 
         const div_content = button.parentNode
         const number_div = div_content.attributes[0].textContent.substr(-1)
         const list_input = div_content.querySelectorAll("input,select,#poids-produit,#Variation")
@@ -28,7 +31,8 @@ send_button.forEach((button)=>{
         let data = {}
 
         switch (number_div){
-            case "0": //Partie formulaire
+            //Formulaire
+            case "0": 
             
             data = {
                 numero_controleur : list_input[0].value,
@@ -44,7 +48,8 @@ send_button.forEach((button)=>{
             .then((value)=> traitement(value.status,value.result,span,list_input[value.status]))
                 break
 
-            case "1": //Partie produit reference
+            //Produit de référence
+            case "1": 
 
             data = {
                 name : list_input[0].value,
@@ -57,7 +62,8 @@ send_button.forEach((button)=>{
 
                 break
 
-            case "2": //Partie utilisateur
+            //Contrôleur
+            case "2": 
 
             data = {
                 identifiant : list_input[0].value,
