@@ -1,0 +1,42 @@
+<svg width="700" height="600" viewBox="0 0 700 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1">
+<g id="poids" clip-path="url(#clip0)">
+<path id="Vector" d="M433.446 256.687L409.911 162.543C408.686 157.648 404.613 154.254 399.962 154.254H380.546C381.696 151.016 382.441 147.577 382.441 143.942C382.441 126.855 368.59 113.004 351.503 113.004C334.417 113.004 320.566 126.855 320.566 143.942C320.566 147.577 321.307 151.016 322.461 154.254H303.044C298.394 154.254 294.317 157.651 293.096 162.543L269.554 256.687C266.87 267.421 274.279 278.001 284.479 278.001H418.525C428.721 278.001 436.13 267.421 433.446 256.687V256.687ZM351.5 154.251C345.815 154.251 341.188 149.623 341.188 143.939C341.188 138.254 345.815 133.626 351.5 133.626C357.185 133.626 361.813 138.254 361.813 143.939C361.813 149.623 357.185 154.251 351.5 154.251Z" fill="#CC9C9C"/>
+</g>
+<g id="Balance">
+<rect id="Face_avant" x="100" y="418" width="503" height="138" rx="17" fill="#C4C4C4"/>
+<g id="Button_balance">
+<g id="Tare">
+<rect id="tare_button" x="513.5" y="504.5" width="70" height="33" fill="white" stroke="#FF0000" stroke-width="3"/>
+<text id="tare" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0.03em"><tspan x="532" y="525.969">Tare</tspan></text>
+</g>
+<g id="Print">
+<rect id="print_button" x="413.5" y="504.5" width="70" height="33" fill="white" stroke="#00B2FF" stroke-width="3"/>
+<text id="Print_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0.03em"><tspan x="430" y="525.969">Print</tspan></text>
+</g>
+<g id="Set">
+<rect id="set_button" x="313.5" y="504.5" width="70" height="33" fill="white" stroke="#00B2FF" stroke-width="3"/>
+<text id="Set_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0.03em"><tspan x="336" y="525.969">Set</tspan></text>
+</g>
+<g id="Mode">
+<rect id="mode_button" x="213.5" y="504.5" width="70" height="33" fill="white" stroke="#00B2FF" stroke-width="3"/>
+<text id="Mode_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0.03em"><tspan x="227" y="525.969">Mode</tspan></text>
+</g>
+<g id="On_off">
+<rect id="on_button" x="114.5" y="504.5" width="70" height="33" fill="white" stroke="#00B2FF" stroke-width="3"/>
+<text id="ON/OFF" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="16" letter-spacing="0.03em"><tspan x="119" y="525.969">ON/OFF</tspan></text>
+</g>
+</g>
+<g id="LCD_screen">
+<rect id="LCD" x="136" y="429" width="430" height="57" rx="5" fill="#DADADA" stroke="white" stroke-width="2"/>
+<text id="poids_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Digital Numbers" font-size="48" letter-spacing="0.03em"><tspan x="270" y="473.768">15.0</tspan></text>
+<text id="grammes" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="40" letter-spacing="0.03em"><tspan x="401" y="474.172">g</tspan></text>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="165" height="165" fill="white" transform="translate(269 113)"/>
+</clipPath>
+</defs>
+</svg>

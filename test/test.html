@@ -1,37 +1,152 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-
-        svg{
-            width: 50px;
-            animation: all .5s;
-        }
-
-    </style>
 </head>
-<body>
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="spinner" class="svg-inline--fa fa-spinner fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="red" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path></svg>
-</body>
-</html>
-<script>
-    let rotation = 0
-    const svg = document.querySelector('svg')
+<style>
 
-    const animation = () =>{
-        rotation += 50
-        svg.animate([
-            {
-                transform:`rotate(${rotation}deg)`
-            }
-        ],{
-            duration:500,
-        })
+    svg{
+        border: 2px solid black;
     }
 
-    animation()
+    #poids {
+        cursor: none;
+        -webkit-animation: load 3s infinite ease-in-out;
+    }
 
-</script>
+    @-webkit-keyframes load {
+        0% {
+            -webkit-transform: translateY(0%);
+            fill: #d64b20;
+        }
+
+        50% {
+            -webkit-transform: translateY(22%);
+            fill: rgb(79, 182, 79);
+        }
+
+        100% {
+            -webkit-transform: translateY(0%);
+            fill: #d64b20;
+        }
+    }
+
+    @-webkit-keyframes LCD_poids{
+        0%{
+
+        }
+
+        10%{
+
+        }
+
+        20%{
+
+        }
+
+        30%{
+
+        }
+
+        40%{
+
+        }
+
+        50%{
+
+        }
+    }
+
+    #poids_2{
+        color: red;
+        fill: black;
+        white-space: pre;
+        font-family:Digital Numbers;
+        font-size:48;
+        letter-spacing:0.03em;
+    }
+
+    #test::after{
+        content: "s";
+    }
+
+    .text-on-button {
+        font-family: "Righteous";
+        font-size: 16px;
+        letter-spacing: 0.03em;
+        fill: black;
+        white-space: pre;
+    }
+
+    .button-balance-container{
+        fill: white;
+        width: 70;
+        height: 33;
+        stroke-width: 3;
+    }
+
+    #On_off:hover {
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <svg width="700" height="600" viewBox="0 0 700 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Frame 1">
+            <g id="poids" clip-path="url(#clip0)">
+                <path id="Vector"
+                    d="M433.446 256.687L409.911 162.543C408.686 157.648 404.613 154.254 399.962 154.254H380.546C381.696 151.016 382.441 147.577 382.441 143.942C382.441 126.855 368.59 113.004 351.503 113.004C334.417 113.004 320.566 126.855 320.566 143.942C320.566 147.577 321.307 151.016 322.461 154.254H303.044C298.394 154.254 294.317 157.651 293.096 162.543L269.554 256.687C266.87 267.421 274.279 278.001 284.479 278.001H418.525C428.721 278.001 436.13 267.421 433.446 256.687ZM351.5 154.251C345.815 154.251 341.188 149.623 341.188 143.939C341.188 138.254 345.815 133.626 351.5 133.626C357.185 133.626 361.813 138.254 361.813 143.939C361.813 149.623 357.185 154.251 351.5 154.251Z" />
+            </g>
+            <g id="Balance">
+                <rect id="Face_avant" x="100" y="418" width="503" height="138" rx="17" fill="#C4C4C4" />
+                <g id="Button_balance">
+                    <g id="Tare" class="button-balance">
+                        <rect id="tare_button" class="button-balance-container" x="513.5" y="504.5" stroke="#FF0000"/>
+                        <text id="tare" class="text-on-button" xml:space="preserve">
+                            <tspan x="532" y="526.824">Tare</tspan>
+                        </text>
+                    </g>
+                    <g id="Print" class="button-balance">
+                        <rect id="print_button" class="button-balance-container" x="413.5" y="504.5" stroke="#00B2FF"/>
+                        <text id="Print_2" class="text-on-button" xml:space="preserve">
+                            <tspan x="430" y="526.824">Print</tspan>
+                        </text>
+                    </g>
+                    <g id="Set" class="button-balance">
+                        <rect id="set_button" class="button-balance-container" x="313.5" y="504.5" stroke="#00B2FF" />
+                        <text id="Set_2" class="text-on-button" xml:space="preserve">
+                            <tspan x="336" y="526.824">Set</tspan>
+                        </text>
+                    </g>
+                    <g id="Mode" class="button-balance">
+                        <rect id="mode_button" class="button-balance-container" x="213.5" y="504.5" stroke="#00B2FF"/>
+                        <text id="Mode_2" class="text-on-button" xml:space="preserve">
+                            <tspan x="227" y="526.824">Mode</tspan>
+                        </text>
+                    </g>
+                    <g id="On_off" class="button-balance">
+                        <rect id="on_button" class="button-balance-container" x="114.5" y="504.5" stroke="#00B2FF"/>
+                        <text id="ON/OFF" class="text-on-button" xml:space="preserve">
+                            <tspan x="117" y="526.824">ON/OFF</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="LCD_screen">
+                    <rect id="LCD" x="136" y="429" width="430" height="57" rx="5" fill="#DADADA" stroke="white"
+                        stroke-width="2" />
+                    <text id="poids_2" xml:space="preserve">
+                        <tspan id="test" x="270" y="473.768">0</tspan>
+                    </text>
+                    <text id="grammes" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto"
+                        font-size="40" letter-spacing="0.03em">
+                        <tspan x="401" y="474.172">g</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </svg>
+</body>
+</html>
