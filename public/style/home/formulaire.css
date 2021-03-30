@@ -82,6 +82,9 @@ input[type="text"],select,#Poids_produit,#Variation{
     display: none;
 }
 
+
+
+
 @keyframes trigger{
     0%{
         border: 1.5px solid red;

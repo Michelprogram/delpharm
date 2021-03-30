@@ -1,0 +1,84 @@
+svg{
+    width:500px;
+}
+
+#poids {
+    cursor: none;
+    fill: #34495e;
+    -webkit-animation: load 3s infinite ease-in-out;
+}
+
+@-webkit-keyframes load {
+    0% { -webkit-transform: translateY(0%); }
+
+    50% { -webkit-transform: translateY(22%); }
+
+    100% { -webkit-transform: translateY(0%); }
+}
+
+@-webkit-keyframes LCD_poids{
+    0%{
+
+    }
+
+    10%{
+
+    }
+
+    20%{
+
+    }
+
+    30%{
+
+    }
+
+    40%{
+
+    }
+
+    50%{
+
+    }
+}
+
+#poids_2{
+    color: red;
+    fill: black;
+    white-space: pre;
+    font-family:Digital Numbers;
+    font-size:48;
+    letter-spacing:0.03em;
+}
+
+.text-on-button {
+    font-family: "Righteous";
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    fill: black;
+    white-space: pre;
+}
+
+.button-balance-container{
+    fill: white;
+    width: 70;
+    height: 33;
+    stroke-width: 3;
+}
+
+
+
+#animation-poids{
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 15px;
+    position: fixed;
+    margin-left: 45;
+    margin-top: 50;
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2em;
+    animation: opacity .5s ease-in-out;
+}

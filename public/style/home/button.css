@@ -9,29 +9,12 @@
     transition: all .5s;
 }
 
-.send-button{
+.send-button,#peser-button{
     width: 20%;
     margin:0 auto;
 }
 
-.peser-button{
-    display: flex;
-    margin: 0 auto;
-    border: 1px solid black;
-    border-radius: 10px;
-    align-items: center;
-    background-color: #c4c4c4;
-}
 
-#texte-peser{
-    white-space: nowrap;
-    padding-left: 5px;
-}
-
-#img-button-peser{
-    padding: 3px 10px 0px 0px;
-    width:50px;
-}
 
 .print-button{
 
