@@ -17,7 +17,7 @@ balance.pipe(parser);
 
 balance.open((err) => {
 
-    err ? console.log("Erreur", err) : console.log("Connecté à la balance")
+    err ? console.log("Erreur de connexion Serialport", err) : console.log("Connecté à la balance")
 
 })
 

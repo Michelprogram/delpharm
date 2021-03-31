@@ -17,7 +17,11 @@ table{
     border-collapse: collapse;
 }
 
-tr:hover{
+th{
+    transition: all .5s ease;
+}
+
+th:hover{
     background-color: #ddd;
     transition: all .3s;
 
