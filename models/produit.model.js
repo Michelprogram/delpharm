@@ -3,10 +3,10 @@ const db = require('./db')
 const My_promise = require('./promise')
 
 class Produit{
-  constructor(){
-    this.Reference = produit.Reference
-    this.Nom =  produit.Nom
-    this.Grammes = produit.Grammes
+  constructor(Reference,Nom,Grammes){
+    this.Reference = Reference
+    this.Nom =  Nom
+    this.Grammes = Grammes
   }
 
 
@@ -25,8 +25,17 @@ class Produit{
     let result = await My_promise(request)
     result = (JSON.parse(JSON.stringify(result)))
     return result[0].Grammes
-
   }
+
+
+  static add_product = (produit,cb)=>{
+    const request =`INSERT INTO Produit_reference(Reference,Nom,Grammes) VALUES ('${produit.Reference}','${produit.Nom}','${produit.Grammes}')`
+    db.query(request, function (err, result) {
+      if (err) throw err;
+      console.log("Produit ajouté");
+    });
+  }
+
 }
 
 module.exports = Produit

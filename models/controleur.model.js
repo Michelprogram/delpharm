@@ -3,18 +3,18 @@ const db = require('./db')
 const My_promise = require('./promise')
 
 class Controleur{
-  constructor(controleur){
-    this.Identifiant = controleur.Identifiant
-    this.Nom = controleur.Nom
-    this.Prenom = controleur.Prenom
-    this.Mail = controleur.Mail
+  constructor(Identifiant,Nom,Prenom,Mail){
+    this.Identifiant = Identifiant
+    this.Nom = Nom
+    this.Prenom = Prenom
+    this.Mail = Mail
   }
 
 
   //Sélection de tous les contrôleurs
   static select_controleur = (cb)=>{
     const request = "SELECT * FROM Controleur"
-    db.query(request, function (err, result , fields){
+    db.query(request, (err, result )=>{
       if (err) throw err;
       cb(result)
     })
@@ -30,14 +30,15 @@ class Controleur{
 
     return result != 0 ?  false : true
   }
-  
-  //Ajouter un contrôleur
-  static add_controleur = (identifiant,nom,prenom,mail,cb)=>{
-    const request = `INSERT INTO Controleur(Identifiant,Nom,Prenom,Mail) VALUES (${identifiant},'${nom}','${prenom}','${mail}')`
-    const db_request = db.query(request,(err,result)=>{
+
+    //Ajouter un contrôleur
+
+  static add_controleur =(controleur,cb) =>{
+    const request =`INSERT INTO Controleur(Identifiant,Nom,Prenom,Mail) VALUES (${controleur.Identifiant},'${controleur.Nom}','${controleur.Prenom}','${controleur.Mail}')`
+    db.query(request, (err, result) =>{
       if (err) throw err;
-      cb(result)  
-    })
+      console.log("Ajouté controleur");
+    });
   }
   
 }

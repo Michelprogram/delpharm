@@ -11,8 +11,6 @@ const regex = {
 }
 
 
-
-
 const select_all_controleur = (req,res) =>{
     Controleur.select_controleur((result)=>{
         res.json(result)
@@ -34,6 +32,10 @@ const select_all_rapport = (req,res)=>{
 
 const add_rapport = (req,res) =>{
     //Calculer le timing et la variation
+
+    if (req.body.length ==0){
+        res.json({error:"Body vide"})
+    }
 
     let response = { status : null,result : null}
 
@@ -81,17 +83,22 @@ const add_produit_reference = (req,res) =>{
 
     console.log("Request produit_reference")
 
+    if (req.body.length ==0){
+        res.json({error:"Body vide"})
+    }
+
     const name = req.body.name
     const reference = req.body.reference
     const weight = req.body.weight
 
+    const produit_reference = new Produit(reference,name,weight)
     let response = { status : null,result : null }
 
     if (name.match(regex.nom_prenom) != null){
-        if(reference.match(regex.reference) != null){ 
+        if(reference.match(regex.reference) != null){
             if (weight.match(regex.poids) != null){
+                Produit.add_product(produit_reference)
                 response.result = "Produit de référence ajouter !"
-                //Ajouter à la BDD
             } else {
                 response.status = 2
                 response.result = "Le poids est invalide"
@@ -108,6 +115,7 @@ const add_produit_reference = (req,res) =>{
     res.json(response)
 }
 
+//Finaliser en check user name
 const add_user = async (req,res)=>{
 
     console.log("Request user")
@@ -121,16 +129,16 @@ const add_user = async (req,res)=>{
     const prenom = req.body.prenom
     const mail = req.body.mail
 
-    let response = { status : null,result : null}
+    const controleur = new Controleur(identifiant,nom,prenom,mail)
 
-    let check = false
+    let response = { status : null,result : null}
 
     if (identifiant >= 1 && identifiant <=1000){
         if (nom.match(regex.nom_prenom) != null){
             if (prenom.match(regex.nom_prenom) != null){
                 if (mail.match(regex.mail) != null){
                     if (await Controleur.check(identifiant,mail)){
-                        Controleur.add_controleur(identifiant,nom,prenom,mail,(result)=>console.log(result))
+                        Controleur.add_controleur(controleur,(result)=>console.log(result))
                         response.result = "Utilisateur ajouté !"
                     } else {
                         response.result = "Identifiant déjà utilisé"
