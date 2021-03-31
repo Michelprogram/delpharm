@@ -73,12 +73,12 @@ svg{
     background-color: white;
     border-radius: 15px;
     position: fixed;
-    margin-left: 45;
+    margin-left: -400;
     margin-top: 50;
-    display: none;
     opacity: 0;
     flex-direction: column;
     text-align: center;
     font-size: 2em;
-    animation: opacity .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    animation: all .5s ease-in-out;
 }

@@ -16,12 +16,12 @@ const animation_div = document.querySelector('#animation-poids')
 const animation_button = (flag) =>{
     if (flag){
         tab_content.style.backgroundColor = "gray"
-        animation_div.style.display = "flex"
         animation_div.style.opacity ="1"
+        animation_div.style.marginLeft ="45"
     } else {
         tab_content.style.backgroundColor = "white"
-        animation_div.style.display = "none"
         animation_div.style.opacity ="0"
+        animation_div.style.marginLeft ="-400"
     }
     
 }
