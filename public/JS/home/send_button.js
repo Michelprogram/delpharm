@@ -9,7 +9,7 @@ const invalid_input = (element) =>{
 }
 
 //Gestion des messages d'erreurs
-const traitement = (status,result,span,input) =>{
+const traitement = (status="",result="",span="",input="") =>{
 
     status != null ? invalid_input(input) : null
     span.setAttribute('class','error-message')
@@ -24,28 +24,39 @@ send_button.forEach((button)=>{
         //Récupère la liste des inputs 
         const div_content = button.parentNode
         const number_div = div_content.attributes[0].textContent.substr(-1)
-        const list_input = div_content.querySelectorAll("input,select,#poids-produit,#Variation")
+        const list_input = div_content.querySelectorAll("input,select,#poids-produit,#Variation,#conforme-img")
         const span = div_content.querySelector("span:not(#Poids-produit,#Variation,#value-produit,#Conforme)")
         span.removeAttribute('class')
 
         let data = {}
+        console.log(list_input[6].currentSrc)
 
         switch (number_div){
             //Formulaire
             case "0": 
-            
+            if (list_input[0].value == "" || list_input[3].value == "")
+            {
+                const error_message = "Merci de remplir les champs Controleur et Poste"
+                traitement(null,error_message,span)
+            }
             data = {
                 numero_controleur : list_input[0].value,
                 reference : list_input[1].value,
                 service : list_input[2].value,
-                numero_poste : list_input[3].value,
+                poste : list_input[3].value,
+
                 poids : list_input[4].textContent,
                 variation : list_input[5].textContent,
-                nombre_produit : list_input[6].value
+                
+                conform: list_input[6].currentSrc.includes('true') ? true :false,
+                nombre_produit : list_input[7].value
             }
+            console.log(data)
 
+            
             Myrequest("/API/formulaire/rapport","POST",data)
             .then((value)=> traitement(value.status,value.result,span,list_input[value.status]))
+            
                 break
 
             //Produit de référence

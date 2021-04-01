@@ -10,7 +10,6 @@ const regex = {
     mail : /^[A-Za-z](\w|\d|\.){1,}\@[A-Za-z]{1,}\.(com|fr)$/gm
 }
 
-
 const select_all_controleur = (req,res) =>{
     Controleur.select_controleur((result)=>{
         res.json(result)
@@ -30,7 +29,13 @@ const select_all_rapport = (req,res)=>{
     })
 }
 
-const add_rapport = (req,res) =>{
+const get_date = () =>{
+    const date = new Date()
+    const final_date = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    return final_date
+}
+
+const add_rapport = async (req,res) =>{
     //Calculer le timing et la variation
 
     if (req.body.length ==0){
@@ -40,40 +45,38 @@ const add_rapport = (req,res) =>{
     let response = { status : null,result : null}
 
     const numero_controleur = req.body.numero_controleur
-    const reference = req.body.reference
-    const numero_poste = parseInt(req.body.numero_poste,10)
+    const production = parseInt(req.body.service,10)
+    const poste = req.body.poste
 
-    const poids = req.body.poids
+    const reference_produit = await Produit.select_Produit_name(req.body.reference)
+    const nombre_produit = parseInt(req.body.nombre_produit,10)
 
+    const date = get_date()
 
-    //Vérifié dans la BDD après
-    if (numero_controleur >= 1 && numero_controleur <=1000){
-        //Vérifié si c'est dans la BDD
-        if(reference.match(regex.reference) != null){
-            if(numero_poste => 1 && numero_poste <=50){
-                if(poids.match(regex.poids) != null){
-                    response.result = "Rapport ajouté"
+    const conforme = req.body.conforme == "true" ? true :false
 
-                } else {
-                    response.status = 4
-                    response.result = "poids invalide"
-                }
+    const poids = parseFloat(req.body.poids)
+    const variation = parseFloat(req.body.variation)
 
-            } else {
-                response.status = 2
-                response.result = "numero du poste invalide"
-            }
-
+    const rapport = new Rapport(numero_controleur,production,poste,reference_produit,nombre_produit,date,conforme,poids,variation)
+    
+    console.log(rapport)
+    
+    
+    //Vérifie si le controleur est dans la BDD
+    if ( await Controleur.select_controleur_by_id(numero_controleur)){
+        if (production <= 50 && production >= 1){
+            rapport.ajouter_Rapport()
+            response.result = "Rapport ajouté !"
         } else {
-            response.status = 1
-            response.result = "Référence du produit invalide"
+            response.status = 2
+            response.result = "Numero du poste invalide"
         }
 
     } else {
         response.status = 0
         response.result = "Numéro de contrôleur invalide"
     }
-
     
 
     res.json(response)
@@ -141,7 +144,7 @@ const add_user = async (req,res)=>{
                         Controleur.add_controleur(controleur,(result)=>console.log(result))
                         response.result = "Utilisateur ajouté !"
                     } else {
-                        response.result = "Identifiant déjà utilisé"
+                        response.result = "Identifiant ou Mail déjà utilisé"
                     }
                 } else {
                     response.status = 3

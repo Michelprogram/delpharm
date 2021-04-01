@@ -21,10 +21,10 @@ class Produit{
 
   //Sélectionner un produit de référence par rapport à son Nom
   static select_Produit_name = async (nom)=>{
-    const request = `SELECT Grammes FROM Produit_reference where Nom = '${nom}'`
+    const request = `SELECT Reference FROM Produit_reference where Nom = '${nom}'`
     let result = await My_promise(request)
     result = (JSON.parse(JSON.stringify(result)))
-    return result[0].Grammes
+    return result[0].Reference
   }
 
 

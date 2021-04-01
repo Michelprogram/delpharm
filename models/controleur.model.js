@@ -20,19 +20,25 @@ class Controleur{
     })
   }
 
+  //Sélection d'un controleur
+  static select_controleur_by_id = async(id) =>{
+    const request = `select * from Controleur where Identifiant = ${id}`
+    const db_request = await My_promise(request)
+    return db_request.length !=0 ? true : false
+  }
+
   //Savoir si l'identifiant ou le mail est déjà utilisé
   static check = async (identifiant,mail) =>{
     let result = undefined
     const request = `select count(*) as total from Controleur where Identifiant = ${identifiant} or Mail = '${mail}'`
-    let db_request = await My_promise(request)
+    const db_request = await My_promise(request)
     result = (JSON.parse(JSON.stringify(db_request)))
     result = db_request[0].total
 
     return result != 0 ?  false : true
   }
 
-    //Ajouter un contrôleur
-
+  //Ajouter un contrôleur
   static add_controleur =(controleur,cb) =>{
     const request =`INSERT INTO Controleur(Identifiant,Nom,Prenom,Mail) VALUES (${controleur.Identifiant},'${controleur.Nom}','${controleur.Prenom}','${controleur.Mail}')`
     db.query(request, (err, result) =>{

@@ -18,19 +18,14 @@ footer{
     width: 100%;
 }
 
-header > img{
+#img-delpharm{
     text-align: center;
     margin-left: 5%;
     width: 50px;
-    height: 50px;
-
+    transition: all .5s ease-in-out;
 }
 
-header > img:hover{
-    transform:rotate(5);
-}
-
-header > p{
+#para-header{
     font-size: 20px;
     margin-left: 5%;
 }
