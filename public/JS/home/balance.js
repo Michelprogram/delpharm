@@ -12,6 +12,11 @@ const peser_button = document.querySelector('#peser-button')
 
 const animation_div = document.querySelector('#animation-poids')
 
+const num_controleur = document.querySelector('#numero-controleur')
+const num_poste = document.querySelector('#Name-post')
+
+const send_button_formulaire = document.querySelector('#send-button-formulaire')
+
 //Gestion de la Pop-up
 const animation_button = (flag) =>{
     if (flag){
@@ -40,16 +45,52 @@ const span_manager = (poids,variation,conforme)=>{
 
 }
 
+//Vérifie si les inputs ne sont pas vide
+const verification_input = () =>{
+    let flag = true
+
+
+    if (num_controleur.value == ""){
+        invalid_input(num_controleur)
+        span_formulaire.innerHTML = "Renseigner un numéro de controleur"
+        flag = false
+    }
+
+
+    else if (ref_produit.value === "Produit"){
+        invalid_input(ref_produit)
+        span_formulaire.innerHTML = "Sélectionner un produit"
+        flag = false
+    } 
+
+    else if (num_poste.value == ""){
+        invalid_input(num_poste)
+        span_formulaire.innerHTML = "Renseigner un numéro de poste"
+        flag = false
+    }
+
+    return flag
+}
+
+const send_button_animation = () =>{
+
+    if (window.getComputedStyle(send_button_formulaire).opacity == 0.5){
+        send_button_formulaire.style.opacity = "1"
+        send_button_formulaire.style.pointerEvent = "auto"
+    } else {
+        send_button_formulaire.style.opacity = "0.5"
+        send_button_formulaire.style.pointerEvent = "none"
+    }
+    
+}
+
 //Request à la balance quand on appuie sur le bouton
 peser_button.addEventListener('click',(e)=>{
 
-    if (ref_produit.value === "Produit"){
+    if (verification_input()){
 
-        invalid_input(ref_produit)
-        span_formulaire.innerHTML = "Sélectionner un produit"
-
-    } else {
         span_formulaire.innerHTML = ""
+
         const data = {
             nom_produit: ref_produit.value,
             nombre_de_produit: nb_produit.value
@@ -59,7 +100,9 @@ peser_button.addEventListener('click',(e)=>{
         Myrequest("/API/balance/weight","POST",data) 
         .then((data)=>{
             animation_button(false)
+            send_button_animation()
             span_manager(data.poids,data.variation,data.conforme)
         })
     }
+
 })

@@ -29,16 +29,11 @@ send_button.forEach((button)=>{
         span.removeAttribute('class')
 
         let data = {}
-        console.log(list_input[6].currentSrc)
 
         switch (number_div){
             //Formulaire
             case "0": 
-            if (list_input[0].value == "" || list_input[3].value == "")
-            {
-                const error_message = "Merci de remplir les champs Controleur et Poste"
-                traitement(null,error_message,span)
-            }
+
             data = {
                 numero_controleur : list_input[0].value,
                 reference : list_input[1].value,
@@ -51,8 +46,6 @@ send_button.forEach((button)=>{
                 conform: list_input[6].currentSrc.includes('true') ? true :false,
                 nombre_produit : list_input[7].value
             }
-            console.log(data)
-
             
             Myrequest("/API/formulaire/rapport","POST",data)
             .then((value)=> traitement(value.status,value.result,span,list_input[value.status]))
