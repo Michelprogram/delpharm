@@ -19,13 +19,20 @@ const remplir_tableau = (table,data) =>{
 }
 
 
-//Requests pour chaque tableau
+//Remplir tableau rapport
 Myrequest("/API/select/all_rapport","GET")
-.then((data)=> remplir_tableau(table_rapport,data) )
+.then((data)=>{
 
+    //Supprime T et Z dans les dates format ISO 8601
+    data.forEach(element => element.Time = element.Time.replace(/T|Z/gm,' '))
+    remplir_tableau(table_rapport,data) 
+})
+
+//Remplir tableau utilisateur
 Myrequest("/API/select/all_controleur","GET")
 .then((data)=> remplir_tableau(table_utilisateur,data) )
 
+//Remplir tableau produit
 Myrequest("/API/select/all_product","GET")
 .then((data)=> remplir_tableau(table_produit,data) )
 
