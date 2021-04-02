@@ -1,10 +1,10 @@
 //Gestion des tableaux Rapport, Produit, Référence
-const table_rapport = document.querySelector('#table-rapport')
-const table_utilisateur = document.querySelector('#table-utilisateur')
-const table_produit = document.querySelector('#table-produit-reference')
+const table_rapport = document.querySelector('#table-rapport'),
+    table_utilisateur = document.querySelector('#table-utilisateur'),
+    table_produit = document.querySelector('#table-produit-reference')
 
 //Remplir le tableau en question
-const feed_table = (table,data) =>{
+const remplir_tableau = (table,data) =>{
     for (const key in data) {
         const tr = document.createElement('tr')
         for (const [keys, value] of Object.entries(data[key])) {
@@ -18,12 +18,15 @@ const feed_table = (table,data) =>{
     }
 }
 
+/*
 //Requests pour chaque tableau
 Myrequest("/API/select/all_rapport","GET")
-.then((data)=> feed_table(table_rapport,data) )
+.then((data)=> remplir_tableau(table_rapport,data) )
 
 Myrequest("/API/select/all_controleur","GET")
-.then((data)=> feed_table(table_utilisateur,data) )
+.then((data)=> remplir_tableau(table_utilisateur,data) )
 
 Myrequest("/API/select/all_product","GET")
-.then((data)=> feed_table(table_produit,data) )
+.then((data)=> remplir_tableau(table_produit,data) )
+
+*/

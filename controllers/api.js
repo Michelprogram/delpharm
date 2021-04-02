@@ -2,13 +2,10 @@ const Controleur = require('../models/controleur.model')
 const Produit = require('../models/produit.model')
 const Rapport = require('../models/rapport.model')
 
-const regex = {
-    service_de_production : /^[A-H]$/gm,
-    poids : /^\d{1,}\.\d{1,}$/gm,
-    nom_prenom : /^[A-Z]\w{1,}$/gm,
-    reference : /^[0-9]{2}[A-Z][0-9]{2}[A-Z]$/gm,
-    mail : /^[A-Za-z](\w|\d|\.){1,}\@[A-Za-z]{1,}\.(com|fr)$/gm
-}
+const regex = require('../toolbox/regex')
+const calcul = require('../toolbox/calcul')
+
+
 
 const select_all_controleur = (req,res) =>{
     Controleur.select_controleur((result)=>{
@@ -29,21 +26,33 @@ const select_all_rapport = (req,res)=>{
     })
 }
 
-const get_date = () =>{
-    const date = new Date()
-    const final_date = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
-    return final_date
-}
-
+//Route pour ajouer un rapport
 const add_rapport = async (req,res) =>{
-    //Calculer le timing et la variation
 
-    if (req.body.length ==0){
-        res.json({error:"Body vide"})
-    }
+    console.log("Request pour ajouter un rapport")
+
+    //Si le body est vide alors on renvoie une erreur
+    if (body.length ==0) res.json({error:"Body vide"})
 
     let response = { status : null,result : null}
 
+    const body = req.body
+
+    /*
+    const rapport = new Rapport(
+        body.numero_controleur,
+        parseInt(body.service,10),
+        body.poste,
+        await Produit.select_Produit_name(body.reference),
+        parseInt(body.nombre_produit,10),
+        calcul.date(),
+        body.conforme == "true" ? true :false,
+        parseFloat(body.poids),
+        parseFloat(body.variation)
+    )
+    */
+
+    //Initialisation d'un OBJ Rapport
     const numero_controleur = req.body.numero_controleur
     const production = parseInt(req.body.service,10)
     const poste = req.body.poste
@@ -51,7 +60,7 @@ const add_rapport = async (req,res) =>{
     const reference_produit = await Produit.select_Produit_name(req.body.reference)
     const nombre_produit = parseInt(req.body.nombre_produit,10)
 
-    const date = get_date()
+    const date = calcul.date()
 
     const conforme = req.body.conforme == "true" ? true :false
 
@@ -60,11 +69,10 @@ const add_rapport = async (req,res) =>{
 
     const rapport = new Rapport(numero_controleur,production,poste,reference_produit,nombre_produit,date,conforme,poids,variation)
     
-    console.log(rapport)
-    
-    
+        
     //Vérifie si le controleur est dans la BDD
     if ( await Controleur.select_controleur_by_id(numero_controleur)){
+        //Vérifie si le champ production est bien compris en 1 et 50 inclus
         if (production <= 50 && production >= 1){
             rapport.ajouter_Rapport()
             response.result = "Rapport ajouté !"
@@ -72,35 +80,35 @@ const add_rapport = async (req,res) =>{
             response.status = 2
             response.result = "Numero du poste invalide"
         }
-
     } else {
         response.status = 0
         response.result = "Numéro de contrôleur invalide"
     }
-    
 
     res.json(response)
 }
 
+//Route pour ajouter un produit de référence
 const add_produit_reference = (req,res) =>{
 
-    console.log("Request produit_reference")
+    console.log("Request pour ajouter un produit de référence")
 
-    if (req.body.length ==0){
-        res.json({error:"Body vide"})
-    }
+    //Si le body est vide alors on renvoie une erreur
+    if (body.length ==0) res.json({error:"Body vide"})
 
-    const name = req.body.name
-    const reference = req.body.reference
-    const weight = req.body.weight
+    const body = req.body
 
-    const produit_reference = new Produit(reference,name,weight)
+    const name = body.name
+    const reference = body.reference
+    const weight = body.weight
+
+    const produit = new Produit(reference,name,weight)
     let response = { status : null,result : null }
 
     if (name.match(regex.nom_prenom) != null){
         if(reference.match(regex.reference) != null){
             if (weight.match(regex.poids) != null){
-                Produit.add_product(produit_reference)
+                produit.add_product()
                 response.result = "Produit de référence ajouter !"
             } else {
                 response.status = 2
@@ -118,19 +126,20 @@ const add_produit_reference = (req,res) =>{
     res.json(response)
 }
 
-//Finaliser en check user name
 const add_user = async (req,res)=>{
 
-    console.log("Request user")
+    console.log("Request pour ajouter un controleur")
 
-    if (req.body.length ==0){
-        res.json({error:"Body vide"})
-    }
+    //Si le body est vide alors on renvoie une erreur
+    if (req.body.length ==0) res.json({error:"Body vide"})
+    
+    const body = req.body
 
-    const identifiant = parseInt(req.body.identifiant,10)
-    const nom = req.body.nom
-    const prenom = req.body.prenom
-    const mail = req.body.mail
+    //Initialisation d'un OBJ Controleur
+    const identifiant = parseInt(body.identifiant,10)
+    const nom = body.nom
+    const prenom = body.prenom
+    const mail = body.mail
 
     const controleur = new Controleur(identifiant,nom,prenom,mail)
 
@@ -140,8 +149,8 @@ const add_user = async (req,res)=>{
         if (nom.match(regex.nom_prenom) != null){
             if (prenom.match(regex.nom_prenom) != null){
                 if (mail.match(regex.mail) != null){
-                    if (await Controleur.check(identifiant,mail)){
-                        Controleur.add_controleur(controleur,(result)=>console.log(result))
+                    if (await controleur.verification()){
+                        controleur.add_controleur((result)=>console.log(result))
                         response.result = "Utilisateur ajouté !"
                     } else {
                         response.result = "Identifiant ou Mail déjà utilisé"

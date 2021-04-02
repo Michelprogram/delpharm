@@ -18,8 +18,9 @@ const num_poste = document.querySelector('#Name-post')
 const send_button_formulaire = document.querySelector('#send-button-formulaire')
 
 //Gestion de la Pop-up
-const animation_button = (flag) =>{
-    if (flag){
+const pop_up_balance = () =>{
+
+    if (window.getComputedStyle(tab_content).backgroundColor == "rgb(255, 255, 255)"){
         tab_content.style.backgroundColor = "gray"
         animation_div.style.opacity ="1"
         animation_div.style.marginLeft ="45"
@@ -33,6 +34,7 @@ const animation_button = (flag) =>{
 
 //Ajouter les valeurs récupèrer par la balance
 const span_manager = (poids,variation,conforme)=>{
+
     span_poids.innerHTML = poids
     span_variation.innerHTML = variation
     img_conforme.style.display = "block"
@@ -48,7 +50,6 @@ const span_manager = (poids,variation,conforme)=>{
 //Vérifie si les inputs ne sont pas vide
 const verification_input = () =>{
     let flag = true
-
 
     if (num_controleur.value == ""){
         invalid_input(num_controleur)
@@ -72,6 +73,7 @@ const verification_input = () =>{
     return flag
 }
 
+//Animation du bouton envoyer dans la tabs Rapport
 const send_button_animation = () =>{
 
     if (window.getComputedStyle(send_button_formulaire).opacity == 0.5){
@@ -91,18 +93,14 @@ peser_button.addEventListener('click',(e)=>{
 
         span_formulaire.innerHTML = ""
 
-        const data = {
-            nom_produit: ref_produit.value,
-            nombre_de_produit: nb_produit.value
-        }
+        const data = { nom_produit: ref_produit.value,nombre_de_produit: nb_produit.value }
     
-        animation_button(true)
+        pop_up_balance()
         Myrequest("/API/balance/weight","POST",data) 
         .then((data)=>{
-            animation_button(false)
+            pop_up_balance()
             send_button_animation()
             span_manager(data.poids,data.variation,data.conforme)
         })
     }
-
 })

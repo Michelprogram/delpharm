@@ -10,10 +10,14 @@ const invalid_input = (element) =>{
 
 //Gestion des messages d'erreurs
 const traitement = (status="",result="",span="",input="") =>{
-
     status != null ? invalid_input(input) : null
     span.setAttribute('class','error-message')
     span.innerHTML = result
+}
+
+//Vide les inputs si la request précedente c'est bien passée
+const clean_input = (element) =>{
+
 }
 
 
@@ -48,7 +52,12 @@ send_button.forEach((button)=>{
             }
             
             Myrequest("/API/formulaire/rapport","POST",data)
-            .then((value)=> traitement(value.status,value.result,span,list_input[value.status]))
+            .then((value)=> {
+                traitement(value.status,value.result,span,list_input[value.status])
+                if (value.status === null ){
+                    send_button_animation()
+                }
+            })
             
                 break
 

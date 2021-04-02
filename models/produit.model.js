@@ -4,9 +4,9 @@ const My_promise = require('./promise')
 
 class Produit{
   constructor(Reference,Nom,Grammes){
-    this.Reference = Reference
-    this.Nom =  Nom
-    this.Grammes = Grammes
+    this.reference = Reference
+    this.nom =  Nom
+    this.grammes = Grammes
   }
 
 
@@ -28,14 +28,17 @@ class Produit{
   }
 
 
-  static add_product = (produit,cb)=>{
-    const request =`INSERT INTO Produit_reference(Reference,Nom,Grammes) VALUES ('${produit.Reference}','${produit.Nom}','${produit.Grammes}')`
-    db.query(request, function (err, result) {
-      if (err) throw err;
-      console.log("Produit ajouté");
-    });
+  add_product = ()=>{
+    const request =`INSERT INTO Produit_reference(Reference,Nom,Grammes) VALUES 
+        ('${this.reference}','${this.nom}','${this.grammes}')`
+    db.query(request, (err) => {
+      if (err){
+        console.log("Erreur lors de l'ajout d'un produit de référence :" + err)
+      } else {
+        console.log("Produit ajouté")
+      }
+    })
   }
-
 }
 
 module.exports = Produit

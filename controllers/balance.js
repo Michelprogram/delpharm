@@ -1,6 +1,7 @@
 const balance = require('../balance/balance')
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
 const Produit = require('../models/produit.model')
+const calcul = require('../toolbox/calcul')
 
 const get_poids = () => {
 
@@ -37,21 +38,7 @@ const Myrequest = (URI,method,data={}) => {
     })
 }
 
-const variation = (peser,reference,facteur)=>{
-    peser = peser.slice(0,-2)
-    return Math.abs((parseFloat(peser)/parseInt(facteur) - parseFloat(reference))).toFixed(2)
 
-}
-
-const conformite = (variation,reference) =>{
-    return parseFloat(variation) >= 0.005 * parseFloat(reference) ? false : true
-/*
-    ref = 48.89
-    conforme = 0.05
-    result = 0.005 * 48.89
-    si le resultat est supérieur ou inférieur à la variation non conforme
-*/
-}
 
 
 const weight =  async (req,res) =>{
@@ -69,8 +56,8 @@ const weight =  async (req,res) =>{
     const poids_peser = await Myrequest("http://172.16.185.202:3000/api/balance","GET") //Remplacer sur la mise en prod
 
     result.poids = poids_peser.poids
-    result.variation = variation(poids_peser.poids,poids_reference,nb_produit)
-    result.conforme = conformite(result.variation,poids_reference)
+    result.variation = calcul.variation(poids_peser.poids,poids_reference,nb_produit)
+    result.conforme = calcul.conformite(result.variation,poids_reference)
 
     res.json(result)
      
@@ -85,8 +72,6 @@ const weight =  async (req,res) =>{
     })
     return */
 }
-
-
 
 
 
