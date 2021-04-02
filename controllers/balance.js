@@ -43,16 +43,18 @@ const Myrequest = (URI,method,data={}) => {
 
 const weight =  async (req,res) =>{
 
+    const body = req.body
+
     let result = {
         poids:0,
         variation:0,
         conforme:false
     }
 
-    const nom_produit = req.body.nom_produit
-    const nb_produit = req.body.nombre_de_produit
+    const nom_produit = body.nom_produit
+    const nb_produit = body.nombre_de_produit
 
-    const poids_reference = await Produit.select_Produit_name(nom_produit)
+    const poids_reference = await Produit.poids_reference(nom_produit)
     const poids_peser = await Myrequest("http://172.16.185.202:3000/api/balance","GET") //Remplacer sur la mise en prod
 
     result.poids = poids_peser.poids
@@ -60,17 +62,6 @@ const weight =  async (req,res) =>{
     result.conforme = calcul.conformite(result.variation,poids_reference)
 
     res.json(result)
-     
-
-    //Test raspberry
-    /*
-    get_poids()
-    .then((poids) => {
-        res.json({
-            poids : poids
-        })
-    })
-    return */
 }
 
 

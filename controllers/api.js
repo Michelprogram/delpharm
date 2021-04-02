@@ -31,85 +31,83 @@ const add_rapport = async (req,res) =>{
 
     console.log("Request pour ajouter un rapport")
 
+    const body = req.body
+
     //Si le body est vide alors on renvoie une erreur
     if (body.length ==0) res.json({error:"Body vide"})
 
     let response = { status : null,result : null}
 
-    const body = req.body
-
-    /*
-    const rapport = new Rapport(
-        body.numero_controleur,
-        parseInt(body.service,10),
-        body.poste,
-        await Produit.select_Produit_name(body.reference),
-        parseInt(body.nombre_produit,10),
-        calcul.date(),
-        body.conforme == "true" ? true :false,
-        parseFloat(body.poids),
-        parseFloat(body.variation)
-    )
-    */
-
     //Initialisation d'un OBJ Rapport
-    const numero_controleur = req.body.numero_controleur
-    const production = parseInt(req.body.service,10)
-    const poste = req.body.poste
-
-    const reference_produit = await Produit.select_Produit_name(req.body.reference)
-    const nombre_produit = parseInt(req.body.nombre_produit,10)
-
+    const numero_controleur = parseInt(body.numero_controleur,10)
     const date = calcul.date()
 
-    const conforme = req.body.conforme == "true" ? true :false
+    const production = body.production
+    const poste = parseInt(body.poste,10)
 
-    const poids = parseFloat(req.body.poids)
-    const variation = parseFloat(req.body.variation)
+    const reference_produit = await Produit.select_Produit_name(body.reference)
 
-    const rapport = new Rapport(numero_controleur,production,poste,reference_produit,nombre_produit,date,conforme,poids,variation)
+    const poids = parseFloat(body.poids)
+    const variation = parseFloat(body.variation)
+
+    const conforme = body.conforme == "true" ? true :false
+
+    const nombre_produit = parseInt(body.nombre_produit,10)
     
-        
+    const rapport = new Rapport(numero_controleur,production,poste,reference_produit,nombre_produit,date,conforme,poids,variation)
+
+
     //Vérifie si le controleur est dans la BDD
     if ( await Controleur.select_controleur_by_id(numero_controleur)){
         //Vérifie si le champ production est bien compris en 1 et 50 inclus
-        if (production <= 50 && production >= 1){
+        if (poste <= 50 && poste >= 1){
             rapport.ajouter_Rapport()
             response.result = "Rapport ajouté !"
         } else {
             response.status = 2
-            response.result = "Numero du poste invalide"
+            response.result = "Le numero du poste est invalide"
         }
     } else {
         response.status = 0
-        response.result = "Numéro de contrôleur invalide"
+        response.result = "Le Controleur n'est pas enregistré"
     }
 
     res.json(response)
 }
 
 //Route pour ajouter un produit de référence
-const add_produit_reference = (req,res) =>{
+const add_produit_reference = async (req,res) =>{
 
     console.log("Request pour ajouter un produit de référence")
+
+    const body = req.body
 
     //Si le body est vide alors on renvoie une erreur
     if (body.length ==0) res.json({error:"Body vide"})
 
-    const body = req.body
-
+    //Initialisation d'un objet Produit
     const name = body.name
     const reference = body.reference
     const weight = body.weight
 
     const produit = new Produit(reference,name,weight)
     let response = { status : null,result : null }
-
+    
+    //Vérifie si le nom respect la regex
     if (name.match(regex.nom_prenom) != null){
+        //Vérifie si la référence respect la regex
         if(reference.match(regex.reference) != null){
+            //Vérifie si le poids respect la regex
             if (weight.match(regex.poids) != null){
-                produit.add_product()
-                response.result = "Produit de référence ajouter !"
+                //Vérifie dans la BDD si il n'y a pas de doublons
+                if (! await produit.verification()){
+                    //Ajoute le produit à la BDD
+                    produit.add_product()
+                    response.result = "Produit de référence ajouter !"
+                } else {
+                    response.result = "Un Produit avec le même Nom ou Référence existe déjà"
+                }
+                
             } else {
                 response.status = 2
                 response.result = "Le poids est invalide"
@@ -126,6 +124,7 @@ const add_produit_reference = (req,res) =>{
     res.json(response)
 }
 
+//Route pour ajouter un user
 const add_user = async (req,res)=>{
 
     console.log("Request pour ajouter un controleur")
@@ -145,11 +144,17 @@ const add_user = async (req,res)=>{
 
     let response = { status : null,result : null}
 
+    //Vérifie si l'id de l'utilisateur est entre 1 et 1000 compris
     if (identifiant >= 1 && identifiant <=1000){
+        //Vérifie si le nom respect la regex
         if (nom.match(regex.nom_prenom) != null){
+            //Vérifie si le prénom respect la regex
             if (prenom.match(regex.nom_prenom) != null){
+                //Vérifie si le mail respect la regex
                 if (mail.match(regex.mail) != null){
+                    //Vérifie dans la BDD si il n'y a pas de doublons
                     if (await controleur.verification()){
+                        //Ajoute dans la BDD le nouveau contrôleur
                         controleur.add_controleur((result)=>console.log(result))
                         response.result = "Utilisateur ajouté !"
                     } else {

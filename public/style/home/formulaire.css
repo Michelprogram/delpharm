@@ -76,7 +76,7 @@ input[type="text"],select,#Poids-produit,#Variation{
     align-items: center;
 }
 
-#Conforme > div:nth-child(2) > img:nth-child(1){
+#conforme-img{
     width: 40px;
     height: 40px;
     display: none;

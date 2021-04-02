@@ -19,7 +19,7 @@ class Calcul{
 
     static date = () =>{
         const date = new Date()
-        const final_date = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        const final_date = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()+2}:${date.getMinutes()}:${date.getSeconds()}`
         return final_date
     }
 }

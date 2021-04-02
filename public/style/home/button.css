@@ -14,7 +14,8 @@
     margin:0 auto;
 }
 
-#send-button-formulaire{
+
+div.send-button:nth-child(12){
     opacity: 0.5;
     pointer-events: none;
 }

@@ -16,15 +16,15 @@ const traitement = (status="",result="",span="",input="") =>{
 }
 
 //Vide les inputs si la request précedente c'est bien passée
-const clean_input = (element) =>{
 
-}
 
 
 //Evénement pour chaque bouton send
 send_button.forEach((button)=>{
     button.addEventListener('click',(e)=>{
+        console.log("test")
 
+        
         //Récupère la liste des inputs 
         const div_content = button.parentNode
         const number_div = div_content.attributes[0].textContent.substr(-1)
@@ -41,8 +41,8 @@ send_button.forEach((button)=>{
             data = {
                 numero_controleur : list_input[0].value,
                 reference : list_input[1].value,
-                service : list_input[2].value,
-                poste : list_input[3].value,
+                poste : list_input[2].value,
+                production : list_input[3].value,
 
                 poids : list_input[4].textContent,
                 variation : list_input[5].textContent,
@@ -50,7 +50,7 @@ send_button.forEach((button)=>{
                 conform: list_input[6].currentSrc.includes('true') ? true :false,
                 nombre_produit : list_input[7].value
             }
-            
+             
             Myrequest("/API/formulaire/rapport","POST",data)
             .then((value)=> {
                 traitement(value.status,value.result,span,list_input[value.status])

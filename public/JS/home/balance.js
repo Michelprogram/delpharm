@@ -6,7 +6,7 @@ const nb_produit = document.querySelector('#nb-produit')
 const tab_content = document.querySelector('.Container')
 const span_formulaire = document.querySelector('#formulaire')
 
-const img_conforme = document.querySelector('#Conforme > div:nth-child(2) > img:nth-child(1)')
+const img_conforme = document.querySelector('#conforme-img')
 
 const peser_button = document.querySelector('#peser-button')
 
@@ -15,7 +15,7 @@ const animation_div = document.querySelector('#animation-poids')
 const num_controleur = document.querySelector('#numero-controleur')
 const num_poste = document.querySelector('#Name-post')
 
-const send_button_formulaire = document.querySelector('#send-button-formulaire')
+const send_button_formulaire = document.querySelector('div.send-button:nth-child(12)')
 
 //Gestion de la Pop-up
 const pop_up_balance = () =>{
@@ -30,6 +30,20 @@ const pop_up_balance = () =>{
         animation_div.style.marginLeft ="-400"
     }
     
+}
+
+const clean_input = ()=>{
+    num_controleur.value = ""
+    ref_produit.selectedIndex = 0
+    num_poste.value = ""
+
+    span_poids.innerHTML = span_variation.innerHTML = "0g"
+    
+    img_conforme.setAttribute('src','')
+    img_conforme.style.display = "none"
+
+
+    nb_produit.value = 1
 }
 
 //Ajouter les valeurs récupèrer par la balance
@@ -78,10 +92,12 @@ const send_button_animation = () =>{
 
     if (window.getComputedStyle(send_button_formulaire).opacity == 0.5){
         send_button_formulaire.style.opacity = "1"
-        send_button_formulaire.style.pointerEvent = "auto"
+        send_button_formulaire.style.pointerEvents = "auto"
     } else {
         send_button_formulaire.style.opacity = "0.5"
-        send_button_formulaire.style.pointerEvent = "none"
+        send_button_formulaire.style.pointerEvents = "none"
+        clean_input()
+
     }
     
 }

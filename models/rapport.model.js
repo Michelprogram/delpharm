@@ -28,7 +28,7 @@ class Rapport{
   //Ajouter rapport
   ajouter_Rapport = ()=>{    
     const request =`INSERT INTO Rapport(Controleur,Time,Production,Poste,Reference,Grammes_peser,Variation,Conforme,Nombre_produits) VALUES 
-      (${this.numero_controleur},'${this.date}','${this.poste}',${this.production},'${this.reference_produit}',${this.poids},${this.variation},${this.conforme},${this.nombre_produit})`
+      (${this.numero_controleur},'${this.date}','${this.production}',${this.poste},'${this.reference_produit}',${this.poids},${this.variation},${this.conforme},${this.nombre_produit})`
     db.query(request, function (err, result) {
       if (err) throw err
     })

@@ -1,7 +1,7 @@
 //Gestion du graphique
 const select_graphique = document.querySelectorAll('#produit-graphique,#ref-produit')
 
-/*
+
 Myrequest("/API/select/all_product","GET")
 .then((data) => {
     for (const key in data) {
@@ -14,4 +14,3 @@ Myrequest("/API/select/all_product","GET")
         }       
     }
 })
-*/
