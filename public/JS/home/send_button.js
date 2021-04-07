@@ -22,7 +22,6 @@ const traitement = (status="",result="",span="",input="") =>{
 //Evénement pour chaque bouton send
 send_button.forEach((button)=>{
     button.addEventListener('click',(e)=>{
-        console.log("test")
 
         
         //Récupère la liste des inputs 

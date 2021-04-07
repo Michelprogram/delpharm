@@ -66,3 +66,20 @@ div.send-button:nth-child(12){
         width: 100px;
     }
 }
+
+.refresh-button{
+    position: relative;
+    background-color: #1950ff;
+    border-radius: 50px;
+    width: 3%;
+    top:4;
+    left:4;
+    display: inline-grid;
+    justify-content: center;
+}
+
+
+.refresh-button-img{
+    width: 24px;
+    padding: 4px;
+}

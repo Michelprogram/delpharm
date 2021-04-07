@@ -7,7 +7,8 @@ exports.conf = {
         address: "127.0.0.1"
     },
     database : {
-        host:"172.16.185.202",
+        host:"192.168.1.61",
+        //host:"172.16.185.202",
         user: "Delpharm_user",
         password: "dNs903*NoNeck",
         database : "Delpharm"
