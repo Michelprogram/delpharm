@@ -1,6 +1,8 @@
 //Gestion des tableaux Rapport, Produit, Référence
 class Tableau{
 
+    constructor(){}
+
     _clean_table(table){
         const nb_rows = table.rows.length
         //Commence à 1 pour pas effacer les th
@@ -49,6 +51,10 @@ class Tableau{
 }
 
 const button_refresh = document.querySelectorAll('.refresh-button')
+const animation_button_refresh = (img)=>{
+    img.setAttribute('class','refresh-button-img-trigger')
+    setTimeout(()=>img.setAttribute('class','refresh-button-img'),500)
+}
 
 const tables = new Tableau()
 tables.rapport()
@@ -57,6 +63,8 @@ tables.controleur()
 
 button_refresh.forEach((button)=>{
     button.addEventListener('click',(e)=>{
+        const target = e.target
+        target.setAttribute('class','refresh-button-img-trigger')
         const id = e.target.parentNode.id.slice(-1)
         switch(id){
             case "1":

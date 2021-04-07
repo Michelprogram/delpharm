@@ -83,3 +83,24 @@ div.send-button:nth-child(12){
     width: 24px;
     padding: 4px;
 }
+
+.refresh-button-img-trigger{
+    width: 24px;
+    padding: 4px;
+    animation-duration: .5s;
+    animation-name: refresh-animation;
+}
+
+@keyframes refresh-animation{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    50%{
+        transform: rotate(90deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
