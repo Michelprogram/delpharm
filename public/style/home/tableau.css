@@ -31,23 +31,17 @@ th:hover{
 }
 
 .data-from-BDD{
-    animation-name: test;
-    animation-duration: 2s;
+    animation-name: data-apparition;
+    animation-duration: 3.5s;
     opacity: 1;
+    transition: all 3.5s ease-in-out;
 }
 
-@keyframes test {
+@keyframes data-apparition {
     0%{
-        border-collapse: collapse;
-        border: 1px solid #ddd;
-        border-style: solid;
         opacity: 0;
     }
     100%{
-        border-collapse: collapse;
-        border: 1px solid #ddd;
-        background-color: white;
-        border-style: solid;
         opacity: 1;
     }
 }

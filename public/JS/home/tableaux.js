@@ -21,9 +21,10 @@ class Tableau{
         this._clean_table(table)
         for (const key in data) {
             const tr = document.createElement('tr')
-            tr.setAttribute('class','data-from-BDD')
+            
             for (const [keys, value] of Object.entries(data[key])) {
                 const td = document.createElement('td')
+                td.setAttribute('class','data-from-BDD')
                 const text_node = document.createTextNode(`${value}`)
                 td.appendChild(text_node)
                 tr.appendChild(td)
