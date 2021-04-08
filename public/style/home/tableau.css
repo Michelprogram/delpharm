@@ -4,7 +4,6 @@ table,td,th{
 
 tr{
     background-color: white;
-    transition: all .3s;
 }
 
 td{
@@ -29,4 +28,26 @@ th:hover{
 
 .header-tab{
     background-color: antiquewhite;
+}
+
+.data-from-BDD{
+    animation-name: test;
+    animation-duration: 2s;
+    opacity: 1;
+}
+
+@keyframes test {
+    0%{
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        border-style: solid;
+        opacity: 0;
+    }
+    100%{
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        background-color: white;
+        border-style: solid;
+        opacity: 1;
+    }
 }
