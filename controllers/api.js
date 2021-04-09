@@ -25,6 +25,22 @@ const select_all_rapport = (req,res)=>{
     })
 }
 
+const select_rapport_by_ref = async (req,res)=>{
+    
+    let response = {
+        poids_reference:0.0,
+        liste_poids:null
+    }
+    const reference = req.params.reference
+    const liste_poids = await Rapport.select_rapport_by_reference(reference)
+    const poids_reference = await Produit.poids_reference(reference)
+    
+    response.poids_reference = poids_reference
+    response.liste_poids = liste_poids
+
+    res.json(response)
+}
+
 //Route pour ajouer un rapport
 const add_rapport = async (req,res) =>{
 
@@ -184,6 +200,7 @@ module.exports = {
     select_all_controleur,
     select_all_product,
     select_all_rapport,
+    select_rapport_by_ref,
     add_produit_reference,
     add_user
 }

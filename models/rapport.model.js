@@ -1,5 +1,6 @@
 //Class Rapport
 const db = require('./db')
+const My_promise = require('./promise')
 
 class Rapport{
   constructor(numero_controleur,production,poste,reference_produit,nombre_produit,date,conforme,poids,variation){
@@ -22,6 +23,17 @@ class Rapport{
       if (err) throw err
       cb(result)
     })
+  }
+
+  //Sélection des rapports d'un même ID
+  static select_rapport_by_reference = async (reference)=>{
+    let liste_poids = []
+    const request = `SELECT Grammes_peser FROM Rapport WHERE Reference = '${reference}'`
+    const db_request = await My_promise(request)
+    for(let i=0;i<db_request.length;i++)
+      liste_poids.push(db_request[i].Grammes_peser)
+    
+    return liste_poids
   }
 
 

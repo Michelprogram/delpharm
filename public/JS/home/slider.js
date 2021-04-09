@@ -1,3 +1,4 @@
+/*
 //Gestion des sliders
 const sliders = document.querySelectorAll("input[type='range']")
 
@@ -8,3 +9,4 @@ sliders.forEach((element) =>{
         element.nextElementSibling.innerHTML = element.value
     })
 })
+*/

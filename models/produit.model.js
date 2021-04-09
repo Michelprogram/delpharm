@@ -26,14 +26,14 @@ class Produit{
     return result[0].Reference
   }
 
-  static poids_reference = async (nom) =>{
+  static poids_reference = async (reference) =>{
 
     let result = null
-    const request = `SELECT Grammes FROM Produit_reference where Nom = '${nom}'`
+    const request = `SELECT Grammes FROM Produit_reference where Reference = '${reference}'`
 
     try {
       const db_request = await My_promise(request)
-      result = (JSON.parse(JSON.stringify(db_request)))[0].Grammes
+      result = db_request[0].Grammes
     } catch(err) {
       console.log("Erreur lors de la sélection du poids d'un produit de référence" + err)
     }

@@ -1,12 +1,13 @@
 header,footer{
     align-items: center;
-    background-color: #333;
+    background-color: #60a3bc;
     color: white;
 }
 
 header{
     display: flex;
     top: 0;
+    left: 0;
     width: 100%;
 }
 

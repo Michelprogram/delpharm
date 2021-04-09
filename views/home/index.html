@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.0.0-rc/dist/chartjs-plugin-annotation.min.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="/static/style/home/button.css">
     <link rel="stylesheet" type="text/css" href="/static/style/home/formulaire.css">
     <link rel="stylesheet" type="text/css" href="/static/style/home/impression.css">
@@ -12,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="/static/style/home/template.css">
     <link rel="stylesheet" type="text/css" href="/static/style/home/header-footer.css">
     <link rel="stylesheet" type="text/css" href="/static/style/home/animation.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/home/graphique.css">
 
 
     <title>Delpharm</title>
@@ -30,7 +34,7 @@
         <div id="div1">
 
             <div class="hr-div">
-                <p>Formulaire</p>
+                <h2>Formulaire</h2>
                 <hr>
             </div>
             
@@ -262,7 +266,7 @@
         <div id="div2">
 
             <div class="hr-div">
-                <p>Consultation</p>
+                <h2>Consultation</h2>
                 <hr>
             </div>
 
@@ -278,10 +282,15 @@
 
 
                 <div id="tab-content-right-0" class="display-on">
+                    <div id="canvas-container">
+                        <canvas id="graphique-chart" ></canvas>
+                    </div>
                     <div>
-                        <select name="produit-graphique" id="produit-graphique"></select>
-                            <input type="range" min=0 max=10 name="Nb-echantillion" id="Nb-echantillion">
-                            <span id="value-echantillion">0</span>                        
+                        <select name="produit-graphique" id="produit-graphique">
+                            <option value="Produit" class="Element-list">Produit</option>
+                        </select>
+                        <input type="range" min=1 max=10 name="Nb-echantillion" id="Nb-echantillion">
+                        <span id="value-echantillion">0</span>                        
                     </div>
                 </div>
 
@@ -289,57 +298,56 @@
                     <div class="refresh-button" id="refresh-1">
                         <img class="refresh-button-img" src="/static/images/home/refresh.svg">
                     </div>
-                    <table id="table-rapport">
-                        <tr class="header-tab">
-                            <th>Id</th>
-                            <th>Contrôleur</th>
-                            <th>Date et Heure</th>
-                            <th>Service de production</th>
-                            <th>Nom du poste</th>
-                            <th>Référence produit</th>
-                            <th>Mesure (g)</th>
-                            <th>Variation (g)</th>
-                            <th>Conforme</th>
-                            <th>Nombre de produit(s)</th>
-                        </tr>
+                    <div class="container-table">
                         
-                    </table>
+                        <table id="table-rapport">
+                            <tr class="header-tab">
+                                <th>Id</th>
+                                <th>Contrôleur</th>
+                                <th>Date et Heure</th>
+                                <th>Service de production</th>
+                                <th>Nom du poste</th>
+                                <th>Référence produit</th>
+                                <th>Mesure (g)</th>
+                                <th>Variation (g)</th>
+                                <th>Conforme</th>
+                                <th>Nombre de produit(s)</th>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
                 <div id="tab-content-right-2" class="display-off">
                     <div class="refresh-button" id="refresh-2">
                         <img class="refresh-button-img" src="/static/images/home/refresh.svg">
                     </div>
-                    <table id="table-utilisateur">
-                        <tr class="header-tab">
-                            <th>Identifiant</th>
-                            <th>Nom</th>
-                            <th>Prénom</th>
-                            <th>Mail</th>
-                        </tr>
-                        
-                    </table>
+                    <div class="container-table">
+                        <table id="table-utilisateur">
+                            <tr class="header-tab">
+                                <th>Identifiant</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Mail</th>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
                 <div id="tab-content-right-3" class="display-off">
                     <div class="refresh-button" id="refresh-3">
                         <img class="refresh-button-img" src="/static/images/home/refresh.svg">
                     </div>
-                    <table id="table-produit-reference">
-                        <tr class="header-tab">
-                            <th>Référence</th>
-                            <th>Grammes</th>
-                            <th>Nom</th>
-                        </tr>
-
-                        
-                    </table>
+                    <div class="container-table">
+                        <table id="table-produit-reference">
+                            <tr class="header-tab">
+                                <th>Référence</th>
+                                <th>Grammes</th>
+                                <th>Nom</th>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-
             </div>
-
-
-
         </div>
     </main>
 
@@ -355,7 +363,9 @@
 <script type="text/javascript" src="/static/JS/home/send_button.js"></script>
 <script type="text/javascript" src="/static/JS/home/slider.js"></script>
 <script type="text/javascript" src="/static/JS/home/animation_tabs.js"></script>
-<script type="text/javascript" src="/static/JS/home/graphique.js"></script>
+<script type="text/javascript" src="/static/JS/home/select.js"></script>
 <script type="text/javascript" src="/static/JS/home/tableaux.js"></script>
 <script type="text/javascript" src="/static/JS/home/balance.js"></script>
+<script type="text/javascript" src="/static/JS/home/graphique.js"></script>
+
 

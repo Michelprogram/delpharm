@@ -2,6 +2,16 @@ table,td,th{
     border:1px solid #ddd;
 }
 
+
+.container-table{
+    margin-top: 1%;
+    display: block;
+    max-height: 60vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    transition: all .5s ease-in;
+}
+
 tr{
     background-color: white;
 }
@@ -18,16 +28,18 @@ table{
 
 th{
     transition: all .5s ease;
+    font-weight: 100;
+    color: white;
 }
 
 th:hover{
-    background-color: #ddd;
+    background-color: #74b0c5;
     transition: all .3s;
 
 }
 
 .header-tab{
-    background-color: antiquewhite;
+    background-color: #60a3bc;
 }
 
 .data-from-BDD{
