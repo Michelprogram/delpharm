@@ -116,7 +116,7 @@
                     <div class="Input-container">
                         <p>Référence produit</p>
                         <select name="ref-produit" id="ref-produit">
-                            <option value="Produit" class="Element-list">Produit</option>
+                            <option value="0" class="Element-list">Produit</option>
                         </select>
                     </div>
 
@@ -128,6 +128,7 @@
                     <div class="Input-container">
                         <p>Service de production</p>
                         <select name="Production" id="List-production">
+                            <option value="0" class="Element-list">Service</option>
                             <option value="A" class="Element-list">A</option>
                             <option value="B" class="Element-list">B</option>
                             <option value="C" class="Element-list">C</option>
@@ -138,6 +139,12 @@
                             <option value="H" class="Element-list">H</option>
 
                         </select>
+                    </div>
+
+                    <div class="Input-container">
+                        <p>Nombre de produit (s)</p>
+                        <input type="range" name="nb-produit" id="nb-produit" max="10" min="0" value="0">
+                        <span id="value-produit">0</span>
                     </div>
     
                     <div class="Input-container">
@@ -155,11 +162,6 @@
                         <div class="container-span"><img id="conforme-img" src="" ></span></div>
                     </div>
     
-                    <div class="Input-container">
-                        <p>Nombre de produit (s)</p>
-                        <input type="range" name="nb-produit" id="nb-produit" max="10" min="1" value="0">
-                        <span id="value-produit">1</span>
-                    </div>
 
                     <div class="Button-container" id="peser-button">
                         <p class="texte-button">Peser</p>
@@ -359,13 +361,14 @@
 
 </html>
 
+<script type="text/javascript" src="/static/JS/home/tclass.js"></script>
 <script type="text/javascript" src="/static/JS/home/request.js"></script>
 <script type="text/javascript" src="/static/JS/home/send_button.js"></script>
 <script type="text/javascript" src="/static/JS/home/slider.js"></script>
 <script type="text/javascript" src="/static/JS/home/animation_tabs.js"></script>
 <script type="text/javascript" src="/static/JS/home/select.js"></script>
 <script type="text/javascript" src="/static/JS/home/tableaux.js"></script>
-<script type="text/javascript" src="/static/JS/home/balance.js"></script>
+<script type="text/javascript" src="/static/JS/home/rapport.js"></script>
 <script type="text/javascript" src="/static/JS/home/graphique.js"></script>
 
 

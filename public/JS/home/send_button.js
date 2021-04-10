@@ -2,11 +2,6 @@
 const send_button = document.querySelectorAll(".send-button")
 
 
-//Animation si l'input est mauvais
-const invalid_input = (element) =>{
-    element.setAttribute('class','numero-controleur-trigger')
-    setTimeout(()=>element.removeAttribute('class'),1500)
-}
 
 //Gestion des messages d'erreurs
 const traitement = (status="",result="",span="",input="") =>{
@@ -18,7 +13,7 @@ const traitement = (status="",result="",span="",input="") =>{
 //Vide les inputs si la request précedente c'est bien passée
 
 
-
+/*
 //Evénement pour chaque bouton send
 send_button.forEach((button)=>{
     button.addEventListener('click',(e)=>{
@@ -93,3 +88,4 @@ send_button.forEach((button)=>{
     })
     
 })
+*/

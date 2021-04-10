@@ -41,6 +41,21 @@ class Produit{
     return result
   }
 
+  static poids_name = async (nom) =>{
+
+    let result = null
+    const request = `SELECT Grammes FROM Produit_reference where Nom = '${nom}'`
+
+    try {
+      const db_request = await My_promise(request)
+      result = db_request[0].Grammes
+    } catch(err) {
+      console.log("Erreur lors de la sélection du poids d'un produit de référence" + err)
+    }
+
+    return result
+  }
+
   //Vérifie si il n'y a pas de doublons dans la BDD
   verification = async ()=>{
     let result = null
