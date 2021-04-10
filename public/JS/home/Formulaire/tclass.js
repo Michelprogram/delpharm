@@ -11,7 +11,7 @@ class Formulaire{
     }
 
     //Une fois le formulaire compléter correctement reset les inputs
-    _clean_input(){
+    clean_input(){
 
         for (let index = 0; index < this.liste_inputs.length; index++) {
             const element = this.liste_inputs[index]
@@ -97,7 +97,7 @@ class Rapport extends Formulaire{
 
     //Réécriture de la méthode clean input en rajoutant l'image ainsi que la span poids et variation
     clean_input(){
-        super._clean_input()
+        super.clean_input()
         this.span_poids.innerHTML = this.span_variation.innerHTML = ""
         this.img_conforme.style.display = "none"
     }
@@ -162,6 +162,50 @@ class Rapport extends Formulaire{
         const response_request = await Myrequest("/API/formulaire/rapport","POST",data)
         return response_request
         
+    }
+
+}
+
+
+class Produit_ref extends Formulaire{
+    constructor(send_button,span_status,...inputs){
+        super(send_button,span_status,...inputs)
+    }
+
+    async send_data(){
+        const data = {
+            name : this.liste_inputs[0].value,
+            reference : this.liste_inputs[1].value,
+            weight : this.liste_inputs[2].value
+        }
+
+        const request = await Myrequest("/API/formulaire/produit_reference","POST",data)
+        console.log(request)
+        return request
+
+    }
+
+}
+
+
+class Controleur extends Formulaire{
+    constructor(send_button,span_status,...inputs){
+        super(send_button,span_status,...inputs)
+    }
+
+
+    async send_data(){
+        
+        const data = {
+            identifiant : this.liste_inputs[0].value,
+            nom : this.liste_inputs[1].value,
+            prenom : this.liste_inputs[2].value,
+            mail : this.liste_inputs[3].value
+    
+        }
+    
+        const request = await Myrequest("/API/formulaire/user","POST",data)
+        return request
     }
 
 }

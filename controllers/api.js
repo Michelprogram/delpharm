@@ -120,6 +120,7 @@ const add_produit_reference = async (req,res) =>{
                     produit.add_product()
                     response.result = "Produit de référence ajouter !"
                 } else {
+                    response.status = 1
                     response.result = "Un Produit avec le même Nom ou Référence existe déjà"
                 }
                 

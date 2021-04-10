@@ -6,7 +6,7 @@ const num_poste = document.querySelector('#Name-post')
 const service_production = document.querySelector('#List-production')
 const nb_produit = document.querySelector('#nb-produit')
 
-const span_formulaire = document.querySelector('#formulaire')
+const span_formulaire = document.querySelector('#span-status-formulaire')
 
 const send_button_formulaire = document.querySelector('div.send-button:nth-child(12)')
 
