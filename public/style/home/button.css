@@ -1,23 +1,30 @@
 .Button-container{
     display: flex;
     align-items: center;
-    background-color:#f1f2f6 ;
+    background-color:#f1f2f6;
 
     border:2px solid black;
     border-radius: 8px;
+
+    width: auto;
 
     transition: all .5s;
 
     cursor:pointer
 }
 
-.send-button,#peser-button{
-    width: 18%;
-    margin:0 auto;
+.texte-button{
+    margin-left: 5%;
+}
+
+.button-img{
+    width: 30px;
+    margin-left: 3%;
+    padding-right: 21%;
 }
 
 
-div.send-button:nth-child(12){
+#send-button-formulaire{
     opacity: 0.5;
     pointer-events: none;
 }
@@ -37,15 +44,6 @@ div.send-button:nth-child(12){
     background-color: #ced6e0;
 }
 
-.texte-button{
-    margin-left:10%;
-}
-
-
-.button-img{
-    width: 30px;
-    margin-left: 3%;
-}
 
 
 #Impression>#Button-container>p{

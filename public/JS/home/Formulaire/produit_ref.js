@@ -3,7 +3,7 @@ const reference_produit = document.querySelector('#reference-produit')
 const poids_produit_ref = document.querySelector('#poids-produit-reference')
 
 const span_status_ref = document.querySelector('#span-status-produit-reference')
-const send_button_produit = document.querySelector("div.send-button:nth-child(5)")
+const send_button_produit = document.querySelector("#send-button-produit-ref")
 
 const produit_reference = new Produit_ref(send_button_produit,span_status_ref,
     nom_produit_ref,reference_produit,poids_produit_ref)

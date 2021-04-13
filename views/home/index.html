@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.1/dist/chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.0.0-rc/dist/chartjs-plugin-annotation.min.js"></script>
-    
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.0.0-rc/dist/chartjs-plugin-annotation.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="/static/style/home/button.css">
     <link rel="stylesheet" type="text/css" href="/static/style/home/formulaire.css">
     <link rel="stylesheet" type="text/css" href="/static/style/home/impression.css">
@@ -24,8 +25,8 @@
 <body>
 
     <header>
-        <p id="para-header">Delpharm</p>  
-        <img id="img-delpharm" src="/static/images/logo/logo.png"  title="Image delpharm">
+        <p id="para-header">Delpharm</p>
+        <img id="img-delpharm" src="/static/images/logo/logo.png" title="Image delpharm">
     </header>
 
     <main>
@@ -37,7 +38,7 @@
                 <h2>Formulaire</h2>
                 <hr>
             </div>
-            
+
             <div class="Container tabs">
 
                 <div class="title-tabs" id="tabs-left">
@@ -50,7 +51,8 @@
 
                 <div id="tab-content-left-0">
 
-                    <div id="animation-poids">
+
+                    <div id="animation-poids" class="animation-false">
                         <svg viewBox="0 0 700 600" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="Frame 1">
                                 <g id="poids" clip-path="url(#clip0)">
@@ -58,49 +60,56 @@
                                         d="M433.446 256.687L409.911 162.543C408.686 157.648 404.613 154.254 399.962 154.254H380.546C381.696 151.016 382.441 147.577 382.441 143.942C382.441 126.855 368.59 113.004 351.503 113.004C334.417 113.004 320.566 126.855 320.566 143.942C320.566 147.577 321.307 151.016 322.461 154.254H303.044C298.394 154.254 294.317 157.651 293.096 162.543L269.554 256.687C266.87 267.421 274.279 278.001 284.479 278.001H418.525C428.721 278.001 436.13 267.421 433.446 256.687ZM351.5 154.251C345.815 154.251 341.188 149.623 341.188 143.939C341.188 138.254 345.815 133.626 351.5 133.626C357.185 133.626 361.813 138.254 361.813 143.939C361.813 149.623 357.185 154.251 351.5 154.251Z" />
                                 </g>
                                 <g id="Balance">
-                                    <rect id="Face_avant" x="100" y="418" width="503" height="138" rx="17" fill="#C4C4C4" />
+                                    <rect id="Face_avant" x="100" y="418" width="503" height="138" rx="17"
+                                        fill="#C4C4C4" />
                                     <g id="Button_balance">
                                         <g id="Tare" class="button-balance">
-                                            <rect id="tare_button" class="button-balance-container" x="513.5" y="504.5" stroke="#FF0000"/>
+                                            <rect id="tare_button" class="button-balance-container" x="513.5" y="504.5"
+                                                stroke="#FF0000" />
                                             <text id="tare" class="text-on-button" xml:space="preserve">
                                                 <tspan x="532" y="526.824">Tare</tspan>
                                             </text>
                                         </g>
                                         <g id="Print" class="button-balance">
-                                            <rect id="print_button" class="button-balance-container" x="413.5" y="504.5" stroke="#00B2FF"/>
+                                            <rect id="print_button" class="button-balance-container" x="413.5" y="504.5"
+                                                stroke="#00B2FF" />
                                             <text id="Print_2" class="text-on-button" xml:space="preserve">
                                                 <tspan x="430" y="526.824">Print</tspan>
                                             </text>
                                         </g>
                                         <g id="Set" class="button-balance">
-                                            <rect id="set_button" class="button-balance-container" x="313.5" y="504.5" stroke="#00B2FF" />
+                                            <rect id="set_button" class="button-balance-container" x="313.5" y="504.5"
+                                                stroke="#00B2FF" />
                                             <text id="Set_2" class="text-on-button" xml:space="preserve">
                                                 <tspan x="336" y="526.824">Set</tspan>
                                             </text>
                                         </g>
                                         <g id="Mode" class="button-balance">
-                                            <rect id="mode_button" class="button-balance-container" x="213.5" y="504.5" stroke="#00B2FF"/>
+                                            <rect id="mode_button" class="button-balance-container" x="213.5" y="504.5"
+                                                stroke="#00B2FF" />
                                             <text id="Mode_2" class="text-on-button" xml:space="preserve">
                                                 <tspan x="227" y="526.824">Mode</tspan>
                                             </text>
                                         </g>
                                         <g id="On_off" class="button-balance">
-                                            <rect id="on_button" class="button-balance-container" x="114.5" y="504.5" stroke="#00B2FF"/>
+                                            <rect id="on_button" class="button-balance-container" x="114.5" y="504.5"
+                                                stroke="#00B2FF" />
                                             <text id="ON/OFF" class="text-on-button" xml:space="preserve">
                                                 <tspan x="117" y="526.824">ON/OFF</tspan>
                                             </text>
                                         </g>
                                     </g>
                                     <g id="LCD_screen">
-                                        <rect id="LCD" x="136" y="429" width="430" height="57" rx="5" fill="#DADADA" stroke="white"
-                                            stroke-width="2" />
+                                        <rect id="LCD" x="136" y="429" width="430" height="57" rx="5" fill="#DADADA"
+                                            stroke="white" stroke-width="2" />
                                         <text id="poids_2" xml:space="preserve">
-                                            <tspan id="text-poids" x="270" y="473.768">15.5</tspan>
+                                            <tspan id="text-poids" x="280" y="473.768">...</tspan>
                                         </text>
-                                        <text id="grammes" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto"
-                                            font-size="40" letter-spacing="0.03em">
+                                        <!--
+                                        <text id="grammes" fill="black" xml:space="preserve" style="white-space: pre"
+                                            font-family="Roboto" font-size="40" letter-spacing="0.03em">
                                             <tspan x="401" y="474.172">g</tspan>
-                                        </text>
+                                        </text>-->
                                     </g>
                                 </g>
                             </g>
@@ -108,96 +117,107 @@
                         <p>Peser votre produit</p>
                     </div>
 
-                    <div class="Input-container">
-                        <p>Numéro contrôleur</p>
-                        <input type="text" id="numero-controleur" placeholder="Numéro" maxlength="4">
-                    </div>
+                    <div id="rapport-div-left">
+                        <div class="input-container">
+                            <input required="" type="text" id="numero-controleur" placeholder="" maxlength="4">
+                            <label class="label-container">Numéro contrôleur</label>
+                        </div>
     
-                    <div class="Input-container">
-                        <p>Référence produit</p>
-                        <select name="ref-produit" id="ref-produit">
-                            <option value="0" class="Element-list">Produit</option>
-                        </select>
-                    </div>
-
-                    <div class="Input-container">
-                        <p>Numéro du poste</p>
-                        <input type="text" name="Name-post" id="Name-post" placeholder="Numéro de poste" maxlength="4">
-                    </div>
+                        <div class="select-container">
+                            <select name="Produit de référence" id="ref-produit">
+                                <option value="0" class="Element-list">Référence du Produit</option>
+                            </select>
+                        </div>
     
-                    <div class="Input-container">
-                        <p>Service de production</p>
-                        <select name="Production" id="List-production">
-                            <option value="0" class="Element-list">Service</option>
-                            <option value="A" class="Element-list">A</option>
-                            <option value="B" class="Element-list">B</option>
-                            <option value="C" class="Element-list">C</option>
-                            <option value="D" class="Element-list">D</option>
-                            <option value="E" class="Element-list">E</option>
-                            <option value="F" class="Element-list">F</option>
-                            <option value="G" class="Element-list">G</option>
-                            <option value="H" class="Element-list">H</option>
-
-                        </select>
-                    </div>
-
-                    <div class="Input-container">
-                        <p>Nombre de produit (s)</p>
-                        <input type="range" name="nb-produit" id="nb-produit" max="10" min="0" value="0">
-                        <span id="value-produit">0</span>
-                    </div>
+                        <div class="input-container">
+                            <input required="" type="text" name="Name-post" id="Name-post" placeholder="" maxlength="4">
+                            <label class="label-container">Numéro du poste</label>
+                        </div>
     
-                    <div class="Input-container">
-                        <p>Poids du produit</p>
-                        <div class="container-span"><span id="Poids-produit">0g</span></div>
-                    </div>
-    
-                    <div class="Input-container">
-                        <p>Variation</p>
-                        <div class="container-span"><span id="Variation">0g</span></div>
-                    </div>
+                        <div class="select-container">
+                            <select name="Service de prduction" id="List-production">
+                                <option value="0" class="Element-list">Service de production</option>
+                                <option value="A" class="Element-list">A</option>
+                                <option value="B" class="Element-list">B</option>
+                                <option value="C" class="Element-list">C</option>
+                                <option value="D" class="Element-list">D</option>
+                                <option value="E" class="Element-list">E</option>
+                                <option value="F" class="Element-list">F</option>
+                                <option value="G" class="Element-list">G</option>
+                                <option value="H" class="Element-list">H</option>
+                            </select>
+                        </div>
 
-                    <div class="Input-container" id="Conforme">
-                        <p>Conformité</p>
-                        <div class="container-span"><img id="conforme-img" src="" ></span></div>
-                    </div>
+                        <div class="range-container">
+                            <p>Nombre de produit (s)</p>
+                            <div>
+                                <input name ="Nombre de produit" type="range" id="nb-produit" max="10" min="0" value="0">
+                                <span id="value-produit">0</span>
+                            </div>
+                        </div>
     
 
-                    <div class="Button-container" id="peser-button">
-                        <p class="texte-button">Peser</p>
-                        <img class="button-img" id="img-button-peser" src="/static/images/home/balance.svg" alt="Envoyer">
+                        <div class="Button-container" id="peser-button">
+                            <p class="texte-button">Peser</p>
+                            <img class="button-img" id="img-button-peser" src="/static/images/home/balance.svg"
+                                alt="Envoyer">
+                        </div>
+
+                            
                     </div>
 
-                    <span id="span-status-formulaire" class="error-message"></span>
+                    <div id="rapport-div-right">
 
+                        <div class="produit-container">
+                            <p>Poids du produit</p>
+                            <div class="container-span"><span id="Poids-produit">0g</span></div>
+                        </div>
     
-                    <div class="send-button Button-container">
-                        <p class="texte-button">Envoyer</p>
-                        <img class="button-img" src="/static/images/home/Send.svg" alt="Envoyer">
+                        <div class="produit-container">
+                            <p>Variation</p>
+                            <div class="container-span"><span id="Variation">0g</span></div>
+                        </div>
+    
+                        <div class="produit-container" id="Conforme">
+                            <p>Conformité</p>
+                            <div class="container-span"><img id="conforme-img" src=""></span></div>
+                        </div>
+
+                        <span id="span-status-formulaire" class="error-message"></span>
+
+                        <div class="send-button Button-container" id="send-button-formulaire">
+                            <p class="texte-button">Envoyer</p>
+                            <img class="button-img" src="/static/images/home/Send.svg" alt="Envoyer">
+                        </div>
+
                     </div>
-                    
+
                 </div>
 
                 <div id="tab-content-left-1">
 
-                    <div class="Input-container">
-                        <p>Nom du produit</p>
-                        <input type="text" name="nom-produit-reference" id="nom-produit-reference" placeholder="Nom">
+                    <div class="input-container">
+                        <input required="" type="text" name="nom-produit-reference" id="nom-produit-reference"
+                            placeholder="">
+                        <label class="label-container">Nom du produit</label>
+
                     </div>
 
-                    <div class="Input-container">
-                        <p>Référence</p>
-                        <input type="text" name="reference-produit" id="reference-produit" placeholder="Référence" maxlength="6">
+                    <div class="input-container">
+                        <input required="" type="text" name="reference-produit" id="reference-produit" placeholder=""
+                            maxlength="6">
+                        <label class="label-container">Référence</label>
                     </div>
 
-                    <div class="Input-container">
-                        <p>Poids du produit</p>
-                        <input type="text" name="poids-produit-reference" id="poids-produit-reference" placeholder="Poids">
+                    <div class="input-container">
+                        <input required="" type="text" name="poids-produit-reference" id="poids-produit-reference"
+                            placeholder="">
+                        <label class="label-container">Poids</label>
                     </div>
 
                     <span id="span-status-produit-reference" class="error-message"></span>
 
-                    <div class="send-button Button-container" >
+                    <div class="send-button Button-container" id="send-button-produit-ref">
                         <p class="texte-button">Ajouter</p>
                         <img class="button-img" src="/static/images/home/Send.svg" alt="Envoyer">
                     </div>
@@ -206,29 +226,33 @@
 
                 <div id="tab-content-left-2">
 
-                    <div class="Input-container">
-                        <p>Identifiant</p>
-                        <input type="text" name="identifiant-utilisateur" id="identifiant-utilisateur" placeholder="Identifiant" maxlength="4">
+                    <div class="input-container">
+                        <input required="" type="text" name="identifiant-utilisateur" id="identifiant-utilisateur"
+                            placeholder="" maxlength="4">
+                        <label class="label-container">Identifiant</label>
                     </div>
 
-                    <div class="Input-container">
-                        <p>Nom</p>
-                        <input type="text" name="nom-utilisateur" id="nom-utilisateur" placeholder="Nom">
+
+                    <div class="input-container">
+                        <input required="" type="text" name="nom-utilisateur" id="nom-utilisateur" placeholder="">
+                        <label class="label-container">Nom</label>
                     </div>
 
-                    <div class="Input-container">
-                        <p>Prénom</p>
-                        <input type="text" name="prenom-utilisateur" id="prenom-utilisateur" placeholder="Prénom">
+
+                    <div class="input-container">
+                        <input required="" type="text" name="prenom-utilisateur" id="prenom-utilisateur" placeholder="">
+                        <label class="label-container">Prénom</label>
                     </div>
 
-                    <div class="Input-container">
-                        <p>Adresse mail</p>
-                        <input type="text" name="mail-utilisateur" id="mail-utilisateur" placeholder="Mail">
+
+                    <div class="input-container">
+                        <input required="" type="text" name="mail-utilisateur" id="mail-utilisateur" placeholder="">
+                        <label class="label-container">Adresse mail</label>
                     </div>
 
                     <span id="spans-status-utilisateur" class="error-message"></span>
 
-                    <div class="send-button Button-container" >
+                    <div class="send-button Button-container" id="send-button-controleur">
                         <p class="texte-button">Ajouter</p>
                         <img class="button-img" src="/static/images/home/Send.svg" alt="Envoyer">
                     </div>
@@ -242,23 +266,23 @@
                             <p class="texte-button">Imprimer</p>
                             <img class="button-img" src="/static/images/home/Print.svg" alt="Imprimer">
                         </div>
-        
+
                         <div id="Select-part">
-        
+
                             <div id="Print-rapport">
                                 <input type="radio" name="Print-choice" id="rapport" checked>
                                 <label for="rapport">Rapport</label>
                             </div>
-        
+
                             <div id="Print-graphique">
                                 <input type="radio" name="Print-choice" id="graphique">
                                 <label for="graphique">Graphique</label>
                             </div>
-        
+
                         </div>
-                        
+
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -285,14 +309,14 @@
 
                 <div id="tab-content-right-0" class="display-on">
                     <div id="canvas-container">
-                        <canvas id="graphique-chart" ></canvas>
+                        <canvas id="graphique-chart"></canvas>
                     </div>
                     <div>
                         <select name="produit-graphique" id="produit-graphique">
                             <option value="Produit" class="Element-list">Produit</option>
                         </select>
                         <input type="range" min=1 max=10 name="Nb-echantillion" id="Nb-echantillion">
-                        <span id="value-echantillion">0</span>                        
+                        <span id="value-echantillion">0</span>
                     </div>
                 </div>
 
@@ -301,7 +325,7 @@
                         <img class="refresh-button-img" src="/static/images/home/refresh.svg">
                     </div>
                     <div class="container-table">
-                        
+
                         <table id="table-rapport">
                             <tr class="header-tab">
                                 <th>Id</th>
@@ -363,14 +387,10 @@
 
 <script type="text/javascript" src="/static/JS/home/Formulaire/tclass.js"></script>
 <script type="text/javascript" src="/static/JS/home/request.js"></script>
-<script type="text/javascript" src="/static/JS/home/slider.js"></script>
 <script type="text/javascript" src="/static/JS/home/animation_tabs.js"></script>
 <script type="text/javascript" src="/static/JS/home/select.js"></script>
 <script type="text/javascript" src="/static/JS/home/tableaux.js"></script>
 <script type="text/javascript" src="/static/JS/home/Formulaire/rapport.js"></script>
 <script type="text/javascript" src="/static/JS/home/Formulaire/produit_ref.js"></script>
 <script type="text/javascript" src="/static/JS/home/Formulaire/controleur.js"></script>
-
 <script type="text/javascript" src="/static/JS/home/graphique.js"></script>
-
-

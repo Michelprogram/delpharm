@@ -4,7 +4,7 @@ const prenom_controleur = document.querySelector('#prenom-utilisateur')
 const adresse_mail_controleur = document.querySelector('#mail-utilisateur')
 
 const span_status_controleur = document.querySelector('#spans-status-utilisateur')
-const send_button_controleur = document.querySelector('div.send-button:nth-child(6)')
+const send_button_controleur = document.querySelector('#send-button-controleur')
 
 const controleur = new Controleur(send_button_controleur,span_status_controleur,identifiant_controleur,
     nom_controleur,prenom_controleur,adresse_mail_controleur)

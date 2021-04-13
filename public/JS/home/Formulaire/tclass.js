@@ -61,7 +61,7 @@ class Formulaire{
     //Met à jour la span status si l'utilisateur n'a pas rempli tous les champs
     _set_span(element){
         if (element){
-        const html_tag = element.previousElementSibling.innerText
+        const html_tag = element.type == "select-one" || element.type == "range" ? element.name : element.nextElementSibling.innerText
         this.span_status.innerHTML = `${html_tag} est invalide.`
         } else {
             this.span_status.innerHTML = ''
@@ -107,12 +107,10 @@ class Rapport extends Formulaire{
 
         if (window.getComputedStyle(this.tab_content).backgroundColor == "rgb(255, 255, 255)"){
             this.tab_content.style.backgroundColor = "gray"
-            this.balance_animation.style.opacity ="1"
-            this.balance_animation.style.marginLeft ="45"
+            this.balance_animation.setAttribute('class','animation-true')
         } else {
             this.tab_content.style.backgroundColor = "white"
-            this.balance_animation.style.opacity ="0"
-            this.balance_animation.style.marginLeft ="-400"
+            this.balance_animation.setAttribute('class','animation-false')
         }
 
     }

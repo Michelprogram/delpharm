@@ -5,51 +5,19 @@ svg{
 #poids {
     cursor: none;
     fill: #34495e;
-    -webkit-animation: load 3s infinite ease-in-out;
-}
-
-@-webkit-keyframes load {
-    0% { -webkit-transform: translateY(0%); }
-
-    50% { -webkit-transform: translateY(22%); }
-
-    100% { -webkit-transform: translateY(0%); }
-}
-
-@-webkit-keyframes LCD_poids{
-    0%{
-
-    }
-
-    10%{
-
-    }
-
-    20%{
-
-    }
-
-    30%{
-
-    }
-
-    40%{
-
-    }
-
-    50%{
-
-    }
+    animation: load 3s infinite ease-in-out;
 }
 
 #poids_2{
-    color: red;
     fill: black;
     white-space: pre;
     font-family:Digital Numbers;
-    font-size:48;
+    font-size:5em;
     letter-spacing:0.03em;
+    animation:LCD_poids 3s infinite ease-in-out;
 }
+
+
 
 .text-on-button {
     font-family: "Righteous";
@@ -69,16 +37,39 @@ svg{
 
 
 #animation-poids{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid black;
     background-color: white;
     border-radius: 15px;
-    position: fixed;
-    margin-left: -400;
-    margin-top: 50;
-    opacity: 0;
-    flex-direction: column;
-    text-align: center;
+    position: absolute;
     font-size: 2em;
     transition: all .5s ease-in-out;
     animation: all .5s ease-in-out;
+    z-index: 2;
+}
+
+.animation-false{
+    opacity: 0;
+    margin-left: -1000px; /*2 fois la taille de la SVG*/
+}
+
+.animation-true{
+    opacity: 1;
+}
+
+
+@keyframes load {
+    0% { -webkit-transform: translateY(0%); }
+
+    50% { -webkit-transform: translateY(22%); }
+
+    100% { -webkit-transform: translateY(0%); }
+}
+
+@keyframes LCD_poids{
+    0%{ opacity: 0;}
+    50%{ opacity: 1;}
+    100%{ opacity: 0;}
 }
