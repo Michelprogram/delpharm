@@ -25,6 +25,12 @@ const select_all_rapport = (req,res)=>{
     })
 }
 
+const select_product_graphique = (req,res)=>{
+    Rapport.select_product_graphique((result)=>{
+        res.send(result)
+    })
+}
+
 const select_rapport_by_ref = async (req,res)=>{
     
     let response = {
@@ -201,6 +207,7 @@ module.exports = {
     select_all_controleur,
     select_all_product,
     select_all_rapport,
+    select_product_graphique,
     select_rapport_by_ref,
     add_produit_reference,
     add_user

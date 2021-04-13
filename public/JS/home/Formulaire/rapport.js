@@ -22,6 +22,7 @@ nb_produit.addEventListener('input',()=>{
 })
 
 
+
 rapport.peser_button.addEventListener('click',(e)=>{
     
     if (rapport.verification_inputs()){

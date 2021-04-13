@@ -1,26 +1,22 @@
 .Button-container{
     display: flex;
     align-items: center;
+    justify-content: space-around;
     background-color:#f1f2f6;
 
     border:2px solid black;
     border-radius: 8px;
 
-    width: auto;
+    width: 120px;
 
     transition: all .5s;
 
     cursor:pointer
 }
 
-.texte-button{
-    margin-left: 5%;
-}
 
 .button-img{
     width: 30px;
-    margin-left: 3%;
-    padding-right: 21%;
 }
 
 
@@ -50,22 +46,7 @@
     margin-right: 10%;
 }
 
-.load{
-    animation: load-animation infinite;
-}
 
-.load:hover{
-    width: 60px;
-}
-@keyframes load-animation{
-    0%{
-        width: 50px;
-    }
-
-    100%{
-        width: 100px;
-    }
-}
 
 .refresh-button{
     position: relative;

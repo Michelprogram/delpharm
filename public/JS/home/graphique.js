@@ -11,6 +11,22 @@ class Graphique{
 
         this._init_graphique()
         this._init_slider()
+        this._init_select()
+    }
+
+    _init_select(){
+        Myrequest("/API/select/product_graphique","GET")
+        .then((data)=>{
+            for (const key in data) {
+                const name = data[key].Nom
+                const reference = data[key].Reference
+                const option = document.createElement('option')
+                option.value = reference
+                option.innerHTML = name
+                this.select.appendChild(option)
+                
+            }
+        })
     }
 
     _set_option_graph(value){

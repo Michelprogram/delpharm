@@ -74,6 +74,35 @@ class Formulaire{
         this.span_status.setAttribute('class','error-message')
         this.span_status.innerHTML = data.result
     }
+
+    async send_data(status){
+        let data = {}
+        let request = ""
+
+        if (status == "produit"){
+            data = {
+                name : this.liste_inputs[0].value,
+                reference : this.liste_inputs[1].value,
+                weight : this.liste_inputs[2].value
+            }
+
+            request = "/API/formulaire/produit_reference"
+
+        } else {
+            data = {
+                identifiant : this.liste_inputs[0].value,
+                nom : this.liste_inputs[1].value,
+                prenom : this.liste_inputs[2].value,
+                mail : this.liste_inputs[3].value
+        
+            }
+            
+            request = "/API/formulaire/user"
+        }
+
+        return await Myrequest(request,"POST",data)
+
+    }
 }
 
 /*
@@ -93,6 +122,24 @@ class Rapport extends Formulaire{
         this.span_variation = document.querySelector('#Variation')
         this.img_conforme = document.querySelector('#conforme-img')
 
+        this._init_select()
+
+    }
+
+    _init_select(){
+        const select = this.liste_inputs[1]
+        Myrequest("/API/select/all_product","GET")
+        .then((data)=>{
+            for (const key in data) {
+                const name = data[key].Nom
+                const reference = data[key].Reference
+                const option = document.createElement('option')
+                option.value = reference
+                option.innerHTML = name
+                select.appendChild(option)
+                
+            }
+        })
     }
 
     //Réécriture de la méthode clean input en rajoutant l'image ainsi que la span poids et variation
@@ -160,50 +207,6 @@ class Rapport extends Formulaire{
         const response_request = await Myrequest("/API/formulaire/rapport","POST",data)
         return response_request
         
-    }
-
-}
-
-
-class Produit_ref extends Formulaire{
-    constructor(send_button,span_status,...inputs){
-        super(send_button,span_status,...inputs)
-    }
-
-    async send_data(){
-        const data = {
-            name : this.liste_inputs[0].value,
-            reference : this.liste_inputs[1].value,
-            weight : this.liste_inputs[2].value
-        }
-
-        const request = await Myrequest("/API/formulaire/produit_reference","POST",data)
-        console.log(request)
-        return request
-
-    }
-
-}
-
-
-class Controleur extends Formulaire{
-    constructor(send_button,span_status,...inputs){
-        super(send_button,span_status,...inputs)
-    }
-
-
-    async send_data(){
-        
-        const data = {
-            identifiant : this.liste_inputs[0].value,
-            nom : this.liste_inputs[1].value,
-            prenom : this.liste_inputs[2].value,
-            mail : this.liste_inputs[3].value
-    
-        }
-    
-        const request = await Myrequest("/API/formulaire/user","POST",data)
-        return request
     }
 
 }

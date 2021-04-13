@@ -1,3 +1,4 @@
+/* Partie Formulaire Rapport */
 #tab-content-left-0{
     display: flex;
     justify-content: space-around;
@@ -6,6 +7,7 @@
     animation: slide-in .5s ease-in;
 }
 
+/* Partie Formulaire Produit, Contrôleur, Imprimer */
 #tab-content-left-1,
 #tab-content-left-2,
 #tab-content-left-3{
@@ -16,12 +18,14 @@
     animation: slide-in .5s ease-in;
 }
 
+/* Partie Formulaire Rapport, Produit, Contrôleur */
 #tab-content-left-0:nth-child(1n),
 #tab-content-left-1:nth-child(1n),
 #tab-content-left-2:nth-child(1n){
     margin-top: 10%;
 }
 
+/* Les 2 div dans la partie Rapport */
 #rapport-div-left,
 #rapport-div-right{
     display: flex;
@@ -94,29 +98,9 @@ input[type="text"]{
 }
 
 .error-message{
-    display: block;
     font-size: 20px;
     text-align: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    opacity: 1;
-    animation: message-error-pop .5s;
 }
-
-@keyframes message-error-pop{
-    from {
-        display: none;
-        visibility: hidden;
-        opacity: 0;
-    }
-    to{
-        display: block;
-        visibility: visible;
-        opacity: 1;
-    }
-}
-
-
 
 
 
@@ -139,16 +123,25 @@ input[type="text"]{
 
 
 @keyframes trigger{
+
     0%{
+        border-bottom: 1.5px solid black;
+    }
+
+    25%{
         border-bottom: 1.5px solid red;
     }
 
     50%{
-        margin-right: 12%;
+        border-bottom: 1.5px solid black;
     }
 
+    75%{
+        border-bottom: 1.5px solid red;
+
+    }
     100%{
-        border-bottom: 1.5 px solid black;
+        border-bottom: 1.5px solid black;
     }
 }
 

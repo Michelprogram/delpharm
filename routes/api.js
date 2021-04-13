@@ -14,6 +14,8 @@ routes.get('/select/all_controleur',api_page_controller.select_all_controleur)
 //Route pour sélectionner tous les produits de référence
 routes.get('/select/all_product',api_page_controller.select_all_product)
 
+routes.get('/select/product_graphique',api_page_controller.select_product_graphique)
+
 //Route pour sélectionner tous les rapports
 routes.get('/select/all_rapport',api_page_controller.select_all_rapport)
 
