@@ -11,9 +11,17 @@ const span_formulaire = document.querySelector('#span-status-formulaire')
 
 const send_button_formulaire = document.querySelector('#send-button-formulaire')
 
+const balance_animation = document.querySelector('#animation-poids')
+const tab_content = document.querySelector('.Container')
+const peser_button = document.querySelector('#peser-button')
 
-const rapport = new Rapport(send_button_formulaire,span_formulaire,num_controleur,ref_produit
-    ,num_poste,service_production,nb_produit)
+const span_poids = document.querySelector('#Poids-produit')
+const span_variation = document.querySelector('#Variation')
+const img_conforme = document.querySelector('#conforme-img')
+
+
+const rapport = new Rapport(balance_animation,tab_content,peser_button,span_poids,span_variation,img_conforme,
+    send_button_formulaire,span_formulaire,num_controleur,ref_produit,num_poste,service_production,nb_produit)
 
 
 //Liée la valeur du slider à celle du span
