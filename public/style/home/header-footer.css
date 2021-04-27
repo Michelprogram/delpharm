@@ -1,29 +1,49 @@
-header,footer{
-    align-items: center;
-    background-color: #60a3bc;
-    color: white;
-}
-
 header{
-    display: flex;
+    text-align: center;
+    background-color: #60a3bc;
+    position: absolute;
     top: 0;
     left: 0;
+    margin:0;
     width: 100%;
 }
 
 footer{
-    display: block;
+    position: absolute;
     text-align: center;
-    height: 4%;
-    bottom: 0;
     width: 100%;
+    margin:0;
+    left: 0;
+    background-color: #60a3bc;
+    color: white;
 }
 
-#img-delpharm{
-    text-align: center;
-    margin-left: 5%;
-    width: 50px;
-    transition: all .5s ease-in-out;
+#svg-logo{
+    width: 169px;
+}
+
+.cls-1{
+    fill:#60a3bc;
+}
+
+
+.letter{
+    fill:white;
+}
+
+.element-logo{
+    transform: translateY(-100%);
+    animation: drop 1s ease-in forwards;
+    animation-delay: calc(var(--order)*100ms);
+}
+
+#microscope{
+    fill:rgb(92,216,229)
+}
+
+@keyframes drop {
+    from {transform: translateY(-100%);}
+    to{transform: translateY(0%);}
 }
 
 #para-header{

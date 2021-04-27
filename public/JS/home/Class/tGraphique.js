@@ -75,7 +75,7 @@ class Graphique{
                     }
                   }
                 }
-              }
+              }            
         }
 
         const config = {
