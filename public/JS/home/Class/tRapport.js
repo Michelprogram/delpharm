@@ -24,7 +24,7 @@ class Rapport extends Formulaire{
 
     _init_select(){
         const select = this.liste_inputs[1]
-        Myrequest("/API/select/all_product","GET")
+        Request.send("/API/select/all_product","GET")
         .then((data)=>{
             for (const key in data) {
                 const name = data[key].Nom
@@ -99,7 +99,7 @@ class Rapport extends Formulaire{
             conform: this.img_conforme.currentSrc.includes('true') ? true :false,
             nombre_produit : this.liste_inputs[4].value
         }
-        return await Myrequest("/API/formulaire/rapport","POST",data)
+        return await Request.send("/API/formulaire/rapport","POST",data)
     }
 
 }

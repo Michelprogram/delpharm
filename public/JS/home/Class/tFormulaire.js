@@ -100,7 +100,7 @@ class Formulaire{
             request = "/API/formulaire/user"
         }
 
-        return await Myrequest(request,"POST",data)
+        return await Request.send(request,"POST",data)
 
     }
 }

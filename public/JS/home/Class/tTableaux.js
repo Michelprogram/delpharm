@@ -40,8 +40,8 @@ class Tableaux{
     }
 
     /* Requête pour le tableau rapport */
-    rapport = function(){
-        Myrequest("/API/select/all_rapport","GET")
+    rapport(){
+        Request.send("/API/select/all_rapport","GET")
         .then((data)=>{
             //Supprime T et Z dans les dates format ISO 8601
             data.forEach(element => element.Time = element.Time.replace(/T|Z/gm,' '))
@@ -51,13 +51,13 @@ class Tableaux{
 
     /* Requête pour le tableau produit */
     produit (){
-        Myrequest("/API/select/all_product","GET")
+        Request.send("/API/select/all_product","GET")
         .then((data)=> this._remplir_tableau(this.table_produit,data) )
     }
 
     /* Requête pour le tableau controleur */
     controleur (){
-        Myrequest("/API/select/all_controleur","GET")
+        Request.send("/API/select/all_controleur","GET")
         .then((data)=> this._remplir_tableau(this.table_controleur,data))
     }
     

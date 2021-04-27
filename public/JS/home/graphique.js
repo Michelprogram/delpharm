@@ -10,7 +10,7 @@ const chart = new Graphique(select,graphique)
 chart.select.addEventListener('change',(e)=>{
     const reference = e.target.value
     const URI = `/API/select/rapport/${reference}`
-    Myrequest(URI,'GET')
+    Request.send(URI,'GET')
     .then(data=>{
         chart.update_graph(data)
     })

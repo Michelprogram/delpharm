@@ -40,7 +40,7 @@ rapport.peser_button.addEventListener('click',(e)=>{
         const data = { nom_produit: ref_produit.value,nombre_de_produit: nb_produit.value }
         
         rapport.pop_up_balance()
-        Myrequest("/API/balance/weight","POST",data) 
+        Request.send("/API/balance/weight","POST",data) 
         .then((data)=>{
             rapport.send_button_animation()
             rapport.pop_up_balance()

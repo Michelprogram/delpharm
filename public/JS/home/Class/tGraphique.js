@@ -12,7 +12,7 @@ class Graphique{
     }
 
     _init_select(){
-        Myrequest("/API/select/product_graphique","GET")
+        Request.send("/API/select/product_graphique","GET")
         .then((data)=>{
             for (const key in data) {
                 const name = data[key].Nom
@@ -35,21 +35,11 @@ class Graphique{
         
     }
 
-    _set_config_graph(liste_poids,size){
-        const nb_products = liste_poids.length
-        const labels = size ? size : this._remplir_lables(nb_products)
-
+    _set_config_graph(liste_poids){
+        const labels = [...Array(liste_poids.length)].map((_,i)=>i)
         this.chart.data.labels = labels
         this.chart.data.datasets[0].data = liste_poids
 
-    }
-
-    _remplir_lables(size){
-        let tab = []
-        for(let i=1;i<size+1;i++)
-            tab.push(i)
-        
-            return tab
     }
 
     _init_graphique(){
