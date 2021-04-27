@@ -1,19 +1,19 @@
-//Gestion des tableaux Rapport, Produit, Référence
+/* Gestion des tableaux Rapport, Produit, Référence */
 const table_rapport = document.querySelector('#table-rapport')
 const table_produit = document.querySelector('#table-produit-reference')
 const table_controleur = document.querySelector('#table-utilisateur')
-
-
-const tables = new Tableau(table_rapport,table_produit,table_controleur)
-
 const button_refresh = document.querySelectorAll('.refresh-button')
+
+/* Création de l'objet Tableaux */
+const tables = new Tableaux(table_rapport,table_produit,table_controleur)
+
+/* Animation de spin pour le boutton refresh quand on click dessus*/
 const animation_button_refresh = (img)=>{
     img.setAttribute('class','refresh-button-img-trigger')
     setTimeout(()=>{img.setAttribute('class','refresh-button-img')},500)
 }
 
-
-
+/* Chaque bouton refresh va actualiser son tableau qui lui est associé */
 button_refresh.forEach((button)=>{
     button.addEventListener('click',(e)=>{
         animation_button_refresh(e.target)

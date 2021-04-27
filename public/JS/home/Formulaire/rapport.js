@@ -1,4 +1,4 @@
-//Gestion du formulaire Rapport
+/* Gestion du formulaire Rapport */
 const value_slider = document.querySelector('#value-produit')
 
 const num_controleur = document.querySelector('#numero-controleur')
@@ -20,17 +20,19 @@ const span_variation = document.querySelector('#Variation')
 const img_conforme = document.querySelector('#conforme-img')
 
 
+/* Déclaration de l'objet rapport */
 const rapport = new Rapport(balance_animation,tab_content,peser_button,span_poids,span_variation,img_conforme,
     send_button_formulaire,span_formulaire,num_controleur,ref_produit,num_poste,service_production,nb_produit)
 
 
-//Liée la valeur du slider à celle du span
-nb_produit.addEventListener('input',()=>{
-    value_slider.innerHTML = nb_produit.value
-})
+/* Valeur du span à celle du slider */
+nb_produit.addEventListener('input',()=>value_slider.innerHTML = nb_produit.value)
 
 
-
+/*  Lors du click sur le bouton peser
+    Vérifie si les inputs ne sont pas vide,
+    Animation de la balance en attente de l'appuie du bouton print
+*/
 rapport.peser_button.addEventListener('click',(e)=>{
     
     if (rapport.verification_inputs()){
@@ -47,6 +49,7 @@ rapport.peser_button.addEventListener('click',(e)=>{
     }
 })
 
+/* Appuie du bouton envoyer */
 rapport.send_button.addEventListener('click',async ()=>{
     const response = await rapport.send_data()
 
