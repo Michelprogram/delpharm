@@ -1,16 +1,13 @@
 class Graphique{
 
-    constructor(select,graphique,slider,value_slider){
+    constructor(select,graphique){
         this.select = select
         this.graphique = graphique
-        this.slider = slider
-        this.value_slider = value_slider
         this.chart = null
 
         this.data = null
 
         this._init_graphique()
-        this._init_slider()
         this._init_select()
     }
 
@@ -55,11 +52,6 @@ class Graphique{
             return tab
     }
 
-    _init_slider(){
-        this.slider.value = 1
-        this.value_slider.innerHTML = 1
-    }
-
     _init_graphique(){
         const options = {
             plugins: {
@@ -97,26 +89,11 @@ class Graphique{
         this.chart = new Chart(this.graphique,config)
     }
 
-    _update_slider_range(size){
-        this.slider.max = `${size}`
-        this.slider.value = size
-        this.value_slider.innerHTML = size
-    }
-
     update_graph(data_from_request){
 
         this.data = data_from_request
         this._set_config_graph(this.data.liste_poids)
         this._set_option_graph(this.data.poids_reference)
-        this._update_slider_range(this.data.liste_poids.length)
         this.chart.update()
     }
-
-    update_graph_slider(size){
-        this._set_config_graph(this.data.liste_poids,size)
-
-        this.chart.update()
-    }
-    
-
 }

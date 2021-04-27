@@ -30,7 +30,7 @@ th{
     color: white;
 }
 
-tr:hover{
+tr:not(.header-tab):hover{
     background-color: #74b0c591;
     transition: all .6s;
 
