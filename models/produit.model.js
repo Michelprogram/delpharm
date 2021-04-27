@@ -77,7 +77,7 @@ class Produit{
   }
 
 
-  add_product = ()=>{
+  ajouter = ()=>{
     const request =`INSERT INTO Produit_reference(Reference,Nom,Grammes) VALUES 
         ('${this.reference}','${this.nom}','${this.grammes}')`
     db.query(request, (err) => {

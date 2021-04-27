@@ -14,7 +14,7 @@ class Controleur{
   }
 
   //Sélection de tous les contrôleurs
-  static select_controleur = (cb)=>{
+  static select_all = (cb)=>{
     const request = "SELECT * FROM Controleur"
     db.query(request, (err, result )=>{
       if (err){
@@ -53,7 +53,7 @@ class Controleur{
   }
 
   //Ajouter un contrôleur
-  add_controleur = (cb) =>{
+  ajouter = () =>{
     const request =`INSERT INTO Controleur(Identifiant,Nom,Prenom,Mail) VALUES 
         (${this.identifiant},'${this.nom}','${this.prenom}','${this.mail}')`
     db.query(request, (err) =>{
