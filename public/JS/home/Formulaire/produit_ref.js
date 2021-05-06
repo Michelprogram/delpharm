@@ -17,8 +17,7 @@ const produit_reference = new Formulaire(send_button_produit,span_status_ref,
 produit_reference.send_button.addEventListener('click', async ()=>{
     if (produit_reference.verification_inputs()){
 
-        const response = await produit_reference.send_data()
-
+        const response = await produit_reference.send_data("produit")
 
         if (response.status === null){
             produit_reference.clean_input()

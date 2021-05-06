@@ -19,9 +19,13 @@ class Rapport {
   //Sélection de tous les rapports
   static select_rapport = (cb) => {
     const request = "SELECT * FROM Rapport"
-    db.query(request, function (err, result, fields) {
-      if (err) throw err
-      cb(result)
+    db.query(request, function (err, result) {
+      try {
+        cb(result)
+      }
+      catch(err){
+        console.log("Erreur lors de la request pour selectionner tous les rapports")
+      }
     })
   }
 

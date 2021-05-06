@@ -7,7 +7,7 @@ const calcul = require('../toolbox/calcul')
 
 
 const select_all_controleur = (req,res) =>{
-    Controleur.select_controleur((result)=>{
+    Controleur.select_all((result)=>{
         res.json(result)
     })
 }
@@ -49,7 +49,7 @@ const select_rapport_by_ref = async (req,res)=>{
 
 //Route pour ajouer un rapport
 const add_rapport = async (req,res) =>{
-
+ 
     console.log("Request pour ajouter un rapport")
 
     const body = req.body
@@ -82,7 +82,7 @@ const add_rapport = async (req,res) =>{
     if ( await Controleur.select_controleur_by_id(numero_controleur)){
         //Vérifie si le champ production est bien compris en 1 et 50 inclus
         if (poste <= 50 && poste >= 1){
-            rapport.ajouter_Rapport()
+            rapport.ajouter()
             response.result = "Rapport ajouté !"
         } else {
             response.status = 2
@@ -123,7 +123,7 @@ const add_produit_reference = async (req,res) =>{
                 //Vérifie dans la BDD si il n'y a pas de doublons
                 if (! await produit.verification()){
                     //Ajoute le produit à la BDD
-                    produit.add_product()
+                    produit.ajouter()
                     response.result = "Produit de référence ajouter !"
                 } else {
                     response.status = 1
@@ -177,7 +177,7 @@ const add_user = async (req,res)=>{
                     //Vérifie dans la BDD si il n'y a pas de doublons
                     if (await controleur.verification()){
                         //Ajoute dans la BDD le nouveau contrôleur
-                        controleur.add_controleur((result)=>console.log(result))
+                        controleur.ajouter((result)=>console.log(result))
                         response.result = "Utilisateur ajouté !"
                     } else {
                         response.result = "Identifiant ou Mail déjà utilisé"
