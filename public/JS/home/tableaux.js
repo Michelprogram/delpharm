@@ -1,5 +1,6 @@
 /* Gestion des tableaux Rapport, Produit, Référence */
 const table_rapport = document.querySelector('#table-rapport')
+
 const table_produit = document.querySelector('#table-produit-reference')
 const table_controleur = document.querySelector('#table-utilisateur')
 const button_refresh = document.querySelectorAll('.refresh-button')

@@ -55,7 +55,6 @@
 
     <main>
 
-
         <div id="div1">
 
             <div class="hr-div">
@@ -285,7 +284,7 @@
 
                 <div id="tab-content-left-3">
 
-                    <div id="container-impression">
+                    <!--<div id="container-impression">
                         <div class="print-button Button-container">
                             <p class="texte-button">Imprimer</p>
                             <img class="button-img" src="/static/images/home/Print.svg" alt="Imprimer">
@@ -305,7 +304,7 @@
 
                         </div>
 
-                    </div>
+                    </div>-->
 
                 </div>
 
@@ -324,7 +323,7 @@
 
                 <div class="title-tabs" id="tabs-right">
                     <div id="tab-right-0" class="title-on">Graphique</div>
-                    <div id="tab-right-1" class="title-off">Rapport</div>
+                    <div id="tab-right-1" class="title-off" onclick="cells()">Rapport</div>
                     <div id="tab-right-2" class="title-off">Contrôleur</div>
                     <div id="tab-right-3" class="title-off">Produit de référence</div>
 
@@ -343,9 +342,19 @@
                 </div>
 
                 <div id="tab-content-right-1" class="display-off">
-                    <div class="refresh-button" id="refresh-1">
-                        <img class="refresh-button-img" src="/static/images/home/refresh.svg">
+                    <div id="group-button">
+                        <div class="refresh-button" id="refresh-1">
+                            <img class="refresh-button-img" src="/static/images/home/refresh.svg">
+                        </div>
+    
+                        <div class="print-button" >
+                            <img class="refresh-button-img" src="/static/images/home/Print.svg">
+                        </div>
+
+                        <span id="status-group-button">0</span>
                     </div>
+                    
+
                     <div class="container-table">
 
                         <table id="table-rapport">
@@ -413,3 +422,4 @@
 <script type="text/javascript" src="/static/JS/home/Formulaire/produit_ref.js"></script>
 <script type="text/javascript" src="/static/JS/home/Formulaire/controleur.js"></script>
 <script type="text/javascript" src="/static/JS/home/graphique.js"></script>
+<script type="text/javascript" src="/static/JS/home/impression.js"></script>

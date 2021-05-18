@@ -57,8 +57,8 @@ const weight =  async (req,res) =>{
     console.log(nom_produit,nb_produit)
 
     const poids_reference = await Produit.poids_name(nom_produit)
-    //const poids_peser = await Myrequest("http://172.16.185.202:3000/api/balance","GET") //Remplacer sur la mise en prod
-    const poids_peser = await Myrequest("http://192.168.1.61:3000/api/balance","GET") //Remplacer sur la mise en prod
+    const poids_peser = await Myrequest("http://172.16.185.202:3000/api/balance","GET") //Remplacer sur la mise en prod
+    //const poids_peser = await Myrequest("http://192.168.1.61:3000/api/balance","GET") //Remplacer sur la mise en prod
 
     result.poids = poids_peser.poids
     result.variation = calcul.variation(poids_peser.poids,poids_reference,nb_produit)

@@ -36,6 +36,11 @@ tr:not(.header-tab):hover{
 
 }
 
+.tr-active{
+    background-color: #74b0c591;
+    transition: all .6s;
+}
+
 .header-tab{
     background-color: #60a3bc;
 }
@@ -46,6 +51,7 @@ tr:not(.header-tab):hover{
     opacity: 1;
     transition: all 3.5s ease-in-out;
 }
+
 
 @keyframes data-apparition {
     0%{

@@ -25,15 +25,6 @@
     pointer-events: none;
 }
 
-.print-button{
-
-    width: 23%;
-
-    margin-left: 10%;
-    margin-bottom: 5%;
-    margin-top: 6%;
-    
-}
 
 .Button-container:hover{
     transform: scale(1.05,1.05);
@@ -48,7 +39,7 @@
 
 
 
-.refresh-button{
+.refresh-button,.print-button{
     position: relative;
     background-color: #ced6e0;
     border-radius: 50px;
@@ -57,13 +48,17 @@
     right: 0;
     display: inline-grid;
     justify-content: center;
+    transition: transform .2s;
 }
 
+.print-button:active{
+    background-color: #7a838f;
+    transition: transform .2s;
+}
 
 .refresh-button-img{
     width: 24px;
-    padding: 4px;
-    
+    padding: 4px;   
 }
 
 .refresh-button-img-trigger{
@@ -87,3 +82,4 @@
         transform: rotate(0deg);
     }
 }
+

@@ -25,6 +25,7 @@ tabs_graphique.forEach((el)=>{
     el.addEventListener('click',(e)=>{
         const index = e.target.id.slice(-1)
         tabs_graphique.forEach((sheet,i)=>{
+            if (i == 1) cells_table = document.querySelectorAll('#table-rapport > tr')
             document.querySelector("#tab-content-right-"+i).setAttribute("class","display-off")
             sheet.setAttribute("class","title-off")
         })
