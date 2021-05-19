@@ -13,6 +13,7 @@ const home_routes = require('./routes/home')
 const error_routes = require('./routes/error_pages')
 const api_routes = require('./routes/api')
 const impression_routes = require('./routes/impression')
+const balance_routes = require('./routes/balance')
 
 //Connexion BDD
 const database = require('./models/db')
@@ -31,6 +32,8 @@ app.use('/',home_routes)
 app.use('/API',api_routes)
 //Impression
 app.use('/Impression',impression_routes)
+//Balance
+app.use('/Balance',balance_routes)
 //404
 app.use("*",error_routes)
 

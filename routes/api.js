@@ -3,10 +3,6 @@ const routes = require('express').Router()
 
 //Route API
 const api_page_controller = require('../controllers/api')
-const balance_route = require('../controllers/balance')
-
-//Route pour avoir le poids du produit
-routes.post('/balance/weight',balance_route)
 
 //Route pour sélectionner tous les controleurs
 routes.get('/select/all_controleur',api_page_controller.select_all_controleur)

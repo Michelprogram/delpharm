@@ -21,7 +21,28 @@ balance.open((err) => {
 
 })
 
-module.exports = parser
+
+const get_poids = () => {
+
+    return new Promise((resolve, reject) => {
+
+        balance.on("data", (line) => {
+
+            line = line.replace(/\s/g, '')
+
+            poids = line.slice(2)
+
+            resolve(poids)
+
+        });
+
+    })
+
+}
+
+module.exports = {
+    get_poids
+}
 
 
  

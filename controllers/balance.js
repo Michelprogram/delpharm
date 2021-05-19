@@ -1,45 +1,20 @@
-const balance = require('../balance/balance')
+const { balance,get_poids } = require('../balance/balance')
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
 const Produit = require('../models/produit.model')
 const calcul = require('../toolbox/calcul')
 
-const get_poids = () => {
 
-    return new Promise((resolve, reject) => {
-
-        balance.on("data", (line) => {
-
-            line = line.replace(/\s/g, '')
-
-            poids = line.slice(2)
-
-            resolve(poids)
-
-        });
-
-    })
-
+const poids_produit = async(req,res) =>{
+    const data = await get_poids()
+    console.log("Poids : " + data)
+    req.write('test')
 }
 
-const Myrequest = (URI,method,data={}) => {
-    return new Promise((resolve,reject)=>{
-        const request = new XMLHttpRequest()
-        request.onreadystatechange = ()=>{
-            if (request.readyState == 4 && request.status == 200){
-                data = JSON.parse(request.responseText)
-                resolve(data)
-            }
-        }
-        request.open(method,URI)
-        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        
-        method == "POST" ? request.send(JSON.stringify(data)) : request.send()
-        
-    })
+module.exports = {
+    poids_produit
 }
 
-
-
+/*
 
 const weight =  async (req,res) =>{
 
@@ -67,6 +42,6 @@ const weight =  async (req,res) =>{
     res.json(result)
 }
 
+*/
 
 
-module.exports = weight
