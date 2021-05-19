@@ -9,6 +9,13 @@ class Produit{
     this.grammes = Grammes
   }
 
+  static select_product_ref = async (ref) =>{
+    const request = `SELECT Nom FROM Produit_reference where Reference = '${ref}'`
+    let result = await My_promise(request)
+    result = (JSON.parse(JSON.stringify(result)))
+    return result[0].Nom
+  }
+
 
   //Sélection de tous les produits de référence
   static select_produit_reference = (cb)=>{

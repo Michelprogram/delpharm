@@ -1,37 +1,51 @@
 const print_button = document.querySelector('.print-button')
+const span_imprimante = document.querySelector('#status-group-button')
 
+//Fonction cells quand on appuie sur l'onglet Rapport
 const cells = () => {
+    span_imprimante.textContent = ""
     const cells_tabs = document.querySelectorAll('#table-rapport > tr')
 
-    cells_tabs.forEach(el => {
-        el.setAttribute('class','')
+    //Animation du tr sélectionner
+    cells_tabs.forEach((el) => {
         el.addEventListener('click',()=>{
-            el.getAttribute('class') == "tr-active" ? el.setAttribute('class','') : el.setAttribute('class','tr-active')
+            cells_tabs.forEach(element => el != element ? element.setAttribute('class','') : element.setAttribute('class','tr-active'))
         })
     })
 
 }
 
-let test = 0
-
+//Fonction quand on appuie sur le bouton imprimante
 print_button.addEventListener('click',()=>{
     const list_tr = document.querySelectorAll('#table-rapport > .tr-active')
     const params = {
+        id:0,
+        Controleur:0,
+        Date_heure:0,
+        Service_de_production:0,
+        Nom_du_Poste:0,
+        Reference_du_produit:0,
+        Mesure:0,
+        Variation:0,
+        Conforme:0,
+        Nombre_de_produit:0
     }
-        "id",'Contrôleur','Date et heure','Service de production','Nom du poste','Référence du produit','Mesure','Variation','Conforme','Nombre de produits']
     let list_data = []
-
     list_tr.forEach((el)=>{
         const tempo = [...el.childNodes].map((td)=>td.textContent)
-        let result = {}
-        //let result =  Object.assign.apply({}, params.map( (v, i) => ( {[""+v]: tempo[i]} ) ) );
-        params.forEach((el,i)=> result[el.toString()] = tempo[i])
+        let result = {...params}
+        let i = 0
+        for(const key in params){
+            result[key] = tempo[i]
+            i++
+        }
         list_data.push(result)
     })
 
-    console.log(list_data)
-
-   //Request.send("/Impression/unitaire","POST",list_data)
-
+   Request.send("/Impression/unitaire","POST",list_data)
+   .then((data)=>{
+       cells_tabs.forEach(el => el.setAttribute('class',''))
+        span_imprimante.textContent = data.status
+   })
 })
 
