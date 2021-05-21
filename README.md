@@ -29,5 +29,8 @@ Le dossier models concerne tous les liens à la base de données.<br/>
 Le fichier db.js crée la connexion à la base de données.<br/>
 Les autres fichiers controleur.models.js, produit.model.js, rapport.model.js sont des Objets réspectif avec leur méthode différente pour faire des requêtes à la base de données.<br/>
 
-#
+# Public
+Le dossier public est le contenu vu par l'utilisateur, c'est à dire les images, l'HTML qui est la structure de la page , Javascript pour le dynamisme de la page et le CSS pour le style du site.<br/>
+
+# Routes
 
